@@ -1,0 +1,67 @@
+<h1>A LOOPy model of inflation</h1>
+<p><a href='https://bankunderground.co.uk/2017/10/20/a-loopy-model-of-inflation/'>https://bankunderground.co.uk/2017/10/20/a-loopy-model-of-inflation/</a></p>
+<p>Alex Tuckett
+
+The Law of One Price (LOOP) is an old idea in economics. LOOP states that the same product should cost the same in different places, expressed in the same currency. The intuition is that arbitrage (buying a product where it is cheap and selling it where it is expensive) should bring prices back into line. Can LOOP help us understand UK inflation? Yes. I find EU prices have much higher explanatory power for UK prices than domestic cost pressures, and the effects of exchange rate changes last longer, but build more slowly than commonly assumed.
+
+To do this, I use the Harmonised Index of Consumer Prices (HICP) which has a common structure across EU countries so it lets us look at the relationship between the price of any particular category of products in the rest of the EU (EUx) and in the UK. Is LOOP a good guide to how consumer prices in the UK behave?
+
+That depends on the product. There are 77 categories in the HICP which can be compared with EUx equivalents. LOOP should be more important for ‘tradable’ products or services which can be supplied across borders. However, that distinction is not always clear. And even for products which are tradable, there seems to be big differences in their LOOP-iness. For example, prices for ‘liquid fuels’ move closely together in EUx and the UK (see Figure 1), whilst ‘Household textiles’ prices seem to have little relationship at all (Figure 2).
+
+Figure 1: consumer price index for liquid fuels, in sterling terms
+
+Source: ONS, Eurostat, author’s calculations. Red line is EUx price index, converted to sterling terms using the bilateral exchange rate, and re-indexed to 2015= 100. Series are seasonally adjusted using X13.
+
+Figure 2: consumer price index for household textiles, in sterling terms
+
+Source: ONS, Eurostat, author’s calculations. Red line is EUx price index, converted to sterling terms, and re-indexed to 2015= 100. Series are seasonally adjusted using X13.
+
+Arbitrage is rarely complete. Eurostat also publish Price Level Indices, which show the absolute level of prices (in common currency) in each country relative to the EU average. In any given year, on average around half of the categories will see prices in the UK that are more than 10% above or below the EU28 average. Some disparities (e.g. tobacco) will be because of differing rates of indirect tax. There may be other structural differences that mean retail prices remain different even in the long-run; that doesn’t negate LOOP as a useful concept, but means it shouldn’t be taken too literally.
+
+Convergence is also gradual; LOOP might not hold from month to month, but could still be a good guide to how prices behave over longer stretches. This can be investigated by estimating Error Correction equations:
+
+(1)
+
+Where pUK t i is the UK price index (in logs) for component i in month t, and £pEUx t i the equivalent for the rest of the EU, converted into sterling terms. The structure of an Error Correction model allows for gradual adjustment to equilibrium. When the level of pUK i is below its long-run equilibrium (which is β i + β 1 *£pEUx i ), changes in pUK i will be positive, until equilibrium is restored, and vice-versa when the level of pUK i is above its long-run equilibrium. So β 1 is the long-run ‘effect’ of prices in the rest of the EU in sterling terms (LOOP predicts that β 1 = 1). α determines the speed at which UK prices converge towards LOOP, and δ determines the immediate effect of EU prices on UK prices.
+
+Column (A) in Figure 3 shows the results of estimating (1) using a fixed-effects (within) panel across the 77 components. LOOP certainly does not hold immediately. 3 months after a 10% increase in the price of a category of products in the EUx, the UK price of that product has risen by about 3%. After two years, UK prices have increased around 5%; in the long-run (see ‘long-run effects’ row), they increase by almost 9%, and standard statistical tests cannot reject β 1 = 1. The Law of One Price exerts a gravitational pull close to what theory suggests, but the adjustment is slow, and LOOP explains little of the monthly variation in prices (shown by an ‘R-squared’ well below 1).
+
+Figure 3: Panel estimation results for UK CPI components
+
+Dependent variable is change in UK CPI component. All variables in logs. All equations include a constant and component-level Fixed Effects. Long-run effects are calculated as the (unrounded) relevant coefficient divided by the negative of coefficient for UK Prices (t-1), e.g. long-run effect of £ EUx Prices in (A) is 0.013/0.015 = 0.87.
+
+What if we estimate an equation which allows the effects of the exchange rate and EUx prices to differ? In other words, an equation like this:
+
+(2)
+
+Where pEUx t i is prices in the rest of the EU for component i in Euro terms. GBPEUR t is the (logged) average bilateral exchange rate over month t. The bilateral rate is preferred to a trade weighted exchange rate index such as the BoE’s ERI; movements in other bilateral rates not mirrored in the GBPEUR rate should be picked up in EUx prices.
+
+This model fits the data much better, explaining almost half the variance in component-level monthly UK inflation rates (see R-squared in column (B), Figure 3). There are three interesting things about this “quasi-LOOP” model.
+
+Firstly, the ‘effect’ of EUx consumer prices on UK prices is very strong – much stronger than in the ‘pure’ LOOP model. The elasticity is above one, with most of the effect coming through immediately. Does this tell us that a 1% increase in EUX prices causes a more than 1% increase in UK prices? Probably not. What is more likely is that prices for particular types of product in the UK and rest of the EU are driven by very similar global factors. For example, the price of petrol in the UK and EUx tends to move together, not because British motorists drive to France when petrol is cheaper there, but because of arbitrage of the major input (oil) – LOOP operates further up the supply chain. Other common factors may be more subtle, but whatever these factors are, EUx prices seem to be an excellent conditioning variable for UK prices.
+
+Secondly, the influence of the exchange rate goes beyond the direct cost channel, and lasts for years not quarters. In the long-run, a 10% fall in the value of sterling relative to the Euro increases UK prices by 3.8% (see “long-run effects” row). This elasticity – of 0.38 – is larger than the share of imports in the CPI basket (about 30%), which suggests that that the price of UK value added also responds (consistent with the concept of strategic complementarity discussed by Amiti et al (2016)). It is significantly larger than the average standard elasticity assumed in the BoE’s forecasts, which is below 0.2 (see pg. 28-29 of the November 2015 Inflation Report).
+
+However, an exchange rate move feeds through very gradually into UK prices. Figure 4 shows the effect on the annual rate of CPI inflation after a 20% movement in the exchange rate, based on the quasi-LOOP model. At the three year horizon – the end-point of the MPC’s published inflation forecasts – the depreciation is still increasing the rate of inflation by almost 1pp.
+
+Figure 4: the effect of a 20% sterling depreciation on UK CPI inflation
+
+Source: author’s calculations. Uses Model (B) from Figure 3 to simulate the effects of a permanent 20% fall in sterling. EUx prices are held fixed, implying that sterling also falls against all other currencies.
+
+This model takes the exchange rate as given. Pass-through may depend on the reason why the exchange rate has moved in the first place. Forbes, Hjortsoe and Nenova (2015) estimate a structural model. They find that, when the exchange rate moves because of domestic monetary policy shocks or supply shocks, the effect on inflation is particularly large.
+
+Thirdly, the quasi-LOOP model, conditioning as it does on prices in the rest of the EU, does a much better job of explaining UK inflation than do measures of domestic cost pressure. For instance, replacing EUx prices with UK wages in equation (2) leads to drastically worse fit (see R-squared for column C, Figure 3). Using the output gap – the favoured neo-Keynesian measure of domestic cost pressure – produces even worse fit.
+
+An aggregate approach – estimating equation (2) with the aggregate UK and EUx HICP indices – produces similar results. These findings are also consistent with Forbes, Kirkham and Theodoridis (2017). They find that international prices play a strong role in explaining cyclical movements in UK inflation, whilst exchange rate movements have very persistent effects on the trend component of inflation; much greater than the effect of domestic slack.
+
+If global factors are so important for UK inflation, and the effect of the exchange rate so persistent, what does this mean for monetary policy? A central bank in this situation has two options. Firstly, they can target headline inflation at the 2-3 year horizon in a strict sense. However, at times when there have been large movements in global cost pressures, or the exchange rate, targeting headline inflation is likely to involve having to move domestic costs quite considerably. An alternative is a more flexible approach with a focus on stable growth in domestic costs, and when necessary, explain that inflation will still deviate from target at the 2-3 year horizon.
+
+There is also a more subtle point. Movements in exchange rates are not simply external facts which central banks have to build into their forecasts, and decide whether to respond to (in the manner of oil prices or changes to indirect tax rates). Amongst other things, exchange rates are influenced by central bank policy – and perceptions of policy to come. These and other results emphasise that the exchange rate is an important channel through which monetary policy in an open economy influences inflation. If exchange rates are always treated as a ‘conditioning assumptions’, this point can easily get lost.
+
+Alex Tuckett works in the Bank’s Monetary Analysis Division.
+
+If you want to get in touch, please email us at bankunderground@bankofengland.co.uk or leave a comment below.
+
+Comments will only appear once approved by a moderator, and are only published where a full name is supplied.
+
+Bank Underground is a blog for Bank of England staff to share views that challenge – or support – prevailing policy orthodoxies. The views expressed here are those of the authors, and are not necessarily those of the Bank of England, or its policy committees.</p>

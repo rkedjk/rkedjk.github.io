@@ -1,0 +1,307 @@
+<h1>Prescient but Not Perfect: A Look Back at a 1966 Scientific American Article on Systems Analysis</h1>
+<p><a href='http://blogs.scientificamerican.com/at-scientific-american/2011/08/23/systems-analysis-look-back-1966-scientific-american-article/'>http://blogs.scientificamerican.com/at-scientific-american/2011/08/23/systems-analysis-look-back-1966-scientific-american-article/</a></p>
+<p>A note from the Editor in Chief:
+
+Scientific American is celebrating its 166th year. With its history as the longest-continuously published magazine in the U.S., it’s probably no surprise that it has touched the lives and career paths of many readers—including the scientists who write articles for us and whose work we cover. So, as often happens, when I met Peter Norvig, director of research for Google, while we were serving as judges for the Google Science Fair, we got to chatting about Scientific American. He mentioned how influential the magazine had been for him personally. And while the most inspiring article to him proved right in many ways, it also ended up being wrong in others. I said something like, “That’s really interesting. I’d like to know what those are—and I’ll bet others would, too. Would you like to write about that for us?”
+
+I am delighted to share Norvig’s fascinating and detailed response. If the programming details whet your appetite for more of his thinking, you may even want to consider signing up for his fall introduction-to-artificial-intelligence course at Stanford, which he and colleague Sebastian Thrun are offering for free online.
+
+From time to time, we’ll offer other insights about Scientific American—both from scientists who are working in the research world that the magazine shares with its readers, as well as from our staff and contributors, who can give you the inside scoop on new projects we’re working on. As always, we’d love to have your comments and feedback. And if you’ve been inspired by Scientific American, please share your story with us:submit@sciam.com
+
+— Mariette DiChristina
+
+Systems Analysis and Programming: Thoughts from the Attic
+
+As a teenager in the early 1970s, I enjoyed going up to the attic and looking through old stacks of Scientific American magazines. (We didn’t have Wikipedia back then.) Most coveted were the September issues, which were dedicated to a single topic area. I remember reading issues about Life (1961), The Universe (1956) and Mathematics (1964).
+
+But the issue that had the biggest effect on me was the September 1966 on Information(which I read about 40 years ago). The issue featured a terrific collection of authors who are now acknowledged as pioneering leaders in computer science: Evans and Sutherland explaining computer hardware; Fano and Corbato on operating systems; Tony Oettinger describing his natural language parser; and the two giants of my own subfield (Artificial Intelligence), McCarthy and Minsky, on Information Theory and AI. If I had somehow been able to comprehend everything in this issue, I could have cut a decade’s time off my education in Computer Science.
+
+In this essay I’ll concentrate on one article from the issue: Christopher Strachey‘s contribution on “System Analysis and Programming.” At the time I had seen only a few snippets of BASIC code—nothing more than a few lines. This short article by Strachey was my first introduction to a high-level programming language and the first non-trivial program I’d ever read: a checkers-playing program. When I rediscovered this article recently, I was surprised to find two things: (1) the programming language and programming style are thoroughly modern, and (2) there is a serious mismatch between the design and the implementation, or the systems analysis and programming as Strachey calls it. Let’s look at what Strachey did surprisingly well, what he got wrong, and what he didn’t include at all.
+
+The Good, The Bad and the Missing
+
+Although Strachey wrote his article more than 40 years ago, it was surprisingly prescient and forward-thinking in many ways. We’ll start with some mostly good parts:
+
+Good: In the very first sentence Strachey recognizes that programming “almost always takes longer than you expect.” He goes on to describe a philosophy of education that is cutting-edge 21st-century:
+
+“The trouble, I think, is that so many educational processes put a high premium on getting the correct answer the first time. If you give the wrong answer on an examination question, you lose your mark and that is the end of the matter. If you make a mistake in writing your program—or indeed, in many other situations outside a classroom—it is by no means a catastrophe; you do, however, have to find your error and put it right; maybe it would be better if more academic teaching adopted this attitude also.”
+
+How much better would the world be today if everyone had adopted Strachey’s approach 45 years ago?
+
+Good: At a time when most programmers were using Assembler, when the first computer languages (LISP, FORTRAN and COBOL) were only about eight years old, Strachey chose to use a very high-level programming language, CPL . CPL is surprisingly and refreshingly modern, reminiscent of popular languages today such as Python or Ruby.
+
+Bad: CPL was so new that it had no compiler, nor a complete formal description. Journal articles from 1963and 1968 and a posthumously published set of notes from 2000 partially describe versions of the language that are slightly different than the one presented in the article. I did my best to approximate what the CPL language is, and wrote a translator for it (see below) that we can use to test and debug Strachey’s program.
+
+Good: Strachey acknowledges the importance of testing, saying that his program “has not been run on a machine and therefore, in accordance with the views expressed below, probably still contains some errors.”
+
+Good: This is a tour de force of masterful programming; especially when you consider that the code is all written by hand, without the benefit of a compiler, debugger, or the other tools we are used to. If you’re a programmer, when is the last time you wrote 70 lines of code without benefit of these tools, and got it almost all right? Strachey deserves an enormous amount of credit for that. However…
+
+Bad: The program does indeed contain at least one error (as we shall see below).
+
+Good: The advice that “the distinction between systems analysis and programming is not a very useful one.” Common culture of the time stressed the waterfall model, in which analysis came first, and only when it was done did the process flow into programming. Today most people are more comfortable with a spiral model, where there is more rapid iteration: a little analysis, then some programming, then more detailed analysis, and so on, or with agile models, in which the iterations are very fast indeed. By blurring the line, Strachey seems to be coming down more on the agile/spiral side.
+
+Now we’ll focus a bit more on some of the negatives, which mostly have to do with a mismatch between the description of the program in the text and the implementation in the code:
+
+Bad: Unfortunately, Strachey seems not to have followed his own advice about interleaving analysis and programming. I assume he was both analyst and programmer, since he is sole author. The analysis is very good. So is the programming. But it seems that Strachey the analyst never communicated much with Strachey the programmer, because the implementation deviates wildly from the analysis. For example, the analysis describes a function “PositionValue(P)” that returns a numeric estimate of the desirability of a board position P. But on examining the code, one finds the function “PositionValue(P,d)”; Strachey the programmer added a second parameter and forgot to tell Strachey the analyst. Thus we have an early example of an age-old problem: the documentation doesn’t match the code. What happened? Strachey the analyst momentarily forgot that his strategy was to look ahead a few moves and then evaluate positions. To decide how far to look ahead, you need to know the depth you have looked so far; this is represented by the parameter d. Strachey the programmer could have maintained the function signature PositionValue(P) by recording the depth as part of the position, but he chose to make it a separate parameter. Either choice is fine, but after making the choice he did, he should have gone back and updated the design document.
+
+Good: A focus on how to “represent the relevant features of the game, and what kind of operations do we want to be able to perform on them?” Strachey the analyst correctly identifies that programming is all about identifying types of objects and the operations they can participate in. He is object-oriented but not object-obsessed—a very enlightened outlook for 1966. In this particular case, he identifies that checkers involves positions, moves and the values associated with them. Strachey the programmer then implements a nice representation of a board position as a four-tuple of elements: the player whose turn it is, the locations of that player’s pieces, the locations of the opponent’s pieces and the locations of the kings.
+
+Bad: Unfortunately, Strachey the programmer never defines a representation for a move. Again, there is a mismatch between the design documentation, which describes the function “MakeMove(M,P)” to make the move M from the position P, and the implementation, which defines “MakeMove(P,C,s,F)” where F is the piece that is moving, s is the direction it is moving in, and C tells whether this is a capture or non-capture move. You might think that you could just wrap up the three parameters into a tuple with M = (C,s,F) and then you could have your MakeMove(M,P). Unfortunately, the (C,s,F) notation is not capable of representing double jumps (or triple jumps, etc.). In fact, nowhere in the code is the notion of a multiple jump explicitly represented (instead, the individual jumps are made one at a time, generating a series of intermediate positions). Similarly, the analysis talks about the function “LegalMovesFrom(P),” but no such function is implemented. Instead we get “LegalPositionsFrom(P),” which enumerates the positions that result from making all legal moves (including multiple jumps), but without representing the moves themselves. It is not necessarily bad to have LegalPositionsFrom without LegalMovesFrom, but it is bad to have the documentation be totally out of sync with the code.
+
+Good: Strachey shows very well how to use a functional programming style. This is extraordinary at a time when the most popular high-level language was FORTRAN, which did not support recursion and handled most of its control flow with GOTO statements.
+
+Bad: Unfortunately, Strachey did not use any higher-order functions to structure the program, relying only on recursion. This is the equivalent of relying only on GOTO statements, not loops, and it means that he ends up with auxiliary functions whose name reflects their role in control flow (such as PCP or PartialCapturePositionList) rather than an independent purpose (such as MakeMove). Readers have to uncover the control flow by reverse-engineering the recursive calls.
+
+For example, here’s how Strachey implements ChosenPosition, the function that chooses the best position to move to from the current position P:
+
+
+
+ChosenPosition(P) = value of
+
+§ let L = LegalPositionsFrom(P)
+
+if Null(L) then Resign
+
+let (p,v) = BestPosition(NIL, - 8,L,0)
+
+result is p §
+
+
+
+BestPosition(P,V,L,d) = Null(L) ? (P,V), value of
+
+§ let (p, l) = Next(L)
+
+let v = - PositionValue(p,d + 1)
+
+result is (v > V) ? BestPosition(p,v,l,d),
+
+BestPosition(P,V,l,d) §
+
+A reader needs to recognize that the first two arguments to BestPosition are holding the best position and value found so far, and the third argument, L, is a list of the remaining positions left to consider. After studying the function for a bit, one realizes that it is computing the maximum-valued position according to the function PositionValue (with the complication that PositionValue gives the value for the player to move, so you need to negate the value of the position to your opponent). It takes some mental effort to arrive at this understanding.
+
+I would prefer an approach that makes it immediately obvious that ChosenPosition is computing the maximum according to PositionValue, so I would code it as follows:
+
+ChosenPosition(P) = Max(LegalPositions(P), PositionValue)
+
+Here I am assuming a slightly different representation of positions where the depth is encoded as part of the position (and you can handle the negation of opponent scores by noting whether the depth is odd or even). The function Max takes two arguments: a list of items and a function that computes the value of an item. Max returns the item with the highest value according to this function. I think this version of ChosenPosition is easier to understand. The function max in this form is built-in to the language Python, but could easily be defined in CPL as follows:
+
+
+
+Max(Items, ValueFunction) = value of
+
+§ (Best, BestVal) = (NIL, -8)
+
+while Items do §
+
+(Item, Val) = (Head(Items), ValueFunction(Head(Items)))
+
+if Val > BestVal then (Best, BestVal) := (Item, Val)
+
+Items := Rest(Items) §
+
+result is Best §
+
+My implementation does two things differently than Strachey. First, separation of concerns: I’ve abstracted out the idea of finding a maximum from the specifics of findings the legal position with the maximum value, while Strachey conflates the two ideas. Second, re-use: Once I have defined Max, I can use it again and again.
+
+Now let’s shift gears a bit and consider, from a modern viewpoint, what Strachey left out that would be covered in a discussion of systems analysis today.
+
+The process of testing is missing. Strachey takes pains to explain that there will be bugs, but he doesn’t describe a process for combating them. He divides the process of creating software into Systems Analysis and Programming; the more modern view is that Testing and Maintenance are also important parts of the process, with their own methodologies and products. He should have at least included a test suite.Strachey ignores the subject of computational complexity. He knows that checkers is too complex a game to solve completely (checkers has about 1020 positions to evaluate). But he chooses not to characterize the runtime of his algorithm, nor how it depends on the maximum depth of the search tree, nor that the process could be speeded up by using the alpha-beta algorithm rather than minimax.Suppose you wanted to run a Web site for people to play checkers. What architecture would allow you to scale up to hundreds or thousands of simultaneous moves per second? How much computing power would you need? How would you make the system secure from malevolent invaders? These are all common concerns of the modern world, but not in Strachey’s time.Strachey does not discuss the problem of displaying the checkers board, nor interacting with players at all. But designing a good user interface is now considered an important part of any software project.There is not much discussion of programming in the large. Strachey says that high-level languages like CPL make it possible for an individual to write a program of 50,000 machine instructions, and for a team to reach a half million. But today we have many teams creating large systems with tens of millions of instructions, and a few hundred-million instruction systems. Although you can hear a lot of grumbling about the quality of systems today, we must have done something right to scale up our ability to handle complexity by a factor of 100 in 40 years.
+
+Now we’ll dive right into Strachey’s Checkers Program itself.
+
+The Checkers Program
+
+Here is the code as presented by Strachey on page 117. I have done my best to copy the original verbatim (including copying the inconsistent usage of spaces around punctuation):
+
+ChosenPosition(P) = value of
+
+§ let L = LegalPositionsFrom(P)
+
+if Null(L) then Resign
+
+let (p,v) = BestPosition(NIL, - 8,L,0)
+
+result is p §
+
+BestPosition(P,V,L,d) = Null(L) ? (P,V), value of
+
+§ let (p, l) = Next(L)
+
+let v = - PositionValue(p,d + 1)
+
+result is (v > V) ? BestPosition(p,v,l,d),
+
+BestPosition(P,V,l,d) §
+
+PositionValue(P,d) = Terminal(P,d) ? TerminalValue(P), value of
+
+§ let L = LegalPositionsFrom(P)
+
+let (p,v) = BestPosition(NIL,- 8,L,d)
+
+result is v §
+
+LegalPositionsFrom(P) = value of
+
+§ let L = RemainingPositionList(P,Capture,5)
+
+result is Null(L)?RemainingPositionList(P,NonCapture,5),L §
+
+RemainingPositionList(P,C,s) =
+
+PartialPositionList(P,C,s,FindMoveList(P,C,s))
+
+PartialPositionList(P,C,s,L) =
+
+Null(L)?( (s = -5)?NIL,
+
+RemainingPositionList(P,C,NextMoveDirection(s) ),
+
+value of
+
+§ let F = SingleDigitFrom(L)
+
+let Ip = MakeMove(P,C,s,F)
+
+let l = (C = Capture)?CaptureTree(Ip),
+
+FinalPosition(Ip)
+
+result is Join(l,PartialPositionList(P,C,s, L - F))§
+
+NextMoveDirection(s) = (s = 5) ? 4, ( (s = 4) ? - 4, -5)
+
+FindMoveList(P,C,s) = value of
+
+§ let (X,Y,K,s) = P
+
+let Empty = ~ X ? ~ Y ? Board
+
+let ? = (C = Capture) ? (Shift(Empty,ss) ? Y), Empty
+
+let F = Shift(?, ss) ? X
+
+result is (s > 0) ? F, F ? K §
+
+MakeMove(P,C,s,F) = value of
+
+§ let (X,Y,K,s) = P
+
+let ? = (C = Capture) ? Shift(F, - ss), NIL
+
+let ? = (C = Capture) ? Shift(?, - ss),
+
+Shift(F, - ss)
+
+let Xk = Null(F ? K) ? (? ? LastRows), (? - F)
+
+result is ((X - F + ?), (Y - ?), (K - ? ? K + Xk),s,?)§
+
+FinalPosition(Ip) = value of
+
+§ let (X,Y,K,s,F) = Ip
+
+result is (Y,X,K, - s)§
+
+CaptureTree(Ip) = value of
+
+§ let L = PartialCapturePositionList(Ip)
+
+result is Null(L) ? (FinalPosition(Ip) ),
+
+CombineCaptureTrees(L) §
+
+PartialCapturePositionList(Ip) = value of
+
+§ let (X,Y,K,s,F) = Ip
+
+let P = (X,Y,K,s)
+
+result is MinList(PCP(P,F,5),PCP(P,F,4),
+
+PCP(P,F ? K, - 4), PCP(P,F ? K, - 5) )§
+
+PCP(P,F,s) = value of
+
+§ let (X,Y,K,s) = P
+
+let ? = Shift(F, - ss) ? Y
+
+let Empty = ~ X ? ~ Y ? Board
+
+let ? = Shift(?, - ss) ? Empty
+
+let Xk = Null(F ? K) ? (? ? LastRows), (? - F)
+
+result is Null(?) ? NIL,
+
+((X - F + ?),(Y - ?),(K - ? ? K + Xk),s,?)§
+
+CombineCaptureTrees(L) = Null(L) ? NIL, value of
+
+§ let (Ip,l) = Next(L)
+
+result is Join(CaptureTree(Ip),CombineCaptureTrees(l) )§
+
+Representing Positions
+
+Strachey uses a clever representation for board positions, one that goes back to Arthur Samuel’s 1959 program and article. He numbers the positions as follows:
+
+Note that this representation is not dense; some numbered squares (13, 22, 31) are not on the board. The advantage of this approach is that every square is either 4 or 5 positions away from its diagonal neighbors. If he had used the standard checkers notation, with squares numbered 1 to 32, then some squares would have neighbors 4 or 5 positions away, and some 3 or 4.
+
+Given this numbering, a board position is a four-tuple (X, Y, K, s), where s is the player to move, and X,Y and K are bit patterns with a 1 in the square number where there is a piece. The X bit pattern represents the player’s pieces. Y represents the opponent’s pieces; and K represents the kings (of either player).
+
+A Translator for CPL
+
+Strachey didn’t have a CPL compiler when he wrote the article in 1966. The first CPL compiler emerged around 1970, and by the 1980s they were gone. So I had to create my own before I could run and debug the checkers program. I had three choices to make: (1) What CPL syntax is legal and what does it mean? (2) What parser-generator system should I use to create the CPL translator? (3) What language should I translate into? A full compiler—a translator into machine language—is a rather complex project, but translating into a high-level language that is very similar to CPL is much easier.
+
+(1) Most of CPL is straightforward, but I got some help by reading the 1963 and 1968articles on CPL. I learned that “A block consists of one or more definitions followed by one or more commands, the whole being enclosed within section brackets.” The checkers program, however, does not follow this definition of block, because in the first function definition, ChosenPosition, we have a block that has a definition (let L), followed by a command (if Null(L)), followed by another definition. According to the 1963 paper, we should have a second block for this second definition. So either Strachey made a mistake in the checkers program or he was working with a different version of CPL then. I decided to accept definitions anywhere, not just at the start of blocks. That means that “value of” and “result is” are no-ops; the result of a function is always the last expression. I’m not sure if that was intended for CPL, but this interpretation works for all the code in the checkers program.
+
+Another thing I learned from the 1963 paper is that CPL has two kinds of variable names: small names, which are single lower-case letters (or Greek letters, I presume from the checkers program), and large names, which start with an upper-case letter and continue with any letters. Small names need not be delimited by spaces, and it seems that implicit multiplication is allowed, so “ss” is equivalent to “s * s.”
+
+(2) For the parser generator, I settled on YAPPS2 (Yet Another Python Parsing System), mostly because the author of the system, Amit Patel, is a friend who sits nearby, so if I ran into trouble I knew I’d be able to walk down the hall and get help. (It turns out his system was very easy to use, and I didn’t need any help. Good job, Amit!)
+
+(3) CPL is a flexible mostly-functional language, so it seems that Lisp would be a good target language. But CPL uses infix notation; I’d have to get all the operator precedence right to generate Lisp code with the parens in the right place. So I decided to generate Python code instead, and to ignore the problem of operator precedence: I would translate the CPL code “(K – ? ? K + Xk)” into the Python code “(K – psi & K + Xk)” and hope that the operator precedence just works out. But there is one problem in using Python: it has a strict separation between expressions and statements (statements cannot appear inside expressions), and CPL does not have this strict distinction. Therefore, I generate code in a subset of Python that uses only expressions. For example, given the CPL function:
+
+LegalPositionsFrom(P) = value of
+
+§ let L = RemainingPositionList(P,Capture,5)
+
+result is Null(L)?RemainingPositionList(P,NonCapture,5),L §
+
+the most straightforward translation to Python is:
+
+def LegalPositionsFrom(P):
+
+L = RemainingPositionList(P, Capture, 5)
+
+return (RemainingPositionList(P, NonCapture, 5) if Null(L) else L)
+
+That would work fine for this function. But in general, a CPL block can be an expression embedded inside another expression. Python statements (such as “L = ...” and “return ...”) can’t appear inside expressions. So we won’t use them; instead we will translate a CPL block into a Python lambda, which we will then immediately call, using the syntax “(lambda …)().” No arguments are passed in this call to the lambda (because it is just a block of code); we can, however, introduce new local variables within the block by defining optional arguments to the lambda expression, with their default values. So we have:
+
+def LegalPositionsFrom(P):
+
+return (lambda L=RemainingPositionList(P, Capture, 5):
+
+(RemainingPositionList(P, NonCapture, 5) if Null(L) else L))()
+
+Notice that there is one exception to the “everything is an expression” rule: every function definition is a statement of the form “def f(x): return expr.”
+
+The 1963 article also made it clear that CPL has a logical data type that is distinct from the integer data type. In languages like C and Python, the bit pattern 0b1111 is identical to the integer 15; they are both of type int. But in CPL the two are different. I implemented the CPL logical data type with a Logical class in Python. The reason I need this is that the expression int(0) - int(1) should be -1 (because here the minus sign is ordinary integer subtraction), but Logical(0) - Logical(1) should be Logical(0) (because here the minus sign is the logical-bitset-difference operator). The Logical class has the usual set of operators (and, or, not, etc.) and has a constructor that takes as input either a bit pattern or a list of set bits. Thus, we can use either Logical(0b1111) or Logical([0,1,2,3]) to represent the logical bitset in which the four rightmost bits are true.
+
+With those choices made, I was ready to write the grammar of CPL in the YAPPS formalism, with the translation into Python. The original code uses Greek letters and math symbols (§,V, ?, ?); I chose to use HTML entities for these (rather than Unicode). You can see the grammar in the file cpl.g.
+
+The Rest of the Checkers Program
+
+Scientific American limited Strachey in his page count, and so didn’t show the whole program. He left out some of the basic primitives of CPL (such as Shift, which does a logical shift of a bit string) and some of the parts of the checkers program that didn’t seem crucial (such as printing the board). You can see these missing parts in the file checkers.py or as an annotated web page.
+
+Debugging the Checkers Program
+
+Here are the bugs/misunderstandings I discovered as I implemented the CPL translator and checkers program:
+
+CPL language: As discussed above, I had to modify the definition of a CPL block to allow mixed definitions and statements, not just definitions first followed by statements.Typo in article: The code in the article left out a right parenthesis in PartialPositionList (at the end of the third line); I added it.NIL: The documentation says that NIL is “the empty list.” Actually NIL is used three ways: (1) as a placeholder whose value doesn’t matter, (2) as the empty list and (3) as the bit string with all zeros. The conflation of (2) and (3) was confusing to me. I suppose I could have modified my implementation of the primitive routines to accommodate the conflation, but instead I changed one use of NIL in the program to Zero, the all-zero bit string.Definition of Join and MinList. Strachey’s documentation says that Join(L1,L2) produces “a single list formed from the members of L1 and L2.” This would be like the Lisp function append. But in the program it is used with the first argument being a single element, not a list, like the Lisp function cons. I changed my definition of Join to allow that. Similarly, MinList(L1,L2…) is documented to produce “a single list formed from the members of several lists, and also leaves out null lists and repetitions.” But actually it is not passed lists, but rather individual bit strings (or NIL). Again, I changed my function to reflect its actual usage in the program, not the documentation.Dealing with kings. I was impressed that with the minor tweaks mentioned above, the program worked perfectly for manipulating moves and jumps of regular pieces. But it didn’t do as well with kings. I didn’t understand how the expression (K – ? ? K + Xk) was supposed to give the locations of all the kings on the board after a move. Maybe I still have a misunderstanding of what the bit string operators mean, and maybe the expression is in fact correct, but under my understanding a clear and correct expression is (K – ? – F + Xk). This expression says to start with K, the bit string of all the original king positions; then remove ?, the position of the captured piece (if any); remove F, the position where the move originated; and add Xk, which is the ending position of the move if either (a) the end position is in the last row or (b) the moved piece was a king at the start of the move; Xk is the Zero bitstring otherwise. I made this change to MakeMove and PCP. With this final change, the program passed my complete test suite.
+
+Overall, this is a very impressive piece of software for 1966. Other than the trivial missing parenthesis (and I’m thinking maybe that was the fault of the Scientific American typesetter, not of Strachey), there is only one real error in the code, with the handling of kings. (And it is possible that Strachey’s expression is in fact correct, but I have the wrong impression of what he meant.)
+
+The correspondence between software and documentation is sloppy, however. The number of arguments on functions is documented wrong; not all documented functions are implemented; there is confusion between what is a list and what is a string of bits. If only Strachey the analyst and Strachey the programmer had iterated a few times, the article would have been even more of a work of beauty!</p>

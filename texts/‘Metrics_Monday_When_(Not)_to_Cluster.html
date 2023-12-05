@@ -1,0 +1,25 @@
+<h1>‘Metrics Monday: When (Not) to Cluster?</h1>
+<p><a href='http://marcfbellemare.com/wordpress/12712'>http://marcfbellemare.com/wordpress/12712</a></p>
+<p>‘Metrics Monday: When (Not) to Cluster?
+
+I had a few hours of free time this weekend, which I used to read a new working paper by Abadie et al. (2017) titled “When Should You Adjust Standard Errors for Clustering?” I’m a little bit late to the party–David McKenzie blogged about this almost a full month ago–but doing all of my teaching in one semester leaves me considerably behind on reading new papers, which then leaves me behind on blogging.
+
+This is a very nice paper, and it has seriously changed my understanding of clustering. Abadie et al. start with two common misconceptions regarding clustering:
+
+Clustering matters only if the residuals and the regressors are both correlated within clusters, and If clustering makes a difference in your standard errors, you should cluster.
+
+On 1, Abadie et al. show that even when the within-cluster correlation of the residuals and the within-cluster correlation of the regressors are both close to zero, clustering will matter. What is important is the product of the within-cluster correlation of the residuals and the within-cluster correlation of the regressors. If that correlation is nonzero, clustering matters. What this means is that cluster will make a difference–not that it is necessary.
+
+On 2, Abadie et al. show that in order to determine whether you should cluster, it’s not sufficient to compare standard errors with and without clustering and see whether clustering makes a difference. Rather, some additional information needs to be used, such as whether there are clusters in the population that have been left out of the sample due to sampling reasons (more on this later).
+
+Abadie et al. recast clustering as a design problem. In some cases, it is a sampling design issue. In others, it is an experimental design issue:
+
+Clustering is a sampling issue if sampling follows a two-stage strategy where clusters (e.g., villages) are first sampled at random and then observations within clusters (e.g., households) are then sampled at random. In this case, there are some (possibly many) clusters in the population which aren’t included in the sample. Here, clustering is justified on the basis of the fact that some clusters in the population aren’t included in the sample. Clustering is an experimental design issue if the assignment to treatment is correlated within clusters, with the most obvious case being block randomization, when all the households (units) in a village (cluster) are either assigned to treatment or not.
+
+So when is clustering not necessary? When there is no clustering in the sampling (i.e., when you randomly select units from the whole population, without first randomly selecting clusters from which you will randomly select units) and there is no clustering in the assignment of treatment, or when there is no heterogeneity in the treatment effect and there is no clustering in the assignment of treatment. Or, to paraphrase what Abadie et al. state in their conclusion: if the sampling process is not clustered and the treatment assignment is not clustered, you should not cluster standard errors even if clustering changes your standard errors.
+
+Clustering will yield approximately correct standard errors in the following three possible cases. First, when there is no heterogeneity in the treatment effect. Second, when only few clusters are observed from the population. And third, when there is only one unit sampled per cluster.
+
+The previous two paragraphs imply that if there is no heterogeneity in the treatment effect and there is no clustering in the assignment of treatment, clustering is not necessary but it will yield approximately correct standard errors nevertheless.
+
+The article also revisits the question of whether clustering is really necessary with fixed effects. Indeed, one comment I hear frequently from students (and even from some colleagues) is that with fixed effects, you shouldn’t cluster standard errors at the level of the fixed effects. So for example, with state fixed effects, you shouldn’t have to cluster standard errors at the state level. Abadie et al. show that this is mistaken. Specifically, heterogeneity of the treatment effect (and really, when is a treatment effect not heterogeneous?) makes clustering necessary.</p>

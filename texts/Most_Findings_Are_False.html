@@ -1,0 +1,41 @@
+<h1>Most Findings Are False</h1>
+<p><a href='https://normaldeviate.wordpress.com/2012/12/27/most-findings-are-false/'>https://normaldeviate.wordpress.com/2012/12/27/most-findings-are-false/</a></p>
+<p>Most Findings Are False
+
+Many of you may know this paper by John Ioannidis called “Why Most Published Research Findings Are False.” Some people seem to think that the paper proves that there is something wrong with significance testing. This is not the correct conclusion to draw, as I’ll explain.
+
+I will also mention a series of papers on a related topic by David Madigan; the papers are referenced at the end of this post. Madigan’s papers are more important than Ioannidis’ papers. Mathbabe has an excellent post about Madigan’s work.
+
+Let’s start with Ioannidis. As the title suggests, the paper claims that many published results are false. This is not surprising to most statisticians and epidemiologists. Nevertheless, the paper has received much attention. Let’s suppose, as Ioannidis does, that “publishing a finding” is synonymous with “doing a test and finding that it is significant.” There are many reasons why published papers might have false findings. Among them are:
+
+From elementary probability In fact, the left hand side can be much larger than the right hand side but it is the quantity on the right hand side that we control with hypothesis testing. Bias. There are many biases in studies so even if the null hypothesis is true, the p-value will not have a Uniform (0,1) distribution. This leads to extra false rejections. There are too many sources of potential bias to list but common ones include: unobserved confounding variables and the tendency to only report studies with small p-values.
+
+These facts are well-known, thus I was surprised that the paper received so much attention. All good epidemiologists know these things and they regard published findings with suitable caution. So, to me, this seems like much ado about nothing. Published findings are considered “suggestions of things to look into,” not “definitive final results.” Nor is this a condemnation of significance testing which is just a tool and, like all tools, should be properly understood. If a fool smashes his finger with a hammer we don’t condemn hammers. (The problem, if there is one, is not testing, but the press, who do report every study as if some definitive truth has been uncovered. But that’s a different story.)
+
+Let me be clear about this: I am not suggesting we should treat every scientific problem as if it is a hypothesis testing problem. And if you have reason to include prior information into an analysis then by all means do so. But unless you have magic powers, simply doing a Bayesian analysis isn’t going to solve the problems above.
+
+Let’s compute the probability of a false finding given that a paper is published. To do so, we will make numerous simplifying assumptions. Imagine we have a stream of studies. In each study, there are only two hypotheses, the null and the alternative . In some fraction of the studies, is true. Let be the event that a study gets published. We do hypothesis testing and we publish just when we reject at level . Assume further that every test has the same power . Then the fraction of published studies with false findings is
+
+It’s clear that can be quite different from . We could recover if we knew ; but we don’t know and just inserting your own subjective guess isn’t much help. And once we remove all the simplifying assumptions, it becomes much more complicated. But this is beside the point because the bigger issue is bias.
+
+The bias problem is indeed serious. It infects any analysis you might do: tests, confidence intervals, Bayesian inference, or whatever your favorite method is. Bias transcends arguments about the choice of statistical methods.
+
+Which brings me to Madigan. David Madigan and his co-workers have spent years doing sensitivity analyses on observational studies. This has been a huge effort involving many people and a lot of work.
+
+They considered numerous studies and asked: what happens if we tweak the database, the study design, etc.? The results, although not surprising, are disturbing. The estimates of the effects vary wildly. And this only accounts for a small amount of the biases that can enter a study.
+
+I do not have links to David’s papers (most are still in review) so I can’t show you all the pictures but here is one screenshot:
+
+Each horizontal line is one study; the dots show how the estimates change as one design variable is tweaked. This picture is just the tip of the iceberg. (It would be interesting to see if the type of sensitivity analysis proposed by Paul Rosenbaum is able to reveal the sensitivity of studies but it’s not clear if that will do the job.)
+
+To summarize: many published findings are indeed false. But don’t blame this on significance testing, frequentist inference or incompetent epidemiologists. If anything, it is bias. But really, it is simply a fact. The cure is to educate people (and especially the press) that just because a finding is published doesn’t mean it’s true. And I think that the sensitivity analysis being developed by David Madigan and his colleagues will turn out to be essential.
+
+References
+
+Ryan, P.B., Madigan, D., Stang, P.E., Overhage, J.M., Racoosin, J.A., Hartzema, A.G. (2012). Empirical Assessment of Analytic Methods for Risk Identification in Observational Healthcare Data: Results from the Experiments of the Observational Medical Outcomes Partnership. Statistics in Medicine, to appear.
+
+Ryan, P., Suchard, M.A., and Madigan, D. (2012). Learning from epidemiology: Interpreting observational studies for the effects of medical products. Submitted.
+
+Schuemie, M.J., Ryan, P., DuMouchel, W., Suchard, M.A., and Madigan, D. (2012). Significantly misleading: Why p-values in observational studies are wrong and how to correct them. Submitted.
+
+Madigan, D., Ryan, P., Schuemie, M., Stang, P., Overhage, M., Hartzema, A., Suchard, M.A., DuMouchel, W., and Berlin, J. (2012). Evaluating the impact of database heterogeneity on observational studies.</p>

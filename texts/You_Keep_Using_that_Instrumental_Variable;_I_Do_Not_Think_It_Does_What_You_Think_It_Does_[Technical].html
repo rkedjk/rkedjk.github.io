@@ -1,0 +1,19 @@
+<h1>You Keep Using that Instrumental Variable; I Do Not Think It Does What You Think It Does [Technical]</h1>
+<p><a href='http://marcfbellemare.com/wordpress/10900'>http://marcfbellemare.com/wordpress/10900</a></p>
+<p>You Keep Using that Instrumental Variable; I Do Not Think It Does What You Think It Does [Technical]
+
+One of the worst things you can do as an applied microeconomist is to re-use someone else’s instrumental variable (IV) unthinkingly, without making sure that the IV actually works in your application.
+
+One of the IVs that has gotten overused in recent years—to the point where it eventually became a punchline—is rainfall. After all, rainfall is exogenous, because there is no way on earth your variable of interest actually causes rainfall, right?
+
+Right?
+
+There are two mistakes with that reasoning:
+
+“Endogeneity” in applied microeconomics is about statistical—not theoretical—endogeneity. I stress this point, which is obvious to so many of us trained in econometrics in the last 20 years, because the old-school, simultaneous-equation, Cowles Commission-derived understanding of endogeneity is largely theoretical: You have an endogenous variable X that affects Y, but which is also affected by Y, i.e., a classic case of simultaneity. But really, both unobserved heterogeneity (i.e., omitted variables) and measurement error also are causes of statistical endogeneity. So yes, though the adoption of improved seeds might not cause rainfall, rainfall might not be exogenous to, say, welfare in a study of whether improved seeds increase welfare, because of unobserved heterogeneity and measurement error issues. That is, rainfall might affect welfare in ways other than through the adoption of improved seeds, no matter how much the adoption of improved seeds cannot cause rainfall. Endogenous to what, exactly? That is, an instrumental variable Z which you use to identify the causal impact of a treatment variable D on some outcome Y will (i) work only if it is exogenous to the outcome Y, i.e., if it only affects Y through D, and (ii) lives or dies by the controls X it is surrounded by. Sometimes, an IV will only work if you use your controls X wisely to eliminate potential channels through which the exclusion restriction is violated.
+
+This long preamble is to note just how happy I am that Heather Sarsons’ now famous paper on why rainfall is not the magical instrument is finally published in the Journal of Development Economics.* Here is the abstract:
+
+There is evidence that, in some contexts, income shocks cause conflict. The literature demonstrating this relationship uses rainfall shocks to instrument for income shocks, arguing that in agriculturally-dependent regions, negative rain shocks lower income which incites violence. This identification strategy relies on the assumption that rainfall shocks affect conflict only through their impacts on income. This paper evaluates this exclusion restriction in the context of religious conflict in India. Using data on dam construction, I identify districts that are downstream from irrigation dams and show that income in these areas is much less sensitive to rainfall fluctuations. However, rain shocks remain equally strong predictors of riot incidence in these districts. I explore other channels through which rainfall might affect conflict.
+
+* Though this really should go without saying, I should probably emphasize, for the benefit of the more obtuse and/or litigation-happy minds out there, that the Inigo Montoya meme above is meant as a joke, and not as an actual threat to anyone’s well-being.</p>

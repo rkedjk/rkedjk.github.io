@@ -1,0 +1,25 @@
+<h1>‘Metrics Monday: Achieving Statistical Significance with Covariates (Updated)</h1>
+<p><a href='http://marcfbellemare.com/wordpress/12557'>http://marcfbellemare.com/wordpress/12557</a></p>
+<p>‘Metrics Monday: Achieving Statistical Significance with Covariates (Updated)
+
+Those of us who do applied work for a living will have at some point noticed that, depending on which variables we include in X on the right-hand side (RHS) of an equation like
+
+(1) y = a + bX + cD + e,
+
+the coefficient c on the treatment variable D might go from significant to insignificant or vice versa.
+
+That this is true is the very reason why it is common practice in applied work to present several specifications of equation (1) in the same table, ranging from the most parsimonious (i.e., a regression of y on D alone) to slightly less parsimonious (i.e., a regression of y on D and ever increasing subsets of X) to the least parsimonious (i.e., a regression of y on D and all the controls in X). It is also the rationale behind the method put forth by Altonji et al. (2005) to assess the robustness of a finding.
+
+I came across an interesting new working paper by Lenz and Sahn by way of Dave Giles’ blog, titled “Achieving Statistical Significance with Covariates,” in which the authors conduct an interesting meta-analysis of articles published in the American Journal of Political Science which reveals that in almost 40% of the observational studies analyzed, researchers obtain statistical significance of c by tinkering with the covariates included (or not, as it were) in X.
+
+Here is the abstract of Lenz and Sahn’s paper:
+
+An important and understudied area of hidden researcher discretion is the use of covariates. Researchers choose which covariates to include in statistical models and these choices affect the size and statistical significance of estimates reported in studies. How often does the statistical significance of published findings depend on these discretionary choices? The main hurdle to studying this problem is that researchers never know the true model and can always make a case that their choices are most plausible, closest to the true data generating process, or most likely to rule out alternative explanations. We attempt to surmount this hurdle through a meta-analysis of articles published in the American Journal of Political Science (AJPS). In almost 40% of observational studies, we find that researchers achieve conventional levels of statistical significance through covariate adjustments. Although that discretion may be justified, researchers almost never disclose or justify it.
+
+The issue of what goes on the RHS of equation (1) is getting a lot of attention in the applied literature. Two prominent examples are Emily Oster’s forthcoming JBES article “Unobserved Selection and Coefficient Stability: Theory and Evidence” and Pei, Pischke, and Schwandt’s (2017) NBER working paper titled “Poorly Measured Confounders are More Useful on the Left than on the Right.”
+
+Oster provides a method to assess just how much coefficient (as in coefficient c in equation 1) stability tells us about selection on unobservables. Pei et al. develop a test of identifying assumptions that treats putative additional controls as dependent variables in equation (1).
+
+I expect both methods to become part of the applied econometrician’s toolkit over the next five to 10 years. At the very least, I expect a bare-bone regression of y on D alone to become something that has to be included in a paper, along with a discussion of why the controls that were included on the RHS of equation (1) were retained for analysis.
+
+Update: The LaTex plugin I’ve been using seems to only work in certain instances, considerably screwing up the displayed math. I’ve amended this post, but this might affect older posts. Thanks to Dave Evans and Nelson Amaya Durán for the heads up.</p>

@@ -1,0 +1,133 @@
+<h1>The Hilbert Hotel</h1>
+<p><a href='https://opinionator.blogs.nytimes.com/2010/05/09/the-hilbert-hotel/?ref=opinion&nl=opinion&emc=tya1'>https://opinionator.blogs.nytimes.com/2010/05/09/the-hilbert-hotel/?ref=opinion&nl=opinion&emc=tya1</a></p>
+<p>Steven Strogatz on math, from basic to baffling.
+
+In late February I received an e-mail message from a reader named Kim Forbes. Her six-year-old son Ben had asked her a math question she couldn’t answer, and she was hoping I could help:
+
+Today is the 100th day of school. He was very excited and told me everything he knows about the number 100, including that 100 was an even number. He then told me that 101 was an odd number and 1 million was an even number, etc. He then paused and asked: “Is infinity even or odd?”
+
+I explained that infinity is neither even nor odd. It’s not a number in the usual sense, and it doesn’t obey the rules of arithmetic. All sorts of contradictions would follow if it did. For instance, “if infinity were odd, 2 times infinity would be even. But both are infinity! So the whole idea of odd and even does not make sense for infinity.”
+
+Kim replied:
+
+Thank you. Ben was satisfied with that answer and kind of likes the idea that infinity is big enough to be both odd and even.
+
+Although something got garbled in translation (infinity is neither odd nor even, not both), Ben’s rendering hints at a larger truth. Infinity can be mind-boggling.
+
+
+
+Some of its strangest aspects first came to light in the late 1800s, with Georg Cantor’s groundbreaking work on “set theory.” Cantor was particularly interested in infinite sets of numbers and points, like the set {1, 2, 3, 4,…} of “natural numbers” and the set of points on a line. He defined a rigorous way to compare different infinite sets and discovered, shockingly, that some infinities are bigger than others.
+
+At the time, Cantor’s theory provoked not just resistance, but outrage. Henri Poincaré, one of the leading mathematicians of the day, called it a “disease.” But another giant of the era, David Hilbert, saw it as a lasting contribution and later proclaimed, “No one shall expel us from the Paradise that Cantor has created.”
+
+My goal here is to give you a glimpse of this paradise. But rather than working directly with sets of numbers or points, let me follow an approach introduced by Hilbert himself. He vividly conveyed the strangeness and wonder of Cantor’s theory by telling a parable about a grand hotel, now known as the Hilbert Hotel.
+
+It’s always booked solid, yet there’s always a vacancy.
+
+For the Hilbert Hotel doesn’t merely have hundreds of rooms — it has an infinite number of them. Whenever a new guest arrives, the manager shifts the occupant of room 1 to room 2, room 2 to room 3, and so on. That frees up room 1 for the newcomer, and accommodates everyone else as well (though inconveniencing them by the move).
+
+Now suppose infinitely many new guests arrive, sweaty and short-tempered. No problem. The unflappable manager moves the occupant of room 1 to room 2, room 2 to room 4, room 3 to room 6, and so on. This doubling trick opens up all the odd-numbered rooms — infinitely many of them — for the new guests.
+
+Later that night, an endless convoy of buses rumbles up to reception. There are infinitely many buses, and worse still, each one is loaded with an infinity of crabby people demanding that the hotel live up to its motto, “There’s always room at the Hilbert Hotel.”
+
+The manager has faced this challenge before and takes it in stride.
+
+First he does the doubling trick. That reassigns the current guests to the even-numbered rooms and clears out all the odd-numbered ones — a good start, because he now has an infinite number of rooms available.
+
+But is that enough? Are there really enough odd-numbered rooms to accommodate the teeming horde of new guests? It seems unlikely, since there are something like “infinity squared” people clamoring for these rooms. (Why infinity squared? Because there were an infinite number of people on each of an infinite number of buses, and that amounts to infinity times infinity, whatever that means.)
+
+This is where the logic of infinity gets very weird.
+
+To understand how the manager is going to solve his latest problem, it helps to visualize all the people he has to serve.
+
+Of course, we can’t show literally all of them here, since the diagram would need to be infinite in both directions. But a finite version of the picture is adequate. The point is that any specific bus passenger (your Aunt Inez, say, on vacation from Louisville) is sure to appear on the diagram somewhere, as long as we include enough rows and columns. In that sense, everybody on every bus is accounted for. You name the passenger, and he or she is certain to be depicted at some finite number of steps east and south of the diagram’s corner.
+
+The manager’s challenge is to find a way to work through this picture systematically. He needs to devise a scheme for assigning rooms so that everybody gets one eventually, after only a finite number of other people have been served.
+
+Sadly, the previous manager didn’t understand this and mayhem ensued. When a similar convoy showed up on his watch, he became so flustered trying to process all the people on bus 1 that he never got around to any other bus, leaving all those neglected passengers screaming and furious. Visualized on the diagram below, this myopic strategy would correspond to a path marching eastward along row 1, never to return.
+
+The new manager, however, has everything under control. Instead of tending to just one bus, he zigs and zags through the diagram, fanning out from the corner as shown below.
+
+He starts with passenger 1 on bus 1 and gives her the first empty room. The second and third empty rooms go to passenger 2 on bus 1, followed by passenger 1 on bus 2, both of whom are depicted on the second diagonal from the corner of the diagram. After serving them, the manager proceeds to the third diagonal and hands out a set of room keys to passenger 1 on bus 3, passenger 2 on bus 2, and passenger 3 on bus 1.
+
+I hope the manager’s procedure — progressing from one diagonal to another — is clear from the picture above, and that you’re convinced that any particular person will be reached in a finite number of steps.
+
+So, as advertised, there’s always room at the Hilbert Hotel.
+
+The argument I’ve just presented is a famous one in the theory of infinite sets. Cantor used it to prove that there are exactly as many positive fractions (ratios p/q of positive whole numbers p and q) as there are natural numbers (1, 2, 3, 4, …). That’s a much stronger statement than saying both sets are infinite. It says they are infinite to precisely the same extent, in the sense that a “one-to-one correspondence” can be established between them.
+
+You could think of this correspondence as a buddy system in which each natural number is paired with some positive fraction, and vice versa. The existence of such a buddy system seems utterly at odds with common sense — it’s the sort of sophistry that made Poincaré recoil. For it implies we could make an exhaustive list of all positive fractions, even though there’s no smallest one!
+
+And yet there is such a list. We’ve already found it. The fraction p/q corresponds to passenger p on bus q, and the argument above shows that each of these fractions can be paired off with a certain natural number 1, 2, 3,…, given by the passenger’s room number at the Hilbert Hotel.
+
+The coup de grace is Cantor’s proof that some infinite sets are bigger than this. Specifically, the set of real numbers between 0 and 1 is “uncountable” — it can’t be put in one-to-one correspondence with the natural numbers. For the hospitality industry, this means that if all these real numbers show up at the reception desk and bang on the bell, there won’t be enough rooms for all of them, even at the Hilbert Hotel.
+
+The proof is by contradiction. Suppose each real number could be given its own room. Then the roster of occupants, identified by their decimal expansions and listed by room number, would look something like this:
+
+Room 1: .6708112345…
+
+Room 2: .1918676053…
+
+Room 3: .4372854675…
+
+Room 4: .2845635480…
+
+Remember, this is supposed to be a complete list. Every real number between 0 and 1 is supposed to appear somewhere, at some finite place on the roster.
+
+Cantor showed that a lot of numbers are missing from any such list; that’s the contradiction. For instance, to construct one that appears nowhere on the list shown above, go down the diagonal and build a new number from the boldface digits:
+
+Room 1: .6708112345…
+
+Room 2: .1918676053…
+
+Room 3: .4372854675…
+
+Room 4: .2845635480…
+
+The decimal so generated is .6975…
+
+But we’re not done yet. The next step is to take this decimal and change all its digits, replacing each of them with any other digit between 1 and 8. For example, we could change the 6 to a 3, the 9 to a 2, the 7 to a 5, and so on.
+
+This new decimal .325… is the killer. It’s certainly not in Room 1, since it has a different first digit from the number there. It’s also not in Room 2, since its second digit disagrees. In general, it differs from the nth number in the nth decimal place. So it doesn’t appear anywhere on the list!
+
+The conclusion is that the Hilbert Hotel can’t accommodate all the real numbers. There are simply too many of them, an infinity beyond infinity.
+
+And with that humbling thought, we come to the end of this series, which began 14 weeks ago with a scene in another imaginary hotel. A Sesame Street character named Humphrey, working the lunch shift at The Furry Arms, took an order from a roomful of hungry penguins — “fish, fish, fish, fish, fish, fish” — and soon learned about the power of numbers.
+
+It’s been a long journey from fish to infinity. I hope you’ve enjoyed it as much as I have. The next trip leaves in 2012, when these columns and many more will appear as a book. Thanks for joining me, especially to those readers who shared their comments, questions and insights on this blog.
+
+NOTES
+
+For more about Cantor, including the mathematical, philosophical and theological controversies surrounding his work, see:
+
+J.W. Dauben, “Georg Cantor” (Princeton University Press, 1990). The classic biography of Hilbert is a moving and non-technical account of his life, his work and his times:
+
+C. Reid, “Hilbert” (Springer, 1996).
+
+His contributions to mathematics are too numerous to list here, but perhaps his greatest is his collection of 23 problems — all of which were unsolved when he proposed them — that he thought would shape the course of mathematics in the 20th century. For the ongoing story and significance of these Hilbert Problems and the people who solved some of them, see:
+
+B.H. Yandell, “The Honors Class” (A K Peters, 2002).
+
+Several of the problems still remain open. Hilbert’s parable of the infinite hotel is mentioned in George Gamow’s evergreen masterpiece:
+
+G. Gamow, “One Two Three … Infinity” (Dover, 1988), p. 17.
+
+Gamow also does a good job of explaining countable and uncountable sets and related ideas about infinity. The comedic and dramatic possibilities of the Hilbert Hotel have often been explored by writers of mathematical fiction. For example, see:
+
+S. Lem, “The extraordinary hotel or the thousand and first journey of Ion the Quiet,” reprinted in “Imaginary Numbers: An Anthology of Marvelous Mathematical Stories, Diversions, Poems and Musings,” edited by W. Frucht (Wiley, 1999);
+
+I. Stewart, “Professor Stewart’s Cabinet of Mathematical Curiosities” (Basic Books, 2009).
+
+A children’s book on the same theme is:
+
+I. Ekeland, “The Cat in Numberland” (Cricket Books, 2006). If you haven’t read it yet, I recommend last year’s surprise best-seller “Logicomix,” a brilliantly creative graphic novel about set theory, logic, infinity, madness and the quest for mathematical truth:
+
+A. Doxiadis and C.H. Papadimitriou, “Logicomix” (Bloomsbury, 2009).
+
+It stars Bertrand Russell, but Cantor, Hilbert, Poincaré and many others make memorable appearances. For a more mathematical but still very readable discussion of infinity, as well as many other ideas discussed throughout this series, see:
+
+J. Stillwell, “Yearning for the Impossible” (A K Peters, 2006). Readers wishing to go deeper into infinity might enjoy Terry Tao’s blog post about “self-defeating objects.” In a very accessible way, he presents and elucidates a lot of fundamental arguments about infinity that arise in set theory, philosophy, physics, computer science, game theory and logic. A tiny finesse occurred in the argument for the uncountability of the real numbers when I required that the diagonal digits were to be replaced by digits between 1 and 8. This wasn’t essential. But I wanted to avoid using 0 and 9 to sidestep any fussiness caused by the fact that some real numbers have two decimal representations. For example, .200000…. equals .199999… Thus, if we hadn’t excluded the use of 0’s and 9’s as replacement digits, it’s conceivable the diagonal argument could have inadvertently produced a number already on the list (and that would have ruined the proof). By forbidding the use of 0 and 9 we didn’t have to worry about this annoyance.
+
+Thanks to Margaret Nelson, for her artistry and sense of humor; Paul Ginsparg and Jon Kleinberg, for their comments and suggestions on this piece; and my wife, Carole Schiffman, for her lightheartedness and for giving new meaning to the concept of “infinite support.”
+
+Need to print this post? Here is a print-friendly PDF version of this piece, with images.</p>

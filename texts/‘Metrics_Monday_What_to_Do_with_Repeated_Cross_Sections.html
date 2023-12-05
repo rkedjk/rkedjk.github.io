@@ -1,0 +1,47 @@
+<h1>‘Metrics Monday: What to Do with Repeated Cross Sections?</h1>
+<p><a href='http://marcfbellemare.com/wordpress/11800'>http://marcfbellemare.com/wordpress/11800</a></p>
+<p>‘Metrics Monday: What to Do with Repeated Cross Sections?
+
+Back from spring break which, even though I am on leave this semester, I used to take a break from blogging and travel to (i) Peru, to assess the feasibility of field experiments I am planning on conducting there and (ii) Ithaca, NY, to present my work on farmers markets and food-borne illness at the Dyson School of Applied Economics and Management in the future Cornell College of Business.
+
+For today’s installment of ‘Metrics Monday, suppose you have data that consists of repeated cross sections. To take an example from my own work, suppose you have 10 years worth of a nationally representative household survey, but the data are not longitudinal. That is, for each year, whoever was in charge of collecting the data collected them on a brand new sample of households.
+
+Obviously, because the data are not longitudinal, the usual panel data tricks (e.g., household fixed effects) are not available. So what can you do if you want to get closer to credible identification?
+
+Enter pseudo-panel methods, which are a set of very useful tools that I did not get to hear about in grad school. To keep with the 10-years-worth-of-a-nationally-representative-household-survey example, suppose you have data on a random sample of households [math]i[/math] in village [math]v[/math] in periods [math]t \in {1,…,10}[/math], and suppose you are interested in the effect of some treatment [math]D_{ivt}[/math] on some outcome [math]y_{ivt}[/math] while controlling for a vector of other factors [math]x_{ivt}[/math].
+
+In other words, the treatment and the outcome both vary at the household level, but because you have a repeated cross-section rather than longitudinal data, it is not possible to estimate an equation of the form
+
+(1) [math]y_{ivt} = \alpha + \beta{x}_{ivt} + \gamma {D}_{ivt} + \delta_{i} + \tau{t} + \epsilon_{ivt}[/math],
+
+where [math]\delta_{i}[/math] is a household fixed effect and [math]\tau{t}[/math] is a linear trend to account for the passage of time. This is because you have as many household-village-year observations as you have observations in the entire data set, and so you cannot identify [math]\delta_{i}[/math].
+
+With a large enough data set, one thing you can do to get out of this bind and get more credible identification is to use pseudo-panel methods. Here, rather than treating the household as the unit of observation, you can simply treat the village as the unit of observation, and take the within-village mean of each variable over all households. That is, you can estimate
+
+(2) [math]\bar{y}_{vt} = \alpha + \beta \bar{x}_{vt} + \gamma \bar{D}_{vt} + \tau{t} + \delta_{v} + \bar{\epsilon}_{vt}[/math],
+
+where a bar above a variable denotes a within-village average, so for example
+
+(3) [math]\bar{y}_{vt} = \frac{1}{N_{v}} \sum_{i=1}^{N_{v}} y_{ivt}[/math],
+
+where [math]N_{v}[/math] denotes the sample size in village [math]v[/math].
+
+What are the assumptions that need to be satisfied for pseudo-panel methods to work? First, at whatever level you choose as your unit of observation (here, the village level), the sample needs to be random. This is necessary because if you want to be able to compare a village today with the the same village tomorrow, it has to be the case that the households sampled from that village today and tomorrow are matched their observable and unobservable characteristics. The way to make sure that this holds is to have a random sample, i.e., a sample where respondents do not choose to answer the survey on the basis of some unobservable characteristic.
+
+Second, you also need to account for the passage of time. Even if the first condition holds and the households in a given village are randomly selected in each time period, and thus each village-level average is comparable with the previous and the next one, something might change over time that makes them incomparable. For robustness, you can do this with a linear trend, year fixed effects, village-specific linear trends, and so on.
+
+Another important thing to keep in mind with pseudo-panel methods is the trade-off between sample size and measurement error. In my own work using pseudo-panel methods (a paper with my graduate student Johanna Fajardo-Gonzalez and my Towson University colleague Seth Gitter on the welfare impacts of rising quinoa prices in Peru, which I will debut on Wednesday), my coauthors and I were lucky to have three administrative levels which we could treat as our unit of observation: (i) 1,840 districts nested in (ii) 195 provinces nested in (iii) 25 departments. Since we had 10 years worth of data, we could then estimate everything at each level, respectively with in theory* 18,400 district-year observations, 1,950 province-year observations, and 250 department-year observations.
+
+For robustness, we estimate all of our specification at each of those levels, but the trade-off is that the more households go into making an average (e.g., there are more households sampled in a department than in a province, and in a province than in a district), the more precise that average will be, and so the less measurement error there is. But the more households go into making an average, the smaller the sample size, too: There are fewer departments than there are provinces, and there are fewer provinces than there are districts. This is nothing new under the sun–the trade-off between sample size and precision is part and parcel of statistics–but it is useful to keep it in mind nevertheless.
+
+There are many papers you can read that use pseudo-panel methods. The classic reference is
+
+Deaton, Angus (1985), “Panel Data from Times Series of Cross-Sections,” Journal of Econometrics (30): 109-126,
+
+but there is a good number of papers that use pseudo-panel methods in development. I will mention just three here, all of which involving the World Bank’s David McKenzie (make sure you read his posts over at the Development Impact blog) as an author:
+
+* I say “in theory” because although the data we use is nationally representative, not all districts were surveyed.
+
+Update: My colleague Jason Kerwin made an important point in two tweets:
+
+@mfbellemare In a true panel, individual-level selection is corrected for by person FEs. Don't have that in repeated cross-section. — Jason Kerwin (@jt_kerwin) March 21, 2016</p>

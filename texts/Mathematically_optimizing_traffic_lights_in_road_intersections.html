@@ -1,0 +1,37 @@
+<h1>Mathematically optimizing traffic lights in road intersections</h1>
+<p><a href='https://www.eurekalert.org/pub_releases/2017-02/sfia-mot020217.php'>https://www.eurekalert.org/pub_releases/2017-02/sfia-mot020217.php</a></p>
+<p>Traffic modeling has been of interest to mathematicians since the 1950s. Research in the area has only grown as road traffic control presents an ever-increasing problem.
+
+Generally, models for traffic flow in road networks are time-dependent and continuous, that is, they describe traffic by a continuum rather than as individual drivers or cars. These macroscopic models describe the temporal and spatial evolution of traffic density without predicting traffic patterns of individuals. In addition to macroscopic models based on continuous densities, microscopic approaches like particle models or cellular automata are also used to model traffic.
+
+Most existing continuous models consider unidirectional traffic; thus, the traffic density depends only on a single spatial dimension. The governing equations in this class of macroscopic models are inspired by gas dynamics equations.
+
+A lot of recent work has focused on traffic intersections, which constitute a building block of larger road networks. Here, models generally aim to either minimize travel time of individual drivers, or maximize the total traffic flow at a given intersection.
+
+In a paper published yesterday in the SIAM Journal on Scientific Computing, authors Simone Göttlich, Andreas Potschka, and Ute Ziegler address the problem of computing optimal traffic light settings for urban road intersections by applying traffic flow conservation laws on networks.
+
+"Mathematical equations that model vehicular traffic, similar to fluid flow, are able to capture nonlinear phenomena, such as, traffic jam formation," explains author Simone Göttlich. "Traffic lights are a necessary tool to redirect the traffic flow within road networks and therefore offer the potential to mitigate congestion even for high traffic volumes based on mathematical insights."
+
+Usually, traffic optimization models, which are based on cell-transmission, fluid, mixed-integer formulations, and heuristics, attempt to find an optimal cycle length of green and red phases for traffic lights.
+
+"Mathematical optimization of traffic light programs is an extremely challenging problem, because it combines the world of combinatorial optimization with continuous traffic flow models based on hyperbolic partial differential equations," says author Andreas Potschka. "Our research is a first step towards practical optimization algorithms for this novel problem class."
+
+The mathematical optimization problem can be described as a nonlinear mixed-integer optimal control problem constrained by scalar hyperbolic conservation laws. To solve the problem, the authors use a partial outer convexification approach, which involves two stages: the solution of a (smoothed) nonlinear programming problem with dynamic constraints and a reconstruction mixed-integer linear program without dynamic constraints. The method computes traffic light programs for two scenarios on different discretizations.
+
+"After discretization, one always ends up with large-scale optimization problems because of the temporally and spatially distributed nature of the problem. To make things worse, the problems are nonlinear and have mixed-integer decisions," explains Potschka. "Most approaches so far either drop the nonlinearity in favor of a relatively coarse piecewise linear approximation and apply the technically well-developed tool of mixed-integer linear programming, but even this does not get you very far, as we illustrate in the paper."
+
+The advantage of partial outer convexification, which was first used in the field of optimal control with ordinary differential equations, is that the problem can be split into a nonlinear dynamic optimization problem without integer constraints and a linear mixed-integer program without dynamics. The authors show that two-stage solution candidates are computed faster and produce better results than those obtained by global optimization of piecewise linearized traffic flow models.
+
+"Starting with the work of Lighthill, Whitham and Richards in 1955-56 (1, 2). hyperbolic traffic models have been studied from different perspectives. The spectrum ranges from model extensions, theoretical and numerical investigations, to questions of optimal control in recent years," explains Göttlich. "Current research is more and more concerned with the interface between networked problems, statistical data evaluation and engineering applications. The understanding of the similarities and differences of the different approaches often present challenges."
+
+There are several lines for future research, Potschka explains, such as, understanding how partial outer convexification can be formulated in function space before any discretization has happened. While high resolution schemes are needed for the efficient simulation of conservation laws, these approaches usually introduce non-differentiabilities in the discretized constraints, which is a huge challenge for all optimization methods and needs to be tackled.
+
+###
+
+Read the full paper here http://epubs.siam.org/doi/10.1137/15M1048197
+
+References
+
+(1) M J Lighthill and J B Whitham. On kinematic waves II: A theory of traffic flow on long crowded roads. Proceedings of the Royal Society A, 229:317 - 245, 1955.
+
+(2) P I Richards. Shockwaves on the highway. Operations Research, 4:42-51, 1956.</p>

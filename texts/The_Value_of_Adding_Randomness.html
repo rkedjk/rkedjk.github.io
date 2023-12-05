@@ -1,0 +1,23 @@
+<h1>The Value of Adding Randomness</h1>
+<p><a href='https://normaldeviate.wordpress.com/2013/06/09/the-value-of-adding-randomness/'>https://normaldeviate.wordpress.com/2013/06/09/the-value-of-adding-randomness/</a></p>
+<p>In computer science it is common to use randomized algorithms. The same is true in statistics: there are many ways that adding randomness can make things easier. But the way that randomness enters, varies quite a bit in different methods. I thought it might be interesting to collect some specific examples of statistical procedures where added randomness plays some role. (I am not referring to the randomness inherent in the original data but, rather, I refer to randomness in the statistical method itself.)
+
+(1) Randomization in causal inference. The mean difference between a treated group and untreated group is not, in general, equal to the causal effect . (Correlation is not causation.) Moreover, is not identifiable. But if we randomly assign people to the two groups then, magically, . This is easily proved using either the directed graph approach to causation or the counterfactual approach: see here for example. This fact is so elementary that we tend to forget how amazing it is. Of course, this is the reason we spend millions of dollars doing randomized trials.
+
+(As an aside, some people say that there is no role for randomization in Bayesian inference. In other words, the randomization mechanism plays no role in Bayes’ theorem. But this is not really true. Without randomization, we can indeed derive a posterior for but it is highly sensitive to the prior. This is just a restatement of the non-identifiability of . With randomization, the posterior is much less sensitive to the prior. And I think most practical Bayesians would consider it valuable to increase the robustness of the posterior.)
+
+(2) Permutation Tests. If and and you want to test versus , you can get an exact, distribution-free test by using the permutation method. See here. We rarely search over all permutations. Instead, we randomly select a large number of permutations. The result is still exact (i.e. the p-value is sub-uniform under .)
+
+(3) The Bootstrap. I discussed the bootstrap here. Basically, to compute a confidence interval, we approximate the distribution
+
+with the conditional distribution
+
+where , and is a sample from the empirical distribution. But the distribution is intractable. Instead, we approximate it by repeatedly sampling from the empirical distribution function. This makes otherwise intractable confidence intervals trivial to compute.
+
+(4) -means++. Minimizing the objective function in -means clustering is NP-hard. Remarkably, as I discussed here, the -means++ algorithm uses a careful randomization method for choosing starting values and gets close to the minimum with high probability.
+
+(5) Cross-Validation. Some forms of cross-validation involve splitting the data randomly into two or more groups. We use one part(s) for fitting and the other(s) for testing. Some people seem bothered by the randomness this introduces. But it makes risk estimation easy and accurate.
+
+(6) MCMC. An obvious and common use of randomness is random sampling from a posterior distribution, usually by way of Markov Chain Monte Carlo. This can dramatically simplify Bayesian inference.
+
+These are the first few things that came to my mind. Are there others I should add to the list?</p>

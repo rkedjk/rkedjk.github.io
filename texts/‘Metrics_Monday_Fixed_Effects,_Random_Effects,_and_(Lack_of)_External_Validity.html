@@ -1,0 +1,31 @@
+<h1>‘Metrics Monday: Fixed Effects, Random Effects, and (Lack of) External Validity</h1>
+<p><a href='http://marcfbellemare.com/wordpress/12335'>http://marcfbellemare.com/wordpress/12335</a></p>
+<p>‘Metrics Monday: Fixed Effects, Random Effects, and (Lack of) External Validity
+
+Very early mornings, before our entire households is awake, are when I get all of my professional reading done. Last Monday, I read a recent published paper in my discipline. I am remaining purposely vague about that paper, because the research question was interesting and the findings pretty useful; it’s just that the econometrics weren’t great.
+
+Anyway, at some point the authors make the following argument:
+
+Our random effects findings are almost identical to our fixed effects findings;
+
+Random effects should be used with a random sample from a population of interest and fixed effects in the absence of such a random sample;
+
+This means our (small, highly selected sample) is representative of the population of interest;
+
+Thus, this means we can use findings from our (small, highly selected sample) to make inferences about the population as a whole.
+
+The problem with this entire reasoning is that it is mistaken, and that it stems from an old-school understanding of the difference between fixed and random effects (FE and RE, respectively).
+
+When I was a Masters student at Montreal, we covered FE and RE estimators in the core econometrics class we all took and in the microeconometrics elective I chose to take (and which remains, to this day, the most useful class I have ever taken). In those classes, we were told: “You should use RE when you have a random sample from a broader population, and FE when you have a nonrandom sample, like when you have data on all ten provinces.”
+
+That’s the old-school conception. Nowadays, in the wake of the Credibility Revolution, what we teach students is: “You should use RE when your variable of interest is orthogonal to the error term; if there is any doubt and you think your variable of interest is not orthogonal to the error term, use FE.”
+
+And since the variable can be argued to be orthogonal pretty much only in cases where it is randomly assigned in the context of an experiment, experimental work is pretty much the only time the RE estimator should be used.
+
+“But Marc,” you say, “if I use FE then my variable of interest collapses into the fixed effect because it does not vary within unit.” That’s too bad, and in this case, you should either interact your variable of interest with something that does vary within unit and which makes sense in the context of your application, or ditch this research project altogether.
+
+That is the first point I wanted to make: That RE should really only be used when the variable of interest is (as good as) randomly assigned.
+
+The second point I wanted to make is corollary to the first, and it’s that the fact that the FE and RE results look a lot alike (which really should be ascertained with a Hausman test instead of merely eyeballed) is confirmation of the fact that the variables on the RHS are orthogonal to the error term more than anything else, and that this says absolutely nothing about external validity. Thus, to claim that this makes it possible to make inference about the whole population is also wrong.
+
+How these statements get by reviewers and editors is a bit puzzling. This goes to show that peer review is not a panacea, and that the body of published, peer-reviewed research is not some kind of unquestionable Volume of Sacred Law.</p>

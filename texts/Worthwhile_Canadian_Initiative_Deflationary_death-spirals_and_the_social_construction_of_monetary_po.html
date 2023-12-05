@@ -1,0 +1,117 @@
+<h1>Worthwhile Canadian Initiative: Deflationary death-spirals and the social construction of monetary policy</h1>
+<p><a href='http://worthwhile.typepad.com/worthwhile_canadian_initi/2009/11/deflationary-deathspirals-and-the-social-construction-of-monetary-policy.html'>http://worthwhile.typepad.com/worthwhile_canadian_initi/2009/11/deflationary-deathspirals-and-the-social-construction-of-monetary-policy.html</a></p>
+<p>I present a simple macro model and use it as a vehicle to explore the idea that it matters how monetary policy is framed. One framing leads to a deflationary spiral, which an alternate framing can avoid or escape. The model is an otherwise bog-standard New Keynesian/Neo-Wicksellian model, but with a minor modification in the financial sector.
+
+Phillips Curve: p = 0.25(y-y*) + 0.5p(t-1) + 0.5E(p)
+
+Lower case p is inflation between this period and the next (sorry, but I can't do Greek), y is real output, y* the natural rate of output, and E(p) expected inflation. There's a 50-50 mix of forward- and backward-looking elements. There's a whole literature on the backward-looking elements, which are needed empirically to give inflation inertia. I need the backward-looking element to slow things down so we can see deflationary spirals evolving slowly when monetary policy makes a mistake under the wrong framing. Otherwise they would happen instantly.
+
+IS curve: y-y* = n-r
+
+Where r is the real rate of interest, and n the (time-varying) natural rate of interest. I am tempted to replace y* with expected future y. This would be better theoretically (the IS curve then has the standard Euler equation interpretation). It would also give more interesting results, because a deflationary spiral would then have an additional channel of positive feedback, since a fall in expected future output would mean the real interest rate would have to fall even further to break the cycle. But it's not needed to illustrate my point, and makes the maths a little harder.
+
+Substituting the IS into the Phillips Curve gives us the IS-PC equation:
+
+p = 0.25(n-r) + 0.5p(t-1) + 0.5E(p)
+
+It is important that the coefficient on the real interest rate be small relative to the coefficient on lagged inflation, if we want to see the deflationary spiral evolve slowly. Otherwise it would happen instantly.
+
+Financial sector. There are two financial assets: nominal bills and "real bills". Firms/households issue both to fund their spending. (As in all Neo-Wicksellian models, there's really a third financial asset, the medium of exchange, that is implicit in the model, because the violation of Say's Law makes no logical sense otherwise.)
+
+A nominal bill is a promise to pay $1 in the next period. If B is the nominal price of a nominal bill, we can define the nominal interest rate i as
+
+B=1/(1+i)
+
+A "real bill" is a promise to pay 1 unit of real output in the next period (or its monetary equivalent). If R is the nominal price of a real bill, and P the current price level, we can define the (ex ante) real interest rate r as
+
+R=P(1+E(p))/(1+r)
+
+(I hate using the term "real bill" in this context, when it already has two different and contradictory meanings in the history of monetary thought. I would rather replace my "real bills" with shares in a stock price index mutual fund, but doing so would complicate the model. I still think of them as representing shares nevertheless.)
+
+People are risk neutral, so in equilibrium the two financial assets give the same inflation-adjusted expected rates of return
+
+(1+i)=(1+r)(1+E(p))
+
+I approximate this as i=r+E(p) when I need to.
+
+Monetary Policy.The central bank wants zero inflation and a constant price level (where P = $1). (I know there's an important distinction between inflation targeting and price level path targeting, but I will largely ignore it, because it doesn't matter for my purposes). The only time-varying parameter in the model is the natural rate of interest, n. Assume the central bank observes n contemporaneously.
+
+If the central bank gets what it wants, we can describe the equilibrium as:
+
+1. P=1 (or p=0 and E(p)=0).
+
+2. B=1/(1+n) (or i=n)
+
+3. R=1/(1+n) (or r=n)
+
+[Update: typos fixed in 2 and 3, thanks to himaginary]
+
+An outside observer, who saw the evolution of data for this economy, would be unable to distinguish between three different ways of "framing", or social constructions of monetary policy: 1. "The central bank is targeting inflation"; 2. "the central bank is targeting the price of nominal bills"; 3. "the central bank is targeting the price of real bills". All three are observationally equivalent, even if the observer knows the structural equations, and observes the natural rate of interest n. And there are many more ways he could describe monetary policy, including complex ways of describing it, like: 4. "targeting the nominal interest rate in order to target inflation".
+
+Suppose the outside observer is a sociologist, who wishes to discover how people in this economy themselves construct reality. He induces a breach in the equilibrium. Suppose there is a temporary drop in the natural rate, n, by one percentage point, but the sociologist hides this fact from the central bank, by falsifying the bank's data. What happens?
+
+What happens next depends on how the population and central bank frame monetary policy. And it is precisely because what happens depends on the framing that the sociologist's experiment succeeds in revealing that framing.
+
+Suppose that people believe the central bank targets inflation, so E(p) stays at zero. And they maintain this belief in inflation targeting, despite temporary evidence that the central bank has failed to hit its target. But the central bank does not target inflation directly, and instead frames monetary policy as targeting the price of nominal bills (equivalent to the nominal interest rate), in order to hit its ultimate target, zero inflation.
+
+In period 1, the natural rate drops, but the bank doesn't see it, so the price of nominal bills stays the same. The real and nominal rates of interest stay the same, and are now above the natural rate. So output drops below the natural rate y*, which means that actual inflation drops below zero.
+
+In period 2, the bank learns that the sociologist has falsified the data, and takes the necessary steps to bring inflation immediately back to target. Because lagged inflation appears in the Phillips Curve, this requires the bank to engineer a boom, with output above y*. This in turn requires setting the nominal interest rate on nominal bills below the natural rate.
+
+In period 3, everything returns to normal, except that the price level is lower than before the sociologist's experiment.
+
+Now suppose people believe the central bank targets the price of nominal bills (the nominal interest rate). (Or they originally believed the bank targets inflation, but lose faith in this framing when they see the bank fail to hit its target.)
+
+In period 1 the results are exactly the same as above, because people don't see what the sociologist is doing, and so continue to expect zero inflation.
+
+In period 2, suppose people expect the bank to set the nominal rate equal to the natural rate. What would they expect to happen? (What would happen if the bank did what people expect it to do?). Substituting the IS into the Phillips Curve, setting i=n, and imposing rational expectations we get
+
+p = 0.25(n-i+E(p)) + 0.5p(t-1) + 0.5E(p) = 0.5p(t-1) + 0.75E(p) = 2p(t-1)
+
+So if the population stops framing monetary policy as targeting inflation, and instead frames it as setting the nominal rate of interest, then they expect a deflationary death-spiral with deflation doubling every period, the real interest rate rising continuously relative to the natural rate, and output falling continuously with the output gap doubling every period.
+
+Central banks are aware of this danger, of course, which is why they don't frame nominal interest rate targeting as setting
+
+i=n+p*, where p* is target inflation.
+
+The above interest rate rule fails to obey the "Taylor Principle". If the population ever loses the frame of monetary policy as targeting inflation, so that expected inflation differs from target, the central bank needs to frame monetary policy as setting:
+
+i = n + E(p) + a(E(p)-p*), where a is some strictly positive number.
+
+But if our central bank (with a target of zero inflation) cannot observe expected inflation, and can only observe lagged actual inflation, it would need to frame monetary policy as:
+
+i = n + (2+2a)p(t-1)
+
+[minor math mistake fixed, thanks to himaginary]
+
+If the inflation target is credible, so that expected inflation never deviates from target, an outside observer would be unaware of the existence of the (2+a)p(t-1) term. It's rather like police reserves. As long as the crowd knows they are there, even if hidden, the crowd obeys the social rules, and we never see the reserves deployed. But if the crowd ever did start to riot, would the reserves be big enough to restore the original social reality -- the mutual expectations of following the rules?
+
+If the central bank ever lost control of expected inflation on the upside, there is no limit on how high it could raise the nominal rate of interest to restore order. But if it ever lost control on the downside, the zero lower bound on nominal interest rates does impose a limit on the bank's ability to restore order. The police have limited reserves, and if too many in the crowd run riot, there won't be enough reserves to restore order; and the crowd knows this. With deflation and expected deflation doubling every period, a central bank that waited too long to call in the reserves would lose control of the inflation target.
+
+Now suppose we change the way monetary policy is framed. Suppose people believe that the central bank targets the price of real bills, rather than nominal bills, in order to maintain its inflation target. Let's re-run the sociologist's experiment.
+
+In period 1 exactly the same thing happens as before. The central bank doesn't learn that the natural rate of interest has decreased, and so sets the price of real bills too low, and the real rate of interest is therefore above the natural rate. Output falls below y*, and inflation is negative.
+
+In period 2 and thereafter the central bank once again learns the correct value of the natural rate of interest, and is expected to set the nominal price of real bills at R=1/(1+n) thereafter. This framing of monetary policy rules out the possibility of a deflationary spiral as a rational expectation. To see why this is so, substitute R=1/(1+n) into the definition of the (ex ante) real rate of interest to get
+
+(1+r) = (1+n)P(1+E(p))
+
+In a deflationary spiral, the price level P would fall without limit, and expected inflation E(p) would fall without limit. If the real interest rate were constant, this would mean the nominal price of real bills would fall without limit too. But if monetary policy were framed as holding the nominal price of real bills constant, a falling price level and falling inflation would mean the real interest rate would fall without limit too, so output would rise without limit, and that rising level of output would put ever-increasing upward pressure on inflation.
+
+My math isn't good enough to solve for the time-path explicitly (though any competent graduate student could probably solve it), but it is easier to show that deflation cannot accelerate into a spiral. Suppose E(p)=p(t-1), and the IS-PC equation yields:
+
+p = 0.25(n-r) + p(t-1)
+
+Since P<1, and E(p)<0, we know that r<n, so there will be less deflation in period 2 than in period 1. With rational expectations, people will know this, which reinforces the brake on deflation. Inflation must eventually turn positive, and the price level must eventually return to its original level. Setting the nominal price of real bills anchors the long run equilibrium price level in a way that setting the nominal price of nominal bills can never do.
+
+[Update: himaginary in comments provides the solution:
+
+This result shows that framing monetary policy as targeting the price of real rather than nominal bills can prevent a deflationary spiral from ever getting started. Even if the central bank were permanently ignorant of the natural rate, and set R too low permanently, the cumulative fall in the price level, and rising expected deflation, would eventually mean the real rate would fall below the natural rate, ending the deflationary spiral.
+
+Suppose nevertheless that a deflationary spiral did begin, perhaps because monetary policy had initially been framed in terms of targeting the nominal interest rate. Could a re-framing of monetary policy in terms of targeting the price of real bills break the spiral? Could it do this even if the zero lower bound on nominal interest rates were binding? If the re-framing were successful, and if the central bank can credibly commit to a future price of real bills, the answer is yes.
+
+To see why this is so, remember that the price of real bills anchors the long-run equilibrium price level. By promising a high enough future price of real bills, the central bank can promise a future price level that is high enough to make current expected inflation positive. If monetary policy were framed as targeting the nominal interest rate, there is no way the bank can make this promise. People just wouldn't understand the language in which the promise were made, so it could not be credible.
+
+To repeat what I said in a previous post: it's the framing of what central banks do that caused the mess, not anything central banks are actually doing. (The bank does exactly the same thing in period 1, whether monetary policy is framed as targeting the price of nominal bills or of real bills.) The social construction of reality is what dunnit!
+
+Addendum: if you make two small changes in the model (replace y* with E(y(t+1)) in the IS curve), and change my "real bills" (which I think of as shares) into "nominal GDP futures contracts", my model would come close to what Scott Sumner is talking about. The small change in the IS curve would mean that the level of current output would depend on i-n plus the expected growth rate of nominal GDP (as opposed to the expected rate of inflation). But I can never remember the difference between a forward and a futures contract; the ones I want are where you pay $R this period, in return for a fixed percentage of nominal GDP next period, so a change in R for given expectations affects the real interest rate.</p>

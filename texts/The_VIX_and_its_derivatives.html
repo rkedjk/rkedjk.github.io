@@ -1,0 +1,59 @@
+<h1>The VIX and its derivatives</h1>
+<p><a href='http://voxeu.org/article/vix-and-its-derivatives'>http://voxeu.org/article/vix-and-its-derivatives</a></p>
+<p>The VIX and its derivatives
+
+Enrique Sentana
+
+Determining which risks are worth taking is one of the key problems facing financial market participants. Central to this is the time-varying nature of volatility. This column examines the Chicago Board Options Exchange volatility index, VIX, which has become the standard measure of volatility risk. Complementary approaches to pricing VIX derivatives are considered, and the tumultuous economy since the Great Recession is used to assess the empirical performance of the different models.
+
+Life is uncertain, but some risks are worth taking. Unfortunately, it is not easy to decide which risks fall into that category. We need to estimate the benefits and costs of our actions as well as the odds of success and failure. Nowhere is this perhaps more evident than in financial markets (Danielsson et al. 2015), which are an integral part of the global economy.
+
+Traditionally, it was often assumed that the variability in the prices of financial assets was constant. However, the oil crises of the 1970s and the economic policies adopted to mitigate their effects showed that the assumption of constant volatility in financial markets was untenable. ‘Black Monday’ in October 1987, when most stock markets around the world fell in unison, convinced even the most recalcitrant believers. Nowadays neither academics nor financial market participants question the time-varying nature of volatility, which manifests itself through three different channels:
+
+Volatility clusters, with fairly calmed (i.e. low uncertainty) phases of random length in which price changes tend to be small followed by more turbulent (i.e. high uncertainty) periods with large price changes;
+
+Fat-tailed distributions for returns with both too many big movements and too many modest ones relative to the ‘normal’;
+
+Substantial serial correlation in the magnitudes (but not the levels) of percentage price changes.
+
+Unfortunately, volatility is one of those elegant concepts favoured by economists which cannot be unequivocally measured, a fact that sometimes raises eyebrows among scientists from other disciplines.
+
+In fact, there are at least four ways of measuring volatility in financial markets:
+
+Sample standard deviations over rolling windows of daily observations with possibly exponentially declining weights, as in the popular Riskmetrics software;
+
+Econometric models, such as ARCH or stochastic volatility;
+
+Sample standard deviations using high frequency, intraday price changes, as in the realised volatility literature;
+
+Implied volatilities obtained from financial derivatives such as options.
+
+Among those possibilities, the Chicago Board Options Exchange (CBOE) volatility index, widely known by its ticker symbol VIX, has effectively become the standard measure of volatility risk for investors in the US stock market. Although it was originally introduced in 1993 to track the Black-Scholes implied volatilities of options on the S&P100 with near-the-money strikes, its rise to stardom came in 2003 when the CBOE redefined it as a model-free measure and released a time series of daily closing prices starting in January 1990, which is depicted in Figure 1. Nowadays, VIX is computed in real time using as inputs the mid bid-ask market prices for most calls and puts on the S&P500 index for the front month and the second month expirations.
+
+Figure 1 VIX, daily closing prices time series, 1990-2015
+
+Formally, it is the square root of the risk-neutral expectation of the integrated variance of the S&P500 over the next 30 calendar days, reported on an annualised basis. Despite this rather technical definition, both financial market participants and the media pay a lot of attention to its movements. To some extent, its popularity is due to the fact that VIX changes are negatively correlated to changes in stock prices, the most plausible explanation being that investors trade options on the S&P500 to buy protection in periods of market turmoil, which increases the value of the VIX. In fact, the VIX almost uniformly exceeds realised volatility because investors are on average willing to pay a sizeable premium to acquire a positive exposure to future equity-index volatility. For that reason, some commentators refer to the VIX as the market's fear gauge, even though a high value does not necessarily imply negative future returns.
+
+But apart from its role as a risk indicator, nowadays it is possible to directly invest in volatility as an asset class by means of VIX derivatives. Specifically, in March 2004, trading in futures on the VIX began on the CBOE Futures Exchange (CFE). Further, in February 2006, European-style options on the VIX index were also launched on the CBOE. Like VIX futures, they are cash settled according to the difference between the value of the VIX at expiration and their strike price. More recently, several volatility-related Exchange Traded Notes (ETNs) have provided investors with equity-like long and short exposure to constant maturity futures on the VIX, and even dynamic combinations of long-short exposures to different maturities. Although the poor performance of some of these derivative assets during decreasing volatility periods has raised some concerns about their risks, in recent months trading in VIX-related assets has reached unprecedented levels, representing more than 4% of total volume trade on US exchanges.
+
+One of the main reasons for the high interest in these products is that VIX derivative positions can be used to provide protection against the risks inherent in the S&P500 index, especially in downturns. At the same time, VIX derivatives allow investors to achieve exposure to S&P500 volatility more cheaply than by using traditional derivatives on this broad stock market index.
+
+Although these new assets certainly offer additional investment and hedging opportunities, their correct use requires reliable valuation models that adequately capture the features of the underlying volatility index, which is not a tradeable asset.
+
+In two papers, Javier Mencía and I have developed two complementary approaches to price VIX derivatives (Mencia and Sentana 2013, 2015). Although they differ in many important details, both of them exploit two empirically relevant features of the VIX. First, it is a positive mean-reverting process, which implies that even in the worst days of the 2008 Global Crisis, VIX futures were clearly indicating that volatility would eventually return to more reasonable values. Second, mean reversion to the long run mean can be very slow, with high volatility phases alternating with low volatility ones that can last for several quarters or even years. For example, volatility was remarkably low between February 2006 and July 2007, with values well below the long run historical average of around 20. In fact, the lowest value was 9.89 on 24 January 2007, in what some called ‘the calm before the storm’. Over the following year, VIX increased to values between 20 and 35. Finally, in the autumn of 2008 it reached unprecedented levels, with the largest historical closing price (80.86) taking place on 20 November 2008, although on 24 October the VIX reached an intraday value of 89.53. After this peak, VIX followed a decreasing trend over the following months until the beginning of April 2010, when the Greek debt crisis started worsening. In recent months, the VIX is once again below its long-term value, but it could swiftly move to much higher levels, as it did a year ago motivated by concerns about the Chinese economy.
+
+These markedly different periods provide a very useful testing ground to assess the empirical performance of the different pricing models that we consider — a continuous time model for the log of the VIX and a discrete time process for its level, which explicitly takes into account the positivity of this index.
+
+As usual, we analyse the discrepancies between actual and theoretical derivatives prices. But we also go beyond pricing errors and analyse the implications of our models for the term structures of VIX futures and options, which are of considerable independent interest. Since we combine futures and options data, we can also assess which features of our models are more relevant for pricing futures, and which are more important for options. Moreover, by combining data on VIX derivatives with historical data on the VIX itself, we can not only cover a much longer time span with different volatility phases, but also look at risk premia.
+
+The VIX has been so successful that the CBOE currently applies the same methodology to an ever increasing set of financial assets, including 3-month options on the S&P500, as well as 1-month options on the most important US stock market indices: DJIA, S&P100, Nasdaq 100, and Russell 2000. They also construct analogous short term volatility indices for several actively traded individual stocks, including Amazon, Apple, Goldman Sachs, Google, and IBM, as well as international stock indices for 10-year Treasury notes, interest rate swaps, crude oil, gold, and the US dollar/euro, US dollar/yen, and US dollar/pound exchange rates.
+
+The proliferation of these indices confirms the interest of financial market participants for having accurate and timely measures of risk at their disposal, on which to base their decisions. At the same time, they also raise many research possibilities for academics. Life is indeed uncertain, but the interest in volatility indices is bound to increase over time.
+
+References
+
+Danielsson, D, M Valenzuel and I Zer (2015), "Volatility, financial crises and Minsky's hypothesis", VoxEU.org, 2 October.
+
+Mencía, J and E Sentana (2013) “Valuation of VIX derivatives”, Journal of Financial Economics 108(2): 367-391.
+
+Mencía, J and E Sentana (2015) “Volatility exchange traded assets: An empirical investigation”, CEPR, Discussion Paper 10444, forthcoming in the Journal of Business and Economic Statistics.</p>

@@ -1,0 +1,39 @@
+<h1>Combinatorial Auctions and Binary Quadratic Valuations (Postscript)</h1>
+<p><a href='https://theoryclass.wordpress.com/2014/02/10/combinatorial-auctions-and-binary-quadratic-valuations-postscript/'>https://theoryclass.wordpress.com/2014/02/10/combinatorial-auctions-and-binary-quadratic-valuations-postscript/</a></p>
+<p>In an earlier pair of posts I discussed a class of combinatorial auctions when agents have binary quadratic valuations. To formulate the problem of finding a welfare maximizing allocation let if object is given to agent and zero otherwise. Denote the utility of agent from consuming bundle by
+
+The problem of maximizing total welfare is
+
+subject to
+
+I remarked that Candogan, Ozdaglar and Parrilo (2013) identified a solvable instance of the welfare maximization problem. They impose two conditions. The first is called sign consistency. For each , the sign of and for any is the same. Furthermore, this applies to all pairs .
+
+Let be a graph with vertex set and for any such that introduce an edge . Because of the sign consistency condition we can label the edges of as being positive or negative depending on the sign of . Let and . The second condition is that be a tree.
+
+The following is the relaxation that they consider:
+
+subject to
+
+Denote by the polyhedron of feasible solutions to the last program. I give a new proof of the fact that the extreme points of are integral. My thanks to Ozan Candogan for (1) patiently going through a number of failed proofs and (2) being kind enough not to say :“why the bleep don’t you just read the proof we have.”
+
+Let be the maximal connected components of after deletion of the edges in (call this ). The proof will be by induction on . The case follows from total unimodularity. I prove this later.
+
+Suppose . Let be an optimal solution to our linear program. We can choose to be an extreme point of . As is a tree, there must exist a incident to exactly one negative edge, say . Denote by the polyhedron restricted to just the vertices of and by the polyhedron restricted to just the vertices in the complement of . By the induction hypothesis, both and are integral polyhedrons. Each extreme point of ( ) assigns a vertex of (the complement of ) to a particular agent. Let be the set of extreme points of . If in extreme point , vertex is assigned to agent we write and zero otherwise. Similarly with the extreme points of . Thus, is assigns vertex to agent . Let be the objective function value of the assignment , similarly with .
+
+Now restricted to can be expressed as . Similarly, restricted to can be expressed as . We can now reformulate our linear program as follows:
+
+subject to
+
+The constraint matrix of this last program is totally unimodular. This follows from the fact that each variable appears in at most two constraints with coefficients of opposite sign and absolute value 1 (this is because and cannot both be 1, similarly with the ‘s). Total unimodularity implies that the last program has integral optimal solution and we are done. In fact, I believe the argument can be easily modified to to the case where in every cycle must contain a positive even number of negative edges.
+
+Return to the case . Consider the polyhedron restricted to just one . It will have the form:
+
+Notice the absence of negative edges. To establish total unimodularity we use the Ghouila-Houri (GH) theorem. Fix any subset, , of rows/constraints. The goal is to partition them into two sets and so that column by column the difference in the sum of the non-zero entries in and and the sum of the nonzero entries in differ by at most one.
+
+Observe that the rows associated with constraints are disjoint, so we are free to partition them in any way we like. Fix a partition of these rows. We must show to partition the remaining rows to satisfy the GH theorem. If is present in but is absent (or vice-versa), we are free to assign the row associated with in any way to satisfy the GH theorem. The difficulty will arise when both , and are present in . To ensure that the GH theorem is satisfied we may have to ensure that the rows associated with and be separated.
+
+When is the set of all constraints we show how to find a partition that satisfies the GH theorem. We build this partition by sequentially assigning rows to and making sure that after each assignment the conditions of the GH theorem are satisfied for the rows that have been assigned. It will be clear that this procedure can also be applied when only a subset of constraints are present (indeed, satisfying the GH theorem will be easier in this case).
+
+Fix an agent . The following procedure will be repeated for each agent in turn. Pick an arbitrary vertex in (which is a tree) to be a root and direct all edges `away’ from the root (when is a subset of the constraints we delete from any edge in which at most one from the pair and appears in ) . Label the root . Label all its neighbors , label the neighbors of the neighbors and so on. If vertex was labeled assign the row to the set otherwise to the row . This produces a partition of the constraints of the form satisfying GH.
+
+Initially, all leaves and edges of are unmarked. Trace out a path from the root to one of the leaves of and mark that leaf. Each unmarked directed edge on this path corresponds to the pair and . Assign to the same set that is the label of . Assign to the same set that is the label of vertex . Notice that in making this assignment the conditions of the GH theorem continues to satisfied. Mark the edge . If we repeat this procedure again with another path from the root to an unmarked leaf, we will violate the GH theorem. To see why suppose the tree contains edge as well as . Suppose was labeled on the first iteration and was marked. This means was assigned to . Subsequently will also be assigned to which will produce a partition that violates the GH theorem. We can avoid this problem by flipping the labels on all the vertices before repeating the path tracing procedure.</p>

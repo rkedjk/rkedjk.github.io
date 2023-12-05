@@ -1,0 +1,31 @@
+<h1>‘Metrics Monday: What to Do Instead of log(x +1)</h1>
+<p><a href='http://marcfbellemare.com/wordpress/12856'>http://marcfbellemare.com/wordpress/12856</a></p>
+<p>‘Metrics Monday: What to Do Instead of log(x +1)
+
+I was in Helsinki last week for the UNU-WIDER workshop on the Vietnam Access to Resources Household Survey (VARHS) data, presenting work that my coauthors and I have been doing using these data.
+
+One thing that I saw a few instances of during the workshop was the following. A researcher wants to a variable x in a regression, but that variables needs to be logged. Because there are many zero-valued observations of x, and because log(0) is undefined, the author simply uses log(x +1), or log(x + 0.001), or log(x + 0.00001), and so on.
+
+This post is about what to do in such cases. There are many instances in development where you’d like to include a financial variable–say, the value of chemical fertilizer used on a given plot, for example–where many observations will have a zero-valued observation–in the chemical fertilizer example, not everyone in the data will use chemical instead of organic fertilizer, and so they will report a zero when you ask them what was the value of chemical fertilizer used on any of their plots.
+
+When you want to log a variable x but that x has many zero-valued observations, there are three things you can do in principle:
+
+Use log(x), and let the chips fall where they may, meaning that you just drop those observations for which x = 0. If x is assigned experimentally, there is no harm in doing that. But in most cases, x will not be as good as random, which means that merely dropping those observations for which x = 0 will introduce selection in your sample, which limits the external validity of your findings. Just use x. Presumably, this is not an option if you are here reading this post! More seriously, there are some cases where you really need to take a log. My colleague Jason Kerwin’s rule of thumb is to log all financial variables, for instance, or you might want to estimate a Cobb-Douglas or translog production function. Use log(x + 1), log(x + 0.001), or some variant thereof. This is a method that MaCurdy and Pencavel introduced in a 1986 JPE article, and it has long been the workhorse way to deal with those wayward zero-valued observations. Use the newer, widely accepted way of doing things, which is to take an inverse hyperbolic sine (IHS) transformation of x.
+
+The IHS transformation of x–formally denoted arsinh x, but I usually denote it IHS(x)–is such that
+
+(1) IHS(x) = ln(x + \sqrt(x^2 + 1)),
+
+which you can see here if you have difficulty deciphering the above. If you use Stata, this is what I do to take IHS(x):
+
+. gen IHS_x = ln(x + ((x^2 +1)^0.5))
+
+The beauty of the IHS transformation is that (i) it behaves similar to a log, and (ii) it allows retaining zero-valued observations. In cases where it is useful, it even (iii) allows retaining negative-valued observations; in Bellemare et al. (2013), for instance, we needed to regress marketable surplus (production minus consumption; this can take negative, zero, or positive values) on a number of variables, and so the IHS transformation came in very handy.
+
+When I brought this up to a colleague at the Helsinki workshop, he said: “You should write a ‘Metrics Monday post about this!” My initial reaction was “Why? Everyone knows about this!”But clearly not everyone does know about this, so I came to the conclusion that this post might be worthwhile. This is especially so given that I have had to mention the IHS transformation more times than I can remember when reviewing articles for journals.
+
+Relative to the old-fashioned ln(x + 1) way of dealing with this problem, the IHS transformation is a newer, widely accepted way of dealing with ln(0). Note, however, that it does have its detractors; Martin Ravallion, for instance, notes that the IHS transformation is not concave everywhere, which leads to violations of the Pigou-Dalton transfer axiom when measuring poverty and inequality. For the rest of us, however, taking an IHS transformation is good enough. This is especially so when you apply it to a control variable, i.e., when you apply it neither to your dependent variable or your outcome of interest.
+
+In writing this post, have looked in vain (albeit very quickly) to see if anyone had written anything about what to do with the coefficient on an IHS-transformed variable to recover an elasticity, but could not find anything directly about this. If you know of such an article or resource, let me know, and I’ll be happy to update the post and credit you.
+
+For more about the IHS transformation itself, see Burbidge et al. (JASA, 1988) and MacKinnon and Magee (IER, 1990). For applications, see Moss ans Shonkwiler (AJAE, 1993), Yen and Jones (AJAE, 1997), Pence (beJEAP, 2006), and the aforementioned Bellemare et al. (AJAE, 2013).</p>

@@ -1,0 +1,31 @@
+<h1>Structural uncertainty</h1>
+<p><a href='https://theoryclass.wordpress.com/2014/07/29/structural-uncertainty/'>https://theoryclass.wordpress.com/2014/07/29/structural-uncertainty/</a></p>
+<p>Four agents are observing infinite streams of outcomes in . None of them knows the future outcomes and as good Bayesianists they represent their beliefs about unknowns as probability distributions:
+
+Agent 1 believes that outcomes are i.i.d. with probability of success.
+
+of success. Agent 2 believes that outcomes are i.i.d. with probability of success. She does not know ; She believes that is either or , and attaches probability to each possibility.
+
+of success. She does not know ; She believes that is either or , and attaches probability to each possibility. Agent 3 believes that outcomes follow a markov process: every day’s outcome equals yesterday’s outcome with probability .
+
+. Agent 4 believes that outcomes follow a markov process: every day’s outcome equals yesterday’s outcome with probability . She does not know ; Her belief about is the uniform distribution over .
+
+I denote by the agents’ beliefs about future outcomes.
+
+We have an intuition that Agents 2 and 4 are in a different situations from Agents 1 and 3, in the sense that are uncertain about some fundamental properties of the stochastic process they are facing. I will say that they have `structural uncertainty’. The purpose of this post is to formalize this intuition. More explicitly, I am looking for a property of a belief over that will distinguish between beliefs that reflect some structural uncertainty and beliefs that don’t. This property is ergodicity.
+
+Definition 1 Let be a stationary process with values in some finite set of outcomes. The process is ergodic if for every block of outcomes it holds that A belief is ergodic if it is the distribution of an ergodic process
+
+Before I explain the definition let me write the ergodicity condition for the special case of the block for some (this is a block of size 1):
+
+In the right side of (1) we have the (subjective) probability that on day we will see the outcome . Because of stationarity this is also the belief that we will see the outcome on every other day. In the left side of (1) we have no probabilities at all. What is written there is the frequency of appearances of the outcome in the realized sequence. This frequency is objective and has nothing to do with our beliefs. Therefore, the probabilities that a Bayesian agent with ergodic belief attaches to observing some outcome is a number that can be measured from the process: just observe it long enough and check the frequency in which this outcome appears. In a way, for ergodic processes the frequentist and subjective interpretations of probability coincide, but there are legitimate caveats to this statement, which I am not gonna delve into because my subject matter is not the meaning of probability. For my purpose it’s enough that ergodicity captures the intuition we have about the four agents I started with: Agents 1 and 3 both give probability to success in each day. This means that if they are sold a lottery ticket that gives a prize if there is a success at day, say, 172, they both price this lottery ticket the same way. However, Agent 1 is certain that in the long run the frequency of success will be . Agent 2 is certain that it will be either or . In fancy words, is ergodic and is not.
+
+So, ergodic processes capture our intuition of `processes without structural uncertainty’. What about situations with uncertainty ? What mathematical creature captures this uncertainty ? Agent 2’s uncertainty seems to be captured by some probability distribution over two ergodic processes — the process “i.i.d. ” and the process “i.i.d. ”. Agent 2 is uncertain which of these processes he is facing. Agent 4’s uncertainty is captured by some probability distribution over a continuum of markov (ergodic) processes. This is a general phenomena:
+
+Theorem 2 (The ergodic decomposition theorem) Let be the set of ergodic distributions over . Then for every stationary belief there exists a unique distribution over such that .
+
+The probability distribution captures uncertainty about the structure of the process. In the case that is an ergodic processes is degenerated and there is no structural uncertainty.
+
+Two words of caution: First, my definition of ergodic processes is not the one you will see in textbooks. The equivalence to the textbook definition is an immediate consequence of the so called ergodic theorem, which is a generalization of the law of large numbers for ergodic processes. Second, my use of the word `uncertainty’ is not universally accepted. The term traces back at least to Frank Knight, who made the distinction between risk or “measurable uncertainty” and what is now called “Knightian uncertainty” which cannot be measured. Since Knight wrote in English and not in Mathematish I don’t know what he meant, but modern decision theorists, mesmerized by the Ellsberg Paradox, usually interpret risk as a Bayesian situation and Knightian uncertainty, or “ambiguity”, as a situation which falls outside the Bayesian paradigm. So if I understand correctly they will view the situations of these four agents mentioned above as situations of risk only without uncertainty. The way in which I use “structural uncertainty” was used in several theory papers. See this paper of Jonathan and Nabil. And this and the paper which I am advertising in these posts, about disappearance of uncertainty over time. (I am sure there are more.)
+
+To be continued…</p>

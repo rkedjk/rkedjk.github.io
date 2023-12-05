@@ -1,0 +1,37 @@
+<h1>Fixed Effects Infatuation</h1>
+<p><a href='https://greedgreengrains.blogspot.com/2013/11/fixed-effects-infatuation.html'>https://greedgreengrains.blogspot.com/2013/11/fixed-effects-infatuation.html</a></p>
+<p>The generalizable point of my lengthy post the other day on storage and agricultural impacts of climate change, was that this approach, while useful in some contexts, can have some big drawbacks. Increasingly, I fear applied econometricians misuse it. They found their hammer and now everything is a nail.
+
+
+
+
+
+What's wrong with fixed effects?
+
+
+
+A practical problem with fixed effects gone wild is that they generally purge the data set of most variation. This may be useful if you hope to isolate some interesting localized variation that you can argue is exogenous. But if the most interesting variation derives from a broader phenomenon, then there may be too little variation left over to identify an interesting effect.
+
+
+
+A corollary to this point is that fixed effects tend to exaggerate attenuation bias of measurement errors since they will comprise a much larger share of the overall variation in x after fixed effects have been removed.
+
+
+
+A practical problem with fixed effects gone wild is that they generally purge the data set of most variation. This may be useful if you hope to isolate some interesting localized variation that you can argue is exogenous. But if the most interesting variation derives from a broader phenomenon, then there may be too little variation left over to identify an interesting effect.A corollary to this point is that fixed effects tend to exaggerate attenuation bias of measurement errors since they will comprise a much larger share of the overall variation in x after fixed effects have been removed.
+
+
+
+
+
+In contrast to the nature of economics, regression with fixed effects is a tool designed for experiments with repeated measures. Heterogeneous observational units get different treatments, and they might be mutually affected by some outside factor, but the observational units don't affect each other. They are, by assumption, siloed, at least with respect to consequences of the treatment (whatever your x is). This design doesn't seem well suited to many kinds of observational data.
+
+
+
+I'll put it another way. Suppose your (hopefully) exogenous variable of choice is x, and x causes z, and then both x and z affect y. Further, suppose the effects of x on z spill outside of the confines of your fixed-effects units. Even if fixed effects don't purge all the variation in x, they may purge much of the path going from x to z and z to y, thereby biasing the reduced form link between x and y. In other words, fixed effects are endogenous.
+
+
+
+None of this is to say that fixed effects, with careful account of correlated unobserved factors, can be very useful in many settings. But the inferences we draw may be very limited. And without care, we may draw conclusions that are very misleading. But there is a more fundamental problem. To see this, take a step back and think generically about economics. In economics, almost everything affects everything else, via prices and other kinds of costs and benefits. Micro incentives affect choices, and those choices add up to affect prices, cost and benefits more broadly, and thus help to organize the ordinary business of life . That's the essence of Adam's Smith's "invisible hand," supply and demand, and equilibrium theory, etc. That insight, a unifying theoretical theme if there is one in economics, implies a fundamental connectedness of human activities over time and space. It's not just that there are unobserved correlated factors; everything literally affects everything else. On some level it's what connects us to ecologists, although some ecologists may be loath to admit an affinity with economics.In contrast to the nature of economics, regression with fixed effects is a tool designed for experiments with repeated measures. Heterogeneous observational units get different treatments, and they might be mutually affected by some outside factor, but the observational units don't affect each other. They are, by assumption, siloed, at least with respect to consequences of the treatment (whatever youris). This design doesn't seem well suited to many kinds of observational data.I'll put it another way. Suppose your (hopefully) exogenous variable of choice is, andcauses, and then bothandaffect. Further, suppose the effects ofonspill outside of the confines of your fixed-effects units. Even if fixed effects don't purge all the variation in, they may purge much of the path going from x toandto, thereby biasing the reduced form link betweenand. In other words, fixed effects are endogenous.None of this is to say that fixed effects, with careful account of correlated unobserved factors, can be very useful in many settings. But the inferences we draw may be very limited. And without care, we may draw conclusions that are very misleading.
+
+The fashionable thing to do in applied econometrics, going on 15 years or so, is to find a gigantic panel data set, come up with a cute question about whether some variablecauses another variable, and test this hypothesis by running a regression ofonplus a huge number of fixed effects to control for "unobserved heterogeneity" or deal with "omitted variable bias." I've done a fair amount of work like this myself. The standard model is:y_i,t = x_i,t + a_i + b_t + u_i,twhere a_i are fixed effects that span the cross section, b_t are fixed effects that span the time series, and u_i,t is the model error, which we hope is not associated with the causal variable x_i,t, once a_iIf you're really clever, you can find geographic or other kinds of groupings of individuals, like counties, and include group-by-year fixed effects:y_i,t = x_i,t + a_i + b_g,t + u_i,t</p>

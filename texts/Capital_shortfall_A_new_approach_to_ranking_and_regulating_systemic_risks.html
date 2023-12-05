@@ -1,0 +1,89 @@
+<h1>Capital shortfall: A new approach to ranking and regulating systemic risks</h1>
+<p><a href='http://www.voxeu.org/index.php?q=node/7722'>http://www.voxeu.org/index.php?q=node/7722</a></p>
+<p>Capital shortfall: A new approach to ranking and regulating systemic risks
+
+Viral Acharya, Robert Engle, Matthew Richardson
+
+The effective regulation of banks requires identification of systemically important financial institutions. This column discusses a method to estimate the capital that a financial firm would need to raise if we have another financial crisis. This measure of capital shortfall is based on publicly available information but is conceptually similar to the stress tests conducted by US and European regulators.
+
+The most severe impacts of the financial crisis of 2007–09 arose immediately after the failure of Lehman Brothers on 15 September 2008. It is natural to wonder whether the US should have arranged for an orderly rescue of Lehman as it did for Fannie Mae and Freddie Mac the week before and as it did for AIG, Merrill Lynch, Citigroup, Bank of America, Morgan Stanley, Goldman Sachs, Washington Mutual, and Wachovia as well as many smaller and foreign banks over the next days and weeks. How much capital would have been necessary ex post to arrange such an orderly rescue? A policy recommendation of the Dodd-Frank Act of 2010 is to facilitate orderly liquidation and/or resolution, and require living wills of financial institutions so that no future bailouts will be necessary. Will this work when we need it? There is also a third choice. Rather than discuss whether to rescue or not, it is sensible to regulate ex ante financial institutions whose failure is likely to have major impacts on the financial and real sectors of the economy; for instance, regulate them to reduce their risk, and consequently the probability that taxpayers will face this choice.
+
+Effective and efficient regulation of this type requires identification of systemically important financial institutions. A typical definition has been provided by Federal Reserve Governor Daniel Tarullo (2009): “Financial institutions are systemically important if the failure of the firm to meet its obligations to creditors and customers would have significant adverse consequences for the financial system and the broader economy”. This definition is useful because it highlights two important ideas. The first is that the core problem is a firm’s difficulty in performing financial services when it fails, ie when its capital falls short. The second is that systemic risk matters only to the extent there is an impact on the broader economy. There is a large theoretical and empirical literature that supports these two ideas (see for example Thakor 1996 and Holmstrom and Tirole 1997 on the theoretical side, and Bernanke 1983, Slovin et al 1993 and Gibson 1995 for empirical observations).
+
+The definition, however, misses a key feature of systemic risk. Systemic risk should not be described in terms of a financial firm’s failure per se but in the context of a firm’s overall contribution to system-wide failure. The intuition is straightforward. When only an individual financial firm’s capital is low, the firm can no longer financially intermediate. This has minimal consequences though because other financial firms can fill in for the failed firm’s void. When capital is low in the aggregate, however, it is not possible for other financial firms to step into the breach. This breakdown in aggregate financial intermediation is the reason there are severe consequences for the broader economy.
+
+Motivated from this one economic point, it is possible to provide a precise definition of the systemic risk of a financial firm. Acharya, Pedersen, Philippon, and Richardson (2010) develop a simple model in which a group of banks set leverage levels and choose asset positions in a broader economic environment with systemic risk emerging when aggregate bank capital drops below a given threshold. Within this framework, they show that the systemic risk of a firm is equal to the product of three components:
+
+The focus of this column is on the third component, namely the expected capital shortfall of a firm in a crisis. Expected capital shortfall captures in a single measure many of the characteristics considered important for systemic risk such as size, leverage, and interconnectedness (eg Financial Stability Oversight Council 2011, formed in the US following the Dodd-Frank Act of 2010, for the determined regulatory factors for assessing systemic risk of financial firms). All of these characteristics tend to increase a firm’s capital shortfall when there are widespread losses in the financial sector. But a firm’s expected capital shortfall also provides an important addition, most notably the co-movement of the financial firm’s assets with the aggregate financial sector in a crisis.
+
+Stress tests are a standard device used to determine the capital that an institution will need to raise if there is a financial crisis. Under the Dodd-Frank Act, the regulators in the US are required to conduct annual stress tests to assess capital adequacy of financial firms. The expected capital shortfall estimation we describe below can be a useful tool or substitute for such stress tests.
+
+The methodology
+
+In Brownlees and Engle (2011),1 a model of this form is implemented based on publicly available data in order to determine which institutions are systemically risky, what the cost of a bailout would be, and how this leads naturally to a regulatory strategy. The results of this analysis are updated weekly and posted here. Results are posted both for approximately 100 US financial firms and for 1200 global financial firms. Information from this website will be described below.
+
+The method to be described computes SRISK, which is defined as the capital that a firm is expected to need if we have another financial crisis. To calculate this measure of systemic risk, the method first evaluates the losses that an equity holder would face if there is a “future crisis” which is defined as a sufficiently negative market-wide stock return. Using state-of-the-art econometric methods, the market return is simulated for six months into the future many times. The most pessimistic scenarios for the market return are treated as crisis scenarios.
+
+To be specific, whenever the broad index falls by 40% over the next six months, this is viewed as a crisis. For these scenarios, the expected loss of equity value of firm i is called the Long Run Marginal Expected Shortfall or LRMES. This is just the average of the returns of the firm’s equity in the crisis scenarios. In versions of the model where the simulation is not yet implemented, LRMES is approximated as 1-exp(-18*MES) where MES is the estimated one-day loss expected if market returns are less than -2%. Thus, from a starting value of Equity, the estimate of equity value in a crisis is
+
+(1 – LRMES) * Equity.
+
+The capital shortfall can be directly calculated by recognising that the book value of debt will be relatively unchanged during this six-month period while equity values fall by the Long Run Marginal Expected Shortfall. If a prudential capital ratio is considered to be k which we take as 8% of equity capital relative to its quasi-market value of assets, then the required capitalisation of the firm in a crisis will be k(Debt + (1 – LRMES) * Equity), whereas the expected capitalisation of firm will be (1 – LRMES) * Equity, as explained above. Then, the firm’s capital shortfall SRISK is given by the difference between the required and the expected capitalisations of the firm.
+
+The contribution to aggregate SRISK by any firm can also be tabulated as a firm’s SRISK relative to the total SRISK of the financial sector (that is, the sum of all the positive SRISK’s in the financial sector).
+
+A market-based alternative to Basel risk weights
+
+A reasonable regulatory requirement might be that SRISK is zero, that is, the firm is not expected to be under-capitalised in a crisis relative to the required capitalisation. In this case a firm will not need, at least in expectation, to raise capital in a future crisis of the severity assumed. This then implies a minimum level of required equity capital for the firm today.2 For instance, using numbers from Bank of America in Table 1 below, the Long Run Marginal Expected Shortfall is 71% and imposing a hard capital requirement of k=4%, the required firm-specific ratio of equity to debt today to ensure no under-capitalisation (in a 40% shock to the market) is 0.14 or maximum leverage ratio of debt to equity is 7.1, which is not currently met. For Wells Fargo this calculation gives a maximum leverage of 9.6, which Wells Fargo meets as of today. This way, each firm would have individual prudential capital requirements based on the risk profile of their business. Any firm desiring to reduce its capital requirement could de-lever, de-risk, de-merge or decline bets that are highly correlated with the broad market.
+
+Basel capital requirements use risk weights to adjust assets against which capital must be held. This is in a sense equivalent to our approach but with an important difference. It can be shown that the firm’s required capitalisation can be expressed in terms of the quasi-assets of the firm.3 This then implies that a firm with Assets worth of balance-sheet has “Systemic-Risk-Weighted-Assets” of (1 – (1 – k) LRMES i )-1 * Assets and the required capitalisation of equity is of k * Systemic – Risk – Weighted – Assets. This can be interpreted as the risk-weight corresponding to our approach to measuring and requiring capital against systemic risk.
+
+One can interpret our risk-weight approach as an alternative to the much-criticised Basel risk weights. In theory, the risk-weight based on the systemic measure of the Long Run Marginal Expected Shortfall incorporates the risk of the underlying assets. In terms of the underlying intuition, firms with systemically risky assets and leverage will have higher one-day losses and must hold higher amounts of capital. For example, if the expected return in a crisis is -100%, then the firm would have to be fully capitalised (ie, no debt). If the expected return is 0%, then the firm would need to hold just 4% of capital. During the recent financial crisis, the average return of the 25% worst-performing bank holding companies was -87% versus -17% for the top performing 25%. For k = 4%, this would translate to a 24.27% capital requirement for the more systemic firms and just 4.78% for the less systemic ones.
+
+US systemic risk measures
+
+At the end of 2011 the ten most systemically risky financial firms in the US are given in Table 1, which shows the SRISK for these firms as well as the Long Run Marginal Expected Shortfall, Beta, Leverage and Market Value. Judging from SRISK, the three top firms have the bulk of the contributions to systemic risk. For Bank of America and Citigroup, this is due to high leverage, and for JP Morgan, it is due to its enormous size (Market Value).
+
+Table 2 shows the same information two weeks before the Lehman bankruptcy filing. As can be seen, this is a list of the institutions that were either rescued or restructured. All but one of the top ten firms was on the verge of failure within weeks. The interesting observation is that Lehman was number 11. Perhaps it was believed that this institution was not sufficiently systemic to require rescue or perhaps there was a limit to the resources and Lehman was the next on the list. Nevertheless, the list is a close approximation to the policy decisions that were made at that time.
+
+The same set of results is now available for 1200 global financial institutions. The method is the same although the econometrics is adjusted to incorporate non-synchronous trading in multiple markets. Accounting adjustments due to IFRS vs US GAAP also need to be adjusted for. The resulting list of most systemically risky institutions can be compared with the set of 17 European Banks considered to be Global SIFIs by the BIS/FSB/G20 in their statement released on 4 November 2011. We find that the lists are identical except that NYU list includes Banco Intessa and BIS includes Dexia (which has dropped down to number 20 for NYU). It took the BIS two years and many meetings to develop this list. The NYU list, ranked by SRISK%, has already been updated many times since early November. It remains to be seen how the BIS will rank these financial institutions or set capital charges.
+
+Authors’ Note: Detailed analysis is provided at NYU Stern’s Systemic Risk website. Much of the work presented here comes from various collaborations with Christian Brownlees, Lasse Pedersen, and Thomas Philippon.
+
+References
+
+Acharya, VV, TF Cooley, MP Richardson, and I Walter, eds, (2010), Regulating Wall Street: The Dodd-Frank Act and the New Architecture of Global Finance, Wiley.
+
+Acharya, V V, LH Pedersen, T Philippon, and MP Richardson, “Measuring Systemic Risk”, in Acharya, Cooley, Richardson, and Walter, eds, (2010), Regulating Wall Street: The Dodd-Frank Act and the New Architecture of Global Finance.
+
+Acharya, VV, LH Pedersen, T Philippon, and MP Richardson “Taxing Systemic Risk”, in Acharya, Cooley, Richardson, and Walter, eds, (2010), Regulating Wall Street: The Dodd-Frank Act and the New Architecture of Global Finance.
+
+Acharya, VV, LH Pedersen, T Philippon, and MP Richardson (2010), “Measuring Systemic Risk”, Technical report, Department of Finance, NYU Stern School of Business.
+
+Bernanke, B (1983), “Non-Monetary Effects of the Financial Crisis in the Propagation of the Great Depression”, NBER Working paper No 1054.
+
+Brownlees, C and R Engle (2011), “Volatility, Correlation and Tails for Systemic Risk Measurement”, Working Paper, New York University.
+
+Engle, R (2011), “Dynamic Conditional Beta”, Volatility Institute manuscript, New York University.
+
+Financial Stability Oversight Council (2011) “Annual Report”, US Department of the Treasury.
+
+Gibson, M (1997), “More Evidence on the Link between Bank Health and Investment in Japan”, Journal of the Japanese and International Economies 11(3): 296–310.
+
+Holmstrom, B and J Tirole (1997), “Financial Intermediation, Loanable Funds, and the Real Sector”, Quarterly Journal of Economics 112(3): 663–91.
+
+Slovin, M, M Sushka, and J Polonchek (1993), “The Value of Bank Durability: Borrowers as Bank Stakeholders”, Journal of Finance 48(1): 247–66.
+
+Thakor, AV (1996), “The Design of Financial Systems: An Overview”, Journal of Banking and Finance 20(5): 917–48.
+
+Tarullo, Daniel (2009), “Regulatory Restructuring”, Testimony before the Committee on Banking, Housing, and Urban Affairs, US Senate, Washington, DC, 23 July.
+
+Appendix
+
+Table 1. NYU Stern US Systemic Risk Rankings 27/12/2012 from V-LAB
+
+NAME SRISK LRMES BETA LVG MV Bank Of America 144,115 71 2.28 36.3 56355.4 JP Morgan Chase 138,956 74.53 2.02 17.68 126342.1 Citigroup 125,393 78.61 2.51 23.84 76922.7 Goldman Sachs 54,567 61.86 1.92 20.71 44519.8 Morgan Stanley 52,725 80.38 2.66 25.86 29161.6 MetLife 48,896 70.16 1.83 22.97 32977 Wells Fargo 39,465 59.77 1.54 9.02 145338.3 Prudential Financial 39,131 68.93 1.65 25.25 23656.6 A.I.G. 22,394 66.82 2.1 11.17 44062 Hartford Financial 20,405 66.68 2.2 40.05 7243.3
+
+Table 2. NYU Stern US Systemic Risk Rankings 29/08/2008
+
+NAME SRISK LRMES BETA LVG MV Citigroup 136,739 78.58 2.62 19.99 103407.9 JP Morgan Chase 110,950 83.2 2.42 13.42 132291.7 Bank Of America 97,315 79.32 2.9 11.94 142001.9 Morgan Stanley 70,507 77.84 2.09 23.01 45281 Freddie Mac 68,807 82.5 5.02 297.76 2918 Merrill Lynch 68,523 85 3.43 22.45 43417 Fannie Mae 67,068 92.71 5.51 115.68 7363.9 A.I.G. 66,345 80.25 3.47 17.62 57783 Goldman Sachs 57,738 58.14 1.7 16.99 64572.2 Wachovia Bank 54,173 85.52 3.06 22.4 34304.2 Lehman Brothers 47,552 85.4 5 55.88 11172.9</p>

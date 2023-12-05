@@ -1,0 +1,53 @@
+<h1>Modelling the Macroprudential Balancing Act</h1>
+<p><a href='https://bankunderground.co.uk/2017/07/20/modelling-the-macroprudential-balancing-act/'>https://bankunderground.co.uk/2017/07/20/modelling-the-macroprudential-balancing-act/</a></p>
+<p>Angus Foulis and Jon Bridges
+
+Macropru is new. Although many countries have now used macroprudential tools, there is no well-established guidebook to help policymakers develop their reaction functions. The principles behind macroprudential strategy are still being explored, with recent speeches by Alex Brazier, Vitor Constancio, and a review by the IMF,FSB & BIS. This post illustrates how the balancing act at the heart of the macroprudential debate can be formalised – it is a call to arms for further research, rather than the definitive guide.
+
+The overarching objective of macroprudential policy is to create a financial system that fosters rather than disrupts the growth path of the economy. That applies both to stressed situations and during calmer times. The result is a balancing act, weighing up the benefits of building greater resilience against the cost of any sand in the wheels of credit provision. This post presents a simple model of that trade-off through the lens of the countercyclical capital buffer (CCyB). The CCyB is a macroprudential tool which enables policymakers to vary banks’ required capital buffers through time, as risks from the financial cycle ebb and flow. We explore what might influence how it is used.
+
+Economic shocks are unavoidable, but undue amplification of those shocks through the financial system can be avoided. The risk of amplification is likely to get bigger as indebtedness grows and smaller when banks are more resilient – for example, because of a higher CCyB. Guided by crisis mitigation alone, ever more capital and ever lower credit might seem desirable. But productive finance also supports economic activity, so restricting it too much is costly.
+
+The result is a balancing act between resilience and sustainable credit, which can be summarised in an ad hoc loss function:
+
+where is the setting of the CCyB, with a higher value of representing tighter policy, and is the level of credit provided to the real economy. The first term in the loss function captures the expected loss to the economy in a tail event, it reflects the irreducible potential for bad economic draws ( ), and also the propagation of the resulting losses through the system given credit and the CCyB. For simplicity, propagation is modelled in a linear manner with marginal impacts , and . The second term in the loss function, with relative weight , captures the desire to stabilise credit around its sustainable path, ( ).
+
+The greater resilience induced by setting a higher CCyB is likely to come at the cost of lower levels of credit, presenting a potential trade-off for the policymaker. For a thorough analysis of how changes in capital requirements affect bank behaviour see Bahaj and Malherbe 2016. In this post, we consider a very simple ad hoc transmission mechanism for the CCyB:
+
+where captures the impact of the CCyB on credit and is a credit shock. A key question for dynamic CCyB strategy is whether the level of the CCyB affects credit, or only changes in the CCyB. To explore this, we include the parameter (0,1) in the transmission mechanism. If ( = 0), it is the level of the CCyB which affects credit; if ( = 1) it is changes in required bank capital that matter.
+
+This completes our toy model. Raising the CCyB now has two effects. First, it boosts resilience directly, reducing expected tail losses. Second, it indirectly reduces tail losses, by dampening credit risks. But the trade-off is that raising the CCyB too far could leave credit too far below its equilibrium path ( < ). So what can we learn from this framework?
+
+Static Case
+
+When the policymaker only sets the CCyB for one period, the macroprudential balancing act can be illustrated in a diagram. The blue curves in Figure 1 depict the preferences of the policymaker, with each “indifference” curve showing the combinations of and that result in a common loss. In the region where the optimal solution is found, this curve is downwards sloping and the benefit of higher resilience is bought at the cost of a lower level of credit in the economy. The red line depicts the feasible combinations of and and as given by the transmission mechanism, it shows the level of credit associated with each setting of the CCyB.
+
+In this illustrative framework, the policymaker would optimally choose the CCyB so that their preference to substitute between and is equal to the rate at which they can feasibly do so. This cost-benefit analysis will result in the point and being chosen, at which the red line is tangent to the blue curve. A CCyB reaction function can be derived from this point of tangency:
+
+Despite the stylised setting, this conveys some useful generic principles for macroprudential strategy. First, some insurance should be bought against tail events. Second, policy should be countercyclical – where there are positive shocks ( ) to credit, the tool should be tightened. Third, the amount of insurance bought is an intuitive function of the parameters in the model, which capture preferences and policy transmission.
+
+To illustrate the importance of the transmission mechanism, consider a case where the CCyB has little impact on credit conditions. This is captured by a lower level of ω, which in Figure 1 has the impact of rotating the red line clockwise. In response to this reduced cost of resilience, the CCyB would be raised in this framework, resulting in a new equilibrium and . This speaks to raising the CCyB when it is cheap to do so.
+
+Similarly, the CCyB would be raised in this framework when there is a positive shock to credit . In Figure 1 this would have the effect of shifting the red line outwards, with a greater level of credit associated with each level of the CCyB. In response to this credit boom, the CCyB would be increased to build resilience, offsetting the greater risk of a tail event.
+
+This simple CCyB reaction function also responds to the severity of tail outcomes, for example given a change in the effectiveness of resolution regimes. A greater exogenous tail severity would be captured in a higher , which rotates the blue indifference curves anticlockwise in Figure 2. In this framework, the policymaker would respond by setting a tighter CCyB, with the associated financial stability benefits balancing the costs of lower credit.
+
+Dynamic Case
+
+In practice, the setting of the CCyB is dynamic and costs and benefits must be balanced through time. We need to go beyond comparative statics. To capture this, an extension is considered which minimises the sum of expected future losses, with discount factor . This results in an optimal dynamic policy reaction function for the CCyB:
+
+In the dynamic setting , which captures whether the level ( = 0) or changes ( = 1) in the CCyB affect credit, becomes a key parameter for determining macroprudential strategy. A high value of results in gradualist policy, with significant weight placed on the lagged value of the CCyB. This avoids abrupt policy changes and the associated large impact on credit. Moreover, the long run level of the CCyB will also be high when is high: when it’s predominantly increases in the CCyB that have an impact on credit conditions there will be little long-run trade-off between resilience and lending.
+
+Finally, the model can also be extended to help explore whether macroprudential policy should respond in anticipation of future risks. Suppose at time there is news that the exogenous tail event severity will permanently increase to > in periods’ time. For example, this could reflect news of an event on the horizon that will lead to a period of heightened economic uncertainty. Following the news, the expected path of the CCyB is given by (T s 0)
+
+The parameter is again crucial in determining the dynamic strategy. When = 0, and the level of the CCyB affects credit, the policymaker only responds when actually changes, diminishing the impact on credit for as long as possible. By contrast, when > 0 and increases in the CCyB affect lending, policy will react as the news is announced, to spread the impact on credit over time. This impact of on the response of policy is shown graphically in Figure 3.
+
+We are a long way from a definitive model of the macroprudential balancing act and judgement will always be a key accompaniment in the real world. But a simple framework like the one presented in this post can uncover key questions for future research. For example, it highlights the importance of understanding whether bank lending is affected predominantly by the required level of capital per se or by changes in capital requirements. The model also throws up more general questions, like what is the right measure of financial conditions “B” and what is its equilibrium path ? What is the severity of the tail event ( ) and do stress tests adequately capture its propagation? What is the transmission mechanism of macroprudential tools? There is plenty more to do in order to master the macroprudential balancing act.
+
+Angus Foulis and Jon Bridges both work in the Bank’s Macroprudential Strategy and Support Division.
+
+If you want to get in touch, please email us at bankunderground@bankofengland.co.uk or leave a comment below.
+
+Comments will only appear once approved by a moderator, and are only published where a full name is supplied.
+
+Bank Underground is a blog for Bank of England staff to share views that challenge – or support – prevailing policy orthodoxies. The views expressed here are those of the authors, and are not necessarily those of the Bank of England, or its policy committees.</p>

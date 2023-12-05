@@ -1,0 +1,57 @@
+<h1>Tobler’s Law, Urbanization, and Electoral Bias: Why Compact, Contiguous Districts are Bad for the Democrats</h1>
+<p><a href='http://www.stat.columbia.edu/%7Ecook/movabletype/archives/2009/11/toblers_law_urb.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+StatisticalModelingCausalInferenceAndSocialScience+%28Statistical+Modeling%2C+Causal+Inference%2C+and+Social+Science%29'>http://www.stat.columbia.edu/%7Ecook/movabletype/archives/2009/11/toblers_law_urb.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+StatisticalModelingCausalInferenceAndSocialScience+%28Statistical+Modeling%2C+Causal+Inference%2C+and+Social+Science%29</a></p>
+<p>Jonathan Rodden and Jowei Chen sent me this article:
+
+When one of the major parties in the United States wins a substantially larger share of the seats than its vote share would seem to warrant, the conventional explanation lies in manipulation of maps by the party that controls the redistricting process. Yet this paper uses a unique data set from Florida to demonstrate a common mechanism through which substantial partisan bias can emerge purely from residential patterns. When partisan preferences are spatially dependent and partisanship is highly correlated with population density, any districting scheme that generates relatively compact, contiguous districts will tend to produce bias against the urban party. In order to demonstrate this empirically, we apply automated districting algorithms driven solely by compactness and contiguity parameters, building winner-take-all districts out of the precinct-level results of the tied Florida presidential election of 2000. The simulation results demonstrate that with 50 percent of the votes statewide, the Republicans can expect to win around 59 percent of the seats without any “intentional” gerrymandering. This is because urban districts tend to be homogeneous and Democratic while suburban and rural districts tend to be moderately Republican. Thus in Florida and other states where Democrats are highly concentrated in cities, the seemingly apolitical practice of requiring compact, contiguous districts will produce systematic pro-Republican electoral bias.
+
+My thoughts:
+
+This is cool stuff. Lots of people (going back at least to Bob Erikson in 1972) have talked about the idea that the geographic distribution of voters in modern times favors the Republican Party. The idea is that Democrats are concentrated in high-density areas, and thus geographically-compact districting plans will tend to pack Democratic voters into districts where they have 80% of the vote or whatever, thus wasting their votes. But the present article goes further than previous speculation and even previous data analysis by working with the (nearly) exact location of the voters.
+
+The analyses in the article are great, and it’s fun to see how they play around with the spatial data. A lot more can be done here, I’m sure.
+
+But I’m confused by one thing they write: “we take a unique empirical approach to the analysis of electoral bias. Rather than using district-level information to simulate hypothetical tied elections, we use precinct-level data from an election that was almost an exact tie.” It seems to me they’re mixing two ideas here:
+
+(1) Using precinct-level rather than district-level data.
+
+(2) Using a tied election rather than taking an election that’s, say, 53-47 and shifting it by 3 percentage points.
+
+For point (1), yes, of course precinct level data are better, and it’s great that they put in the effort to get such data. Presumably earlier researchers would’ve used precinct-level data too, had such data been readily available.
+
+For point (2), sure, if you happen to have a tied election, fine. But if you want to extend inference to non-tied elections, then you gotta to what you gotta do. You can’t just keep going back to Florida in 2000 or Missouri in 2008 or whatever, over and over again.
+
+Anyway, I’m not saying they’re doing something wrong here, it just seems funny how they’re presenting the strengths and limitations of their method. I didn’t read every word of the article, but I assume they could apply their ideas to non-tied elections just by shifting to 50/50. And, as Gary and I discussed in our 1994 articles, even if you don’t introduce any national swing at all, you still might want to include variability in your hypothetical replicated elections.
+
+The punchline:
+
+In contemporary Florida, partisans are arranged in geographic space in such a way that virtually any districting scheme favoring contiguity and compactness will generate substantial electoral bias in favor of the Republican Party. This result is driven largely by the partisan asymmetry in voters’ residential patterns: Since the realignment of the party system, Democrats have tended to live in dense, homogeneous neighborhoods that aggregate into landslide Democratic districts, while Republicans live in more sparsely populated neighborhoods that aggregate into geographically larger and more politically heterogeneous districts. This phenomenon appears to substantially explain the pro-Republican bias observed in Florida’s recent legislative elections.
+
+More fundamentally, I guess this might be considered a pro-rural or pro-suburban bias, or an anti-urban bias which would fundamentally alter the representation of different parts of the state, no matter which parties happen to represent them.
+
+One thing that surprised me is that Chen and Rodden did not suggest multimember districts as a way to balance the playing field. Is this a proposal that Democrats in Florida (or elsewhere) should be making?
+
+One other question. If more Democrats tend to win in super-safe districts where they get 70% or 80% of the vote, does this imply that they will be more free in their voting patterns to indulge their personal preferences, compared to Republicans who (on average) might be under more electoral pressure and have to worry more about reelection?
+
+Other things
+
+The graphs are just beautiful. They clearly had fun working with these data.
+
+A few minor comments:
+
+– Table 1 is just silly. “[0.0141, 0.0145]”? Excuse me? “+0.219778”??? You gotta be kidding me here.
+
+– Figures 1 and 2 are fine, but the kernel density in the corner is just tacky. A histogram is the way to go here: it’s better to just see the data directly.
+
+– I have no problem with Figure 3, except that they shouldn’t use the red/blue color scheme–that’s highly confusing given that the colors meant something different in the other figures.
+
+– Figure 4: I’m not really happy with a “local spatial autocorrelation index” that has numbers like 1000 and 2000. Perhaps you can give it a different name; we’re all trained to thing of “correlations” as going between +1 and -1. Also, with these colors, I think you’d get some improvement if you added purple for the close precincts. Otherwise you’re getting some noise from the essentially arbitrary colorings of the precincts that are near 50%.
+
+– Figure 5: The y-axis goes below 0 and above 1. That’s a no-no when displaying proportions. Also, make the dots slightly smaller (I know you can do it; see Figure 1); the overlappage is a bit distracting.
+
+– Figure 6: Cute.
+
+– Figure 7. Something’s wrong with your histogram. On the label it says 1000 simulations, but the y-axis goes up to 600. If the highest histogram bar has 600 points, then the total histogram has many many thousands! Better, I think, to just remove the y-axis entirely.
+
+– Figure 8. A bit confusing to have square graphs with axes on different scales. Just make x and y axes both go from 0 to 1.
+
+– Figure 9: Hey, you used JudgeIt! Cool. Also, please label the lines directly on the graph, and give them different colors! Don’t use that ugly legend that forces the reader to go back and forth, back and forth, to read the damn graph. Also, can’t you go back earlier than 1992?</p>

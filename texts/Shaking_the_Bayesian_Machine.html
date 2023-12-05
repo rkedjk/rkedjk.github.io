@@ -1,0 +1,35 @@
+<h1>Shaking the Bayesian Machine</h1>
+<p><a href='https://normaldeviate.wordpress.com/2013/03/19/shaking-the-bayesian-machine'>https://normaldeviate.wordpress.com/2013/03/19/shaking-the-bayesian-machine</a></p>
+<p>Yesterday we were fortunate to have Brad Efron visit our department and gave a seminar.
+
+Brad is one of the most famous statisticians in the world and his contributions to the field of statistics are too numerous to list. Probably he is best known for: inventing the bootstrap, for starting the field of the geometry of statistical models, for least angle regression (an extension of the lasso he developed with Trevor Hastie, Iain Johnstone and Rob Tibshirani), for his work on empirical Bayes, large-scale multiple testing, and many other things.
+
+He has won virtually every possible award including The MacArthur Award and The National Medal of Science.
+
+So, as you can imagine, his visit was a big deal.
+
+He spoke on Frequentist Accuracy of Bayesian Estimates. The key point in the talk was a simple formula for computing the frequentist standard error of a Bayes estimator. Suppose is the parameter of interest for a statistical model
+
+and we want the standard error of the Bayes estimator .
+
+The formula is
+
+where
+
+and
+
+In addition, one can compute the Bayes estimator (in some cases) by using a re-weighted parametric bootstrap. This is much easier than the usual approach based on Monte Carlo Markov Chain. The latter leads to difficult questions about convergence that are completely avoided by using the re-weighted bootstrap.
+
+See the link to his talk for details and examples.
+
+Now you might ask: why would we want the frequentist standard error of a Bayesian estimator? There are (at least) two reasons.
+
+First, the frequentist can view Bayes as a way to generate estimators. And, like any estimator, we would want to estimate its standard error.
+
+Second, the Bayesian who is not completely certain of his prior (which I guess is every Bayesian) might be interested in doing a sensitivity analysis. One way to do such a sensitivity analysis is to ask: how much would my estimator change if I changed the data? The standard error provides one way to answer that question. Brad called this Shaking the Bayesian Machine. Great phrase.
+
+Following the seminar we had a great dinner. I fully participated in copious reminiscing among senior faculty, while my young colleague Ryan Tibshirani wondered what we were talking about. I’m definitely one of the old experienced guys in the department now.
+
+I asked Brad if he’d like to write a guest post for this blog. He didn’t say yes but he didn’t say no either. Let’s keep our fingers crossed. (I’m happy to report that my colleague Steve Fienberg did commit to writing one.)
+
+Bottom line: Brad is doing lots of cool stuff. Check out his web page.</p>

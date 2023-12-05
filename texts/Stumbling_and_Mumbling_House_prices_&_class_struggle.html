@@ -1,0 +1,39 @@
+<h1>Stumbling and Mumbling: House prices & class struggle</h1>
+<p><a href='http://stumblingandmumbling.typepad.com/stumbling_and_mumbling/2014/06/house-prices-class-struggle.html'>http://stumblingandmumbling.typepad.com/stumbling_and_mumbling/2014/06/house-prices-class-struggle.html</a></p>
+<p>Simon Wren Lewis says high house prices might "reflect a view that real interest rates may stay low for some time". This is because house prices are equal to the discounted present value of future housing services, and a lower interest rate naturally raises that present value.
+
+My chart shows a simple test of this. It plots the house price-earnings ratio against the 10 year index-linked gilt yield; the latter should be a measure of expected real interest rates. There is a correlation here, of -0.47 since 1985. Whether this is strong or weak is arguable*.
+
+But there are good reasons why the correlation should be weakish, even if Simon's right.
+
+One is that house prices are prone to bubbles and busts which might be unrelated to real rates; experimental research shows that asset prices are prone to bubbles and over-reaction.
+
+A second is that the impact of real rates might interact with credit constraints, as John Muellbauer suggests.
+
+A third reason is that the link between expected real rates and house prices depends upon what causes real rates to fall. If they fall exogenously - say because of a shortage of safe assets or global savings glut - then Simon's mechanism applies. But if they fall because of an increase in risk aversion or lower expected future incomes, it might not. This is because expected future housing services would decline along with the discount rate.
+
+This set me wondering: is there a simple way to control for changes in risk aversion or expected incomes to get a cleaner estimate of the interest rate effect?
+
+My first thought was: yes - use equity valuations. The idea here is that if real rates fall because of greater economic pessimism then we'd expect house prices to fall and dividend yields to rise. This should give us a strong negative correlation between real rates and house prices, conditional on the dividend yield, and also a negative correlation between the dividend yield and house prices.
+
+So, I regressed the house price-earnings ratio onto the index-linked yield and All-share dividend yield since 1985. This gives us:
+
+HPE = 3.9 - (0.33 x ILGY) + (0.28 x dividend yield)**
+
+The coefficient on the index-linked yield corroborates Simon. It implies that a four-point fall in the index-linked yield raises the house-price-earnings ratio by around 1.3 notches.
+
+But the coefficient on the dividend yield is the wrong sign! Higher dividend yields - stock market pessimism - are associated with higher house prices***. What could explain this?
+
+Class struggle, that's what. Think of share prices as a claim on future profits and house prices as a claim on future wages; we buy housing services out of wages. We'd then expect to see share and house prices move in opposite directions if expectations about income shares vary more than expectations about future aggregate incomes. Lettau and Ludvigson (pdf) and Danthine and Donaldson (pdf) show that this can be the case.
+
+I'd draw two lessons here:
+
+- When you do any empirical work, you often find surprising results, and these can be easily rationalized.
+
+- If my inference is right, and if you believe the profit share will rise in coming years for Piketty or McAfee/Brynjolfsson reasons, then we have another threat to house prices - distribution risk.
+
+* I'm not sure the standard warning about spurious correlations in trended variables applies here, as Simon's claim is that the downward trend in long-term interest rates has caused an upward trend in house prices.
+
+** R-squared = 28%, everything's statistically significant.
+
+*** This remains true even if we control for policy uncertainty, as measured by the Baker-Bloom-Davis index.</p>

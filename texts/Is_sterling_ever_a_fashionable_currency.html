@@ -1,0 +1,119 @@
+<h1>Is sterling ever a fashionable currency?</h1>
+<p><a href='http://bankunderground.co.uk/2016/02/26/is-sterling-ever-a-fashionable-currency/'>http://bankunderground.co.uk/2016/02/26/is-sterling-ever-a-fashionable-currency/</a></p>
+<p>Jihyoung Yi.
+
+Despite the fact that the US dollar and the euro are the most traded currencies in terms of shares of average daily turnover (2013, BIS), my analysis suggests that foreign exchange rate (FX) market trends are usually driven by other currencies. Most notably, ‘commodity’ currencies (such as the Australian dollar and Mexican peso) and ‘carry-trade’ currencies (such as the Swiss franc and Japanese yen) tend to be the main drivers. In contrast, sterling typically does not often drive currency movements – FX strategists often consider that it is rare for sterling to be ‘the story’ amongst the speculative community in the FX market. But this is not always the case. This blog post zooms in on a selection of sub-periods to show when particular currencies, including sterling, became ‘focal’.
+
+Application of minimum spanning trees (MSTs) to FX market analysis
+
+A correlation coefficient matrix provides a detailed snapshot of individual bilateral correlations, but it is difficult to identify broad currency groupings and interrelationships. Just among nine currencies, there are 72 possible bilateral exchange rate combinations (eight for each currency) where all currencies are quoted as both base and price currencies, e.g., for GBP/USD, sterling is the base currency while the US dollar is the price one. This in turn gives as many as 2,556 correlation coefficients of the price returns between these exchange rates, i.e., .
+
+To simplify the analysis of the relationships between this large group of relative prices, it is possible to summarise them visually as a network using MSTs. We can think of the FX market as a graph where a set of nodes denotes exchange rates while the edges connecting nodes represent correlation coefficients between the exchange rates as in Figure 1A. An MST provides the network where every node is connected without starting and ending at the same node such that the sum of the correlations is maximised as in Figure 1B – the annex sets out further details with sample codes in R. Thus, an MST represents the most highly correlated pairs of exchange rates in the network by price returns, reducing 2,556 correlation coefficients into only 72 nodes.
+
+Figure 1A: An undirected graph of a simplified foreign exchange rate network
+
+Figure 1B: The minimum spanning tree of the graph in Figure 1A
+
+
+
+
+
+In an MST, foreign exchange rates are connected to each other such that the sum of the correlation coefficients between the price returns of foreign exchange rate pairs is maximised. So, the more positively correlated the exchange rate pairs are by price returns, the more likely they are to be connected within the MST. In this regard, very close clustering of pairs with the same base can be interpreted as an indication that the base currency is ‘fashionable’ with the speculative community. In other words, it is likely that the base currency has been systematically driving movements in the exchange rates in the cluster against other currencies. Note that negative correlations are underrepresented in the MST. For instance, EUR/GBP and GBP/CHF generally tend to be highly negatively correlated with each other. And thus, the correlation of price returns between these two exchange rates is generally not picked out in the MST. However, the mirror image of this relationship, EUR/GBP and CHF/GBP (the inverse of GBP/CHF), tends to be connected in the MST due to a strong positive correlation. As such, all currencies are paired with all other currencies both as a base currency and a price currency even though there is an established market convention in foreign exchange rate quotation where certain currencies have precedence as a base currency over others (2005, McDonald et al.).
+
+Stylised facts
+
+To investigate broad patterns that arise in the foreign exchange rate network over time, it is necessary to scrutinise a very large number of MSTs. To help with this, animations can be used to get a sense of which currencies tend to cluster. Animation 1 combines around 3,000 daily snapshots between 2003 and 2015, with correlations calculated on a 52-week rolling window basis. Table 1 lists the selection of currencies used and the colours of nodes that correspond to some broad currency groupings. Chart 1 provides a single static MST that broadly captures these wider trends. While it covers the pre-crisis period only, this is largely incidental; post-crisis, the currencies that have formed clear groupings most often have tended to be the same ones as pre-crisis.
+
+Animation 1: Dynamic MST on a 52-week rolling window basis from 2003 to 2015 Table 1: Selection of currencies and colours for their nodes Name of currency Ticker Symbol Node colour by base currency British pound sterling GBP Sterling Australian dollar AUD Commodity New Zealand dollar NZD Canadian dollar CAD Mexican peso MXN US dollar USD US dollar and Chinese yuan Chinese yuan CNY/CNH Euro EUR Europe Japanese yen JPY Carry trade Swiss franc CHF Russian rouble RUB Russian rouble Sources: Bank calculations, BIS, and Bloomberg.
+
+Chart 1: MST for 3 January 2005 – 29 December 2006 (pre-financial crisis)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+Financial crisis period from 8 Aug 2007 to 31 Dec 2009
+
+During the financial crisis, there is, unusually, clustering of sterling nodes in the MST (Chart 2). This captures the broad-based depreciation of sterling during the crisis, due to the relatively large exposure of the UK economy to the financial sector. Also, the carry trade currencies no longer cluster in the same group reflecting a sharp reversal of the Japanese yen carry trade and the strong appreciation of the currency in 2007.
+
+Chart 2: MST for 8 August 2007 – 31 December 2009 (financial crisis)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+2010 UK general election from 4 Jan 2010 to 30 Jun 2010
+
+Another period when sterling became a ‘popular’ currency was during the first half of 2010, ahead of the UK general election. During this period, elevated political uncertainty led to increased co-movement across sterling pairs, causing a clear sterling cluster to form (Chart 3).
+
+Chart 3: MST for 4 January 2010 – 30 June 2010 (2010 UK general election)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+2014 sterling bull-run from 1 Apr 2014 to 31 Jul 2014
+
+Market contacts also suggested that sterling was in the spotlight for FX traders during the first half of 2014, due to strong UK data relative to other advanced economies and the associated nearing in the expected timing of the first interest rate rise. And, again, there is a clear sterling cluster in 2014 Q2 (Chart 4).
+
+Chart 4: MST for 1 April 2014 – 31 July 2014 (sterling bull-run)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+Also, it is interesting to note a clear rouble theme at this time, reflecting political tensions between Russia and Ukraine. Indeed, the Russian rouble shows a very strong clustering behaviour, with all of the exchange rates with the Russian rouble as the base currency connected in one cluster.
+
+2014 Scotland referendum from 4 Sep 2014 to 19 Sep 2014
+
+There is also tentative evidence of short-lived emphasis on sterling trades based on intraday data. An MST constructed using hourly data over the two weeks before and a day after the time of the Scotland referendum indicates a relatively stronger-than-usual clustering of sterling nodes against the euro and the two carry trade currencies (Chart 5). Broadening the length of the window in either direction tends to weaken this result. This is consistent with what we heard from market contacts that investors only really became alert to political risk associated with the referendum around two weeks ahead of the vote. That said, the extent of clustering was more limited than during the 2010 general election period. That may be because most of the positioning was via options, rather than spot.
+
+Chart 5: High-frequency MST for 4 September 2014 – 19 September 2014 (2014 Scotland referendum)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+Another interesting episode we can observe with intraday data is when the Swiss franc appreciated very sharply at the start of 2015 following the SNB announcement that it had abandoned the Swiss franc ceiling. The Swiss franc appreciated more than 15% against all of the sample currencies from 15 January to 23 January 2015. This is clearly evident in the high-frequency MST (Chart 6), where Swiss franc nodes form a cluster.
+
+Chart 6: High-frequency MST for 15 January 2015 – 23 January 2015 (2015 SNB announcement)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+2015 UK general election from 20 April 2015 to 28 May 2015
+
+As in the previous election period, sterling trade along with the euro was ‘in vogue’ around two to three-weeks before and after the election date (Chart 7).
+
+Chart 7: High-frequency MST for 20 April 2015 – 28 May 2015 (2015 general election)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+In a surprising move, the People’s Bank of China (PBoC) made a change in the calculation of the yuan’s daily midpoint reference rate against the US dollar on 11 August. Market contacts then suggested that Chinese FX market developments continued to be the dominant influence on sentiment across financial markets. Consistent with this, the yuan trade became focal for about a couple of weeks after the announcement of the change (Chart 8).
+
+Chart 8: High-frequency MST for 11 August 2015 – 24 August 2015 (volatility in Chinese yuan)
+
+
+
+Sources: Bank calculations, BIS and Bloomberg.
+
+Conclusion
+
+Broadly, it is unusual for sterling to become ‘the story’ among the speculative community in the foreign exchange market. And this is borne out by the relative rarity of strong co-movement across sterling exchange rate pairs. But there are a number of episodes during which sterling has come to the fore, with associated clustering occurring in the MSTs. Political risk appears to be particularly important, suggesting that it might be reasonable to expect stronger co-movement to emerge in the run-up to a European referendum in the UK in the foreseeable future.
+
+Annex: Derivation of correlation-based minimum spanning trees
+
+Sample MST codes for R
+
+Code 1: Static_MST
+
+Code 2: Dynamic_MST
+
+Jihyoung Yi works in the Bank’s Foreign Exchange Division.
+
+If you want to get in touch, please email us at bankunderground@bankofengland.co.uk. You are also welcome to leave a comment below. Comments are moderated and will not appear until they have been approved.
+
+Bank Underground is a blog for Bank of England staff to share views that challenge – or support – prevailing policy orthodoxies. The views expressed here are those of the authors, and are not necessarily those of the Bank of England, or its policy committees.</p>

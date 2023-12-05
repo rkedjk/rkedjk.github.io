@@ -1,0 +1,25 @@
+<h1>Control Variables: More Isn’t Necessarily Better</h1>
+<p><a href='http://marcfbellemare.com/wordpress/11037'>http://marcfbellemare.com/wordpress/11037</a></p>
+<p>Control Variables: More Isn’t Necessarily Better
+
+My experience with blogging tells me that a post on applied econometrics is always a good way to start the week by generating a large number of views, so let me do a ‘Metrics Monday yet again this week.
+
+A few weeks ago, Google Scholar alerted me that a new working paper by Giuseppe de Luca, Jan Magnus, and Franco Peracchi might be of interest to me, given the research topics associated with my profile. (I was under the impression that their paper was forthcoming in the Journal of Labor Economics, but I somehow cannot find any evidence that this is so. No matter, this is an important contribution.)
+
+Let me first present the abstract of the article, which even after reading three times, I had a hard time making heads or tails of given how cryptic it was. Then, I will present the first few paragraphs of the article, which illustrate the point much better. I’ll then go into the results, which are actually pretty important for applied econometrics.
+
+Here is de Luca et al.’s abstract:
+
+This paper studies what happens when we move from a short regression to a long regression (or vice versa), when the long regression is shorter than the data-generation process. In the special case where the long regression equals the data-generation process, the least-squares estimators have smaller bias (in fact zero bias) but larger variances in the long regression than in the short regression. But if the long regression is also misspecified, the bias may not be smaller. We provide bias and mean squared error comparisons and study the dependence of the differences on the misspecification parameter.
+
+Somewhat cryptic, at least to my applied mind. The first two paragraphs of the introduction provide a better idea of what’s going on:
+
+Ludwig van Beethoven composed nine symphonies. Suppose a tenth symphony is discovered. There is no full score, only three parts are available: first violin, cello, and clarinet. This version is recorded and creates a big hit. Of course everybody realizes that many instruments are missing — still, it seems one gets a good idea of Beethoven’s tenth. Now the trumpet part is discovered and a new recording is made. The new recording is received less enthusiastically than the first recording and music experts claim that adding the trumpet moves us away from how the real symphony should sound. This creates a puzzle and a debate among scientists of various disciplines. How is it possible that getting closer to the true instrumentation does not get us closer to the true sound? Of course, adding all instruments to the score creates the true sound, but it seems that adding only some of them may not lead to an improvement. An addition in itself is not necessarily an improvement, it must be a ‘balanced addition’.
+
+So here is what’s going on: Suppose the true data-generating process (DGP) for an outcome variable Y is composed of three variables, viz. X1, X2, and X3. Ideally, you would want to have all three variables, because regressing Y on all three of them yields an unbiased estimate (albeit one that has larger variance, but that is something one can live with) of the coefficient on X1. But if you only have access to Y and X1, you know your estimate of the coefficient on the latter to be biased.
+
+Now suppose you get your hands on X2. “Sweet!,” you think, “Throwing this new variable in will reduce the bias in the estimated coefficient for X1.” Right?
+
+Not necessarily, actually. The point that de Luca et al. make in their paper is that this new addition–here, X2–has to be “balanced,” which their paper aims at defining. Otherwise, its addition might actually increase both the variance and the bias of your coefficient of interest.
+
+I probably won’t surprise anyone by saying this is actually really important for the practice of econometrics. And in a way, that is something that we intuitively understand and try to insure against when we present increasingly complex sets of results. Ever notice how common it is to present, say, three to five columns of results, from the most parsimonious specification–say, a regression of Y on just D, your variable of interest–in the first column to the least parsimonious specification–say, a regression of Y on D, but also different groups of controls, e.g., plot-, individual-, and household-specific controls–in the last column? The reason we do this is to assess just how stable our estimated coefficient is, and the goal of this exercise is to check whether there aren’t any wild swings in the estimated coefficient.</p>

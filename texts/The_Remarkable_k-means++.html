@@ -1,0 +1,39 @@
+<h1>The Remarkable k-means++</h1>
+<p><a href='https://normaldeviate.wordpress.com/2012/09/30/the-remarkable-k-means/'>https://normaldeviate.wordpress.com/2012/09/30/the-remarkable-k-means/</a></p>
+<p>1. The Problem
+
+One of the most popular algorithms for clustering is k-means. We start with data vectors . We choose vectors — cluster centers — to minimize the error
+
+Unfortunately, finding to minimize is NP-hard. The usual iterative method, \hrefnosnap{http://en.wikipedia.org/wiki/Lloyd is easy to implement but it is unlikely to come close to minimizing the objective function. So finding
+
+isn’t feasible.
+
+To deal with this, many people choose random starting values, run the -means clustering algorithm then rinse, lather and repeat. In general, this may work poorly and there is no theoretical guarantee of getting close to the minimum. Finding a practical method for approximately minimizing is thus an important practical problem.
+
+2. The Solution
+
+David Arthur and Sergei Vassilvitskii came up with a wonderful solution in 2007 known as k-means++.
+
+The algorithm is simple and comes with a precise theoretical guarantee.
+
+The first step is to choose a data point at random. Call this point . Next, compute the squared distances
+
+Now choose a second point from the data. The probability of choosing is . Now recompute the distance as
+
+Now choose a third point from the data where the probability of choosing is . We continue until we have points . Finally, we run -means clustering using as starting values. Call the resulting centers .
+
+Arthur and Vassilvitskii prove that
+
+The expected value is over the randomness in the algorithm.
+
+There are various improvements to the algorithm, both in terms of computation and in terms of getting a sharper performance bound.
+
+This is quite remarkable. One simple fix, and an intractable problem has become tractable. And the method comes armed with a theorem.
+
+3. Questions
+
+Is there an R implementation? It is easy enough to code the algorithm but it really should be part of the basic k-means function in R. Is there a version for mixture models? If not, it seems like a paper waiting to be written. Are there other intractable statistical problems that can be solved using simple randomized algorithms with provable guarantees? (MCMC doesn’t count because there is no finite sample guarantee.)
+
+4. Reference
+
+Arthur, D. and Vassilvitskii, S. (2007). k-means++: The advantages of careful seeding. Proceedings of the eighteenth annual ACM-SIAM symposium on Discrete algorithms. 1027–1035.</p>

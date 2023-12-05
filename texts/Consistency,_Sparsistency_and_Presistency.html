@@ -1,0 +1,37 @@
+<h1>Consistency, Sparsistency and Presistency</h1>
+<p><a href='https://normaldeviate.wordpress.com/2013/09/11/consistency-sparsistency-and-presistency/'>https://normaldeviate.wordpress.com/2013/09/11/consistency-sparsistency-and-presistency/</a></p>
+<p>There are many ways to discuss the quality of estimators in statistics. Today I want to review three common notions: presistency, consistency and sparsistency. I will discuss them in the context of linear regression. (Yes, that’s presistency, not persistency.)
+
+Suppose the data are where
+
+, and . Let be an estimator of .
+
+Probably the most familiar notion is consistency. We say that is consistent if
+
+as .
+
+In recent years, people have become interested in sparsistency (a term invented by Pradeep Ravikumar). Define the support of to be the location of the nonzero elements:
+
+Then is sparsistent if
+
+as .
+
+The last one is what I like to call presistence. I just invented this word. Some people call it risk consistency or predictive consistency. Greenshtein and Ritov (2004) call it persistency but this creates confusion for those of us who work with persistent homology. Of course, presistence come from shortening “predictive consistency.”
+
+Let be a new pair. The predictive risk of is
+
+Let be some set of ‘s and let be the best in . That is, minimizes subject to . Then is presistent if
+
+This means that predicts nearly as well as the best choice of . As an example, consider the set of sparse vectors
+
+(The dimension is allowed to depend on which is why we have a subscript on .) In this case, can be interpreted as the best sparse linear predictor. The corresponding sample estimator which minimizes the sums of squares subject to being in , is the lasso estimator. Greenshtein and Ritov (2004) proved that the lasso is presistent under essentially no conditions.
+
+This is the main message of this post: To establish consistency or sparsistency, we have to make lots of assumptions. In particular, we need to assume that the linear model is correct. But we can prove presistence with virtually no assumptions. In particular, we do not have to assume that the linear model is correct.
+
+Presistence seems to get less attention than consistency of sparsistency but I think it is the most important of the three.
+
+Bottom line: presistence deserves more attention. And, if you have never read Greenshtein and Ritov (2004), I highly recommend that you read it.
+
+Reference:
+
+Greenshtein, Eitan and Ritov, Ya’Acov. (2004). Persistence in high-dimensional linear predictor selection and the virtue of overparametrization. Bernoulli, 10, 971-988.</p>

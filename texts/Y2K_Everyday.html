@@ -1,0 +1,35 @@
+<h1>Y2K Everyday?</h1>
+<p><a href='http://www.digitopoly.org/2017/07/14/y2k-everyday/'>http://www.digitopoly.org/2017/07/14/y2k-everyday/</a></p>
+<p>[This post appeared on HBR Online on 14th July 2017]
+
+Almost 20 years have passed since the corporate world woke up to long-term problems in computer code, which became known as Y2K. Over the previous decades, software developers had used the date 01-01-00 (January 1, 2000) as a convenient hack to make it easier to debug software. The problem was that it wasn’t taken out. So as 2000 loomed, there was a realization that, when the clocks hit midnight, software all over the world could simply stop running. Thankfully, at a cost of a few billion dollars, the software was audited and patched, and businesses went back to worrying about other things.
+
+But at a recent workshop organized by the Ford and Sloan Foundations, I learned that Y2K-type concerns are far from over. And unlike Y2K itself, they are much harder to identify, let alone fix.
+
+The base of all this is open-source code. Open source is where programmers share subroutines, protocols, and other software with each other and allow anyone to use it for virtually any purpose. It has arguably saved billions in development expenses by reducing duplicative effort and allowing complementary innovation without requirement permission or payment.
+
+Open-source code resides everywhere. If you’ve hired a software developer, their work mostly likely contained code from the open-source community. The same goes for software programs. Let me take my favorite example, the Network Time Protocol, or NTP. Invented by David Mills of the University of Delaware, it is the protocol that has been keeping time on the internet for over 30 years. This is important because all computer systems require reliable time — even more so if they communicate with one another. This is how stock exchanges timestamp trade. In a world of high-frequency trading, imagine if there was no agreement as to what that time was. Chaos would reign.
+
+You might think that time is a pretty stable thing. But it’s not. What we call “time” changes over time. Different countries set their clocks back or move them ahead, and every so often we have a leap second event that requires everyone to recognize an extra second at the same time. To add to that, time must be kept down to the millisecond, which means the server that houses time has to operate very precisely.
+
+Now for the scary part. What if I told you that the entire NTP relies on the sole effort of a 61-year-old who has pretty much volunteered his own time for the last 30 years? His name is Harlan Stenn, he lives in Oregon, in the United States, and he is so unknown that he does not even appear on the NTP Wikipedia page.
+
+For a number of years Stenn has worked on a shoestring budget. He is putting in 100 hours a week to put patches on code, including requests from big corporations like Apple. A look at the NTP homepage will give you a sense of the struggle. It looks like it comes from another era. And this has led to delays in fixing security issues and complaints. And not surprisingly, Stenn has become crankier:
+
+“Yeah, we think these delays suck too. “Reality bites – we remain severely underresourced for the work that needs to be done. You can yell at us about it, and/or you can work to help us, and/or you can work to get others to help us.”
+
+NTP has had some donations, but its constant pleading for help is worrisome.
+
+This is just one example. And in many ways, it is the easiest to understand and potentially fix. The fact that it hasn’t been is the bigger mystery.
+
+Open-source code is embedded throughout all software. And since it interacts with other code and is constantly changing, it is not a set-it-and-forget-it deal. No software is static.
+
+Last year we saw the consequences from this when a 28-year-old developer briefly “broke“ the internet because he deleted open-source code that he had made available. The drama occurred because the developer’s program shared a name with Kik, the popular Canadian messaging app, and there was a trademark dispute. The rest of the story is complicated but has an important takeaway: Our digital infrastructure is very fragile.
+
+There are people so important to maintaining code that the internet would break if they were hit by a bus. (Computer security folks literally call this the “bus factor.”) These people are well-meaning but tired and underfunded. And I haven’t even gotten to the fact that hard-to-maintain code is precisely where security vulnerabilities reside (just ask Ukraine).
+
+All this makes Y2K look like a picnic, especially since the magnitude of these issues is unknown. Individual companies have no idea how vulnerable they might be. And it may be slow-moving — systems slowly being corrupted without causing crashes that are visible. Finally, since open-source platforms have been built by a community that has relished its independence, the problems won’t be easy to fix using traditional commercial or governmental approaches.
+
+There are pioneers who are working on the problem. Open Collective is providing resources to aggregate the needs of groups of open-source projects to assist in financing, resourcing, and maintenance. Another organization, libraries.io, is doing a heroic job of indexing projects, including much-needed documentation and a map of relationships between projects. But none of these have support from the businesses most vulnerable to the issues.
+
+When Y2K emerged, publicly listed companies were told to catalog their vulnerabilities and plans. The time has come again for markets (and perhaps regulators) to demand similar audits as a first step toward working out the magnitude of the problem. And maybe — just maybe — those corporations will find a way to support the infrastructure they are depending on, rather than taking it blindly as some unacknowledged gift. Every day is now Y2K.</p>

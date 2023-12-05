@@ -1,0 +1,55 @@
+<h1>Opening the machine learning black box</h1>
+<p><a href='https://bankunderground.co.uk/2019/05/24/opening-the-machine-learning-black-box/'>https://bankunderground.co.uk/2019/05/24/opening-the-machine-learning-black-box/</a></p>
+<p>Andreas Joseph
+
+Machine learning models are at the forefront of current advances in artificial intelligence (AI) and automation. However, they are routinely, and rightly, criticised for being black boxes. In this post, I present a novel approach to evaluate machine learning models similar to a linear regression – one of the most transparent and widely used modelling techniques. The framework rests on an analogy between game theory and statistical models. A machine learning model is rewritten as a regression model using its Shapley values, a payoff concept for cooperative games. The model output can then be conveniently communicated, eg using a standard regression table. This strengthens the case for the use of machine learning to inform decisions where accuracy and transparency are crucial.
+
+Why do we need interpretable models?
+
+Statistical models are often used to inform decisions, eg a bank deciding if it grants a mortgage to a customer. Let Alice be that customer. The bank could check her income and previous loan history to estimate how likely Alice is to repay a mortgage and set the terms for the loan. A standard approach for this type of analysis is to use a logistic regression. This returns a ‘probability of default’, ie the chance that Alice won’t be able to repay the loan, spelling trouble for the bank and herself.
+
+A logistic regression is a very transparent model. It attributes well-defined risk weights to each of its inputs. The transparency comes at a cost though: logistic regressions assume a particular relationship between the explanatory factors. This may not hold, in which case the model’s predictions may be misleading. Machine learning models are more flexible and therefore capable to detect finer nuances provided there is enough data to ‘train’ a model. This is also the reason for their current success and increasing popularity ranging from personalised movie recommendations over credit scoring to medical applications.
+
+However, the cost of this flexibility is opaqueness, which gives rise to the black box critique of machine learning models. It is often not clear which inputs are driving the predictions of the model. Furthermore, a well-grounded statistical analysis of the model is generally not possible. This can lead to ethical and legal challenges if models are used to inform decisions affecting the lives of individuals. This is particularly true for models from deep learning which are driving many AI developments.
+
+There also are concerns regarding the interpretability of machine learning models more specific to policy makers, like eg at the Bank of England’s decision-making committees. First, when using machine learning alongside more traditional approaches, it is important to understand where they differ. Second, a challenge in decision making is trying to understand how relationships between variables might change in the light of policy actions. In both cases, interpretable and transparent models are likely to be very helpful.
+
+Opening the black box
+
+It would therefore be of great use to bring machine learning into the same playing field as currently used models. This would promote transparency and likely speed up model development while helping to avoid harmful bias. Such an approach is laid out here. The idea is to separate statistical inference into two steps. First, the contribution each variable makes to a model is measured. Second, these contributions are taken as the input to a standard regression analysis.
+
+As for the first step, previous work established an analogy between cooperative game theory and statistical models. In the former, players work together to generate a payoff. In the latter, variables jointly determine the predictions of a model. Given that the skills of a player can complement or substitute those of another player, it is not clear how to assign payoffs between players. The same situation applies to variables which can be correlated or interact with each other in unknown ways.
+
+Shapley values are an elegant solution from game theory to this problem. They were discovered by the Nobel Prize winning economist and mathematician Lloyd Shapley in 1953. The basic intuition of the Shapley value of a player in a cooperative task or game is the surplus this player generates given all other players in the game.
+
+As an illustrative example imagine three siblings, one strong, one tall and one intelligent, who want to nick apples hanging over from branches of a neighbour’s tree. The apples are hanging too high for any of them alone to reach but two working together can get some, while all three joining forces would get even more. This is a simple cooperative ‘game’ where the payoff is the amount of apples the kids make off with.
+
+The Shapley value of each sibling is the difference in the amount of apples they get between all three working together and any combination of the other two doing so, either together or individually, with the latter being none as no one can get any on its own. How do we get back to a statistical model? We make the following correspondence. We replace the neighbour’s apples with a value to calculate, eg Alice’s probability of loan default, and the kids with variables in a model, eg her employment status in the above logistic regression or an artificial neural network (NN) from machine learning. We then do a similar calculation as above, ie compare model predictions for including and excluding a variable from a model. The Shapley value of a variable now attributes the amount of model output due to that variable.
+
+The sum of all Shapley values gives us the model prediction by construction. This is a linear relationship. Hence, we can now reformulate a model as a linear regression over its variables’ Shapley values. This, in turn, enables us to test hypotheses on the model. For example, we can test if a variable contributes significantly different from zero on average – a standard test in a regression analyses.
+
+A simple application in a central banking context
+
+What are the dependencies between macroeconomic variables and which variables best predict certain outcomes looking into the future are questions relevant to central banks, like the Bank of England. As an example we built a NN to predict changes in unemployment one year ahead using other macroeconomic and financial variables. One of these variables is past growth in private sector debt. We now can use model Shapley values to extract the contribution of changes in debt to changes in unemployment within the NN.
+
+Figure 1: Input-output relation for private sector debt within an artificial neural network (NN) for modelling changes in UK unemployment. The red and green lines represent best-fit regression lines for negative and positive input values, respectively.
+
+Figure 1 shows the relation between the two learned by the NN (blue squares). Input values (changes in debt) are shown on the horizontal axis (standardised to a mean of zero and standard deviation of one). The Shapley values of this variable in the model are shown on the vertical axis. These are the values the model adds to its prediction of change in unemployment coming from changes in debt.
+
+This relationship is clearly non-linear as shown by the kink at the mean zero value. When growth of private debt is less than average it has a positive relationship with future unemployment (red line) but the opposite holds for above average debt growth (green dashed line). This non-linearity is not complex but important and would be hard to specify without prior knowledge. The NN is able to learn it directly from the data, while the Shapley regression framework can be used to examine this relation statistically. Table 1 shows the output from such an analysis in the form of a standardised regression table comparing results for the UK and the US for a subset of input variables into the NN using data from either country.
+
+Table 1: Shapley share coefficients for a selection of input features for a NN modelling changes in UK and US unemployment. The standard error of coefficients and the p-value of the corresponding Shapley regression are shown in parentheses. Significance level: *: 10%, **: 5%, ***: 1%.
+
+Machine learning models deliver the better fit to the data as shown by the ratios of root-mean squared errors (RMSE) between the NN and a linear regression model with the same inputs. This difference is sizable for the UK (about 11%) but even larger for the US (about 36%). This suggests that non-linearities are more important in the US case for this task.
+
+The table shows so-called Shapley share coefficients (SSC), which measure the size and significance of each variable’s contribution to explaining changes in unemployment as a fraction of total model output. That is, the sum of the absolute values of SSC of all variables (including others not shown in Table 1 for brevity) sums to one by construction. The SSC for changes in private sector debt in the UK is +0.084***. This means that changes in private sector debt are on average positively associated with changes in unemployment, explaining about 8.4% of model output and that this relation is strongly significant. Note that this is the average effect across positive and negative input values in Figure 1 with differences on both sides. When interpreting non-linear models it is important to consider the possibility of such more complex variable relations. Machine learning models and the Shapley regression framework provide a way to do just that.
+
+Take-away
+
+We have seen that machine learning models can be evaluated and communicated very similarly to linear regression models using the Shapley regression framework. This is likely to help decision makers to make the most of the advantages of these models. On a broader level this may also help to accelerate advances in AI research. Particularly in the presence of ever larger and richer datasets (Big Data), this approach can help to make state-of-the-art models more transparent and reduce or even avoid biases.
+
+Andreas Joseph works in the Bank’s Advanced Analytics Division.
+
+If you want to get in touch, please email us at bankunderground@bankofengland.co.uk or leave a comment below.
+
+Comments will only appear once approved by a moderator, and are only published where a full name is supplied. Bank Underground is a blog for Bank of England staff to share views that challenge – or support – prevailing policy orthodoxies. The views expressed here are those of the authors, and are not necessarily those of the Bank of England, or its policy committees.</p>

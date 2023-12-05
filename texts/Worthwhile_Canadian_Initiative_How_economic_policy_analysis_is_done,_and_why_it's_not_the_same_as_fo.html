@@ -1,0 +1,47 @@
+<h1>Worthwhile Canadian Initiative: How economic policy analysis is done, and why it's not the same as forecasting</h1>
+<p><a href='http://worthwhile.typepad.com/worthwhile_canadian_initi/2011/01/evaluation-1.html'>http://worthwhile.typepad.com/worthwhile_canadian_initi/2011/01/evaluation-1.html</a></p>
+<p>Third-year students in Laval's Baccalauréat intégré en économie et politique are required to take a seminar course on policy evaluation, and this week, I'm going to be giving a lecture on the basics of how it's done. It occurs to me that this is a lecture that many, many people should sit in on, so here is a summary.
+
+Pop quiz: Suppose you are given two case studies of a policy initiative designed to increase the levels of a variable of interest (income, a health indicator, an environmental measure). The policy was implemented at time t, and we want to evaluate it at t+n. Here are the summary data:
+
+
+
+Would you go on to conclude that in Case 1, the policy was a success and that it failed in Case 2? If so, you are in good company, along with any number of pundits and not a small number of people whose job description includes 'policy analysis'.
+
+But you would also have joined the ranks of those who had fallen for the post hoc ergo propter hoc fallacy. In order to do a proper evaluation of the policy, you need the proper counterfactual: what would have happened without the policy?
+
+If Star Trek were still on the air, this would be a simple enough problem to solve: just wait for an episode in which the crew stumbles across a parallel universe in which the policy of interest hadn't occurred, and compare it with the one we happen to be in. But since it's not, the policy analyst is obliged to construct the relevant parallel universe on her own.
+
+This is what controlled experiments try to do. Two samples are constructed: the 'treatment' group, where the policy is applied, and the 'control' group, where it isn't. If the experiment is designed properly, the only difference between the two samples is the treatment, so any difference between the two outcomes can be attributed to the policy.
+
+For those of us who have to deal with non-experimental data - economics is only one of many such fields - the alternate universe takes the form of a model. A well-designed model will be able to reproduce the main features of interest of the real world. More importantly, it will also be able to reproduce the main features of interest of a world in which the policy under study did not take place.
+
+(Sometimes, if we're very lucky, we will stumble across 'natural experiments', where two more-or-less identical groups are subjected to different treatments.)
+
+In order to do policy analysis, you have to be able to augment the above graphs to include the counterfactuals:
+
+
+
+Post hoc ergo propter hoc would say that the effect of the policy in Case 1 was positive (A 1 -B 1) , and negative (A 2 -B 2 ) in Case 2. What the model gives us is the blue line: the outcome in the parallel world in which the policy had not been applied. With the counterfactual, the effect of the policy is C 1 -B 1 and C 2 -B 2 . It turns out that in both cases, the policy had a positive effect.
+
+It is at this point where it is instructive to look at the link between policy analysis and forecasting. The most popular instrument in an economist's toolkit is a linear regression model. If y is the variable of interest and x is the policy instrument, then we can write the relationship (to first-order approximation) as
+
+y = a + b x + e
+
+where a and b are fixed coefficients, and where e is an error term that includes all the unobserved/excluded factors that influence the outcome y. (If there are other observed explanatory variables, we can include them without altering the basic story.) In the graph, the bx term represents the distance B 1 -C 1 /B 2 -C 2 , and as we've seen, this is was it is relevant for policy evaluation. The e term represents variations that can't be explained by x - the lines A 1 -C 1 /A 2 -C 2 - and aren't of primary interest.
+
+But if the object of the exercise is to produce a forecast, then the size of e matters a great deal. If the variations in y are almost completely explained by variations in the error term, then the model is unlikely to produce accurate predictions. This is usually the case in our models, which explains why our forecasting record is so poor.
+
+This distinction between policy evaluation and forecasting is crucial: a model that makes bad forecasts can still be useful for policy analysis.
+
+Update: In the comments, Adam P makes this important point:
+
+I think you can strengthen your conclusion to say that a model that makes no forecast at all can be still be useful for policy analysis.
+
+
+
+If we mean by forecast a time series model where the forecasting instruments are known at least one period ahead of what is being forecast then, which is what the layman means, then a model that models y as a function of contemporaneous x makes no forecast at all. Such a model is still useful for policy evaluation.
+
+
+
+It is also worth ... stating that this difference also applies to policy setting, not just ex-post evaluation. Such a distinction is important so that we don't confuse the lack of an ability to forecast, say, a financial crisis with a lack of understanding of what to do when one occurs.</p>

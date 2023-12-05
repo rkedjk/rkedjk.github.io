@@ -1,0 +1,93 @@
+<h1>Advances in pay-as-bid auctions</h1>
+<p><a href='http://www.voxeu.org/article/advances-pay-bid-auctions'>http://www.voxeu.org/article/advances-pay-bid-auctions</a></p>
+<p>Advances in pay-as-bid auctions
+
+Kyle Woodward
+
+The pay-as-bid and the uniform-price auction formats are used to allocate trillions of dollars of goods annually. However, which of these formats yields better outcomes is an open question. This column discusses recent advances in the understanding of these auctions in the context of an ongoing debate regarding the optimal auction format.
+
+Selling homogeneous goods
+
+When selling many identical goods to a group of bidders, a seller will commonly elicit a weakly-decreasing bid schedule from each bidder, and then compute a market-clearing price under the assumption that the stated bid schedules represent true demand. The two most-common auction formats (Brenner et al. 2009, Maurer and Barroso 2011) differ in how payments are calculated from the market-clearing price. In the pay-as-bid auction bidders pay their reported demand for each unit they obtain, while in the uniform-price auction all bidders pay the market-clearing price for each unit they obtain.
+
+Which of these two formats yields better outcomes – particularly, higher seller revenue – is an open question. Recent theoretical results suggest that the outcome ranking is fundamentally ambiguous (Ausubel et al. 2014), although it might be determined in parameterised settings (Wang and Zender 2002). Empirical approaches are made difficult by the fact that, generally, economists do not witness convincing natural experiments in these models. The fundamental value of the goods for auction often varies with macroeconomic parameters, mechanism selection is not exogenous, and it has been suggested that bidders may engage in short-run non-optimal behaviour in hopes of influencing the ultimate auction format (Binmore and Swierzbinski 2000, Heller and Lengweiler 2001).
+
+The question of mechanism selection must therefore be addressed by a structural economic approach. An empiricist infers a latent type distribution and then computes counterfactual outcomes in an unobserved auction format. Empirically, this approach has validated the aforementioned theoretical ambiguity; in various contexts, either auction format may be slightly superior (Février et al. 2002, Kang and Puller 2008, Castellanos and Oviedo 2004, Armantier and Sbai 2006), or there may be no significant difference (Hortaçsu and McAdams 2010). Further progress in this area has been hampered by difficulties in computing outcomes in the pay-as-bid format.
+
+Understanding the pay-as-bid auction
+
+Economists know some important facts about multi-unit pay-as-bid auctions. There is an equilibrium in pure strategies (Athey 2001, McAdams 2003), and bidders can closely approximate optimal behaviour by submitting step-function bid schedules with wide steps (Kastl 2012). Nevertheless, explicitly computing equilibrium behaviour remains a difficult problem. Wilson (1979) pioneered the divisible-good approximation to the multi-unit auction, assuming that the identical goods are infinitely divisible rather than discrete. As with other continuous approximations in economics, this model offers the possibility of a tractable representation of an otherwise difficult discrete math problem.
+
+New research
+
+Recent work by Woodward (2014) – as well as Pycia and Woodward (2014) – suggests that this approximation is well-posed and potentially quite tractable. Previously, relatively little was known about behaviour in general divisible-good, pay-as-bid auctions. In parameterised settings, there are constructions of equilibrium bids (Wang and Zender 2002, Federico and Rahman 2003, Holmberg 2009, Ausubel et al. 2014). These results frequently rely upon a particular distribution of uncertain supply, and on the bidders’ marginal values.
+
+In the case with an arbitrary number of asymmetric bidders, each with private information, Woodward (2014) demonstrates the existence of an equilibrium in pure strategies. The proof technique applied – verifying that a pseudo-limit of multi-unit auction bidding strategies comprises mutual best responses – suggests that the divisible-good approximation is reasonable, providing another strong point for counterfactual approaches.
+
+This work also describes strategic ironing, a dramatic bid-flattening effect; strategic ironing is most easily understood in an example with two bidders. When supply is large, so that neither bidder has positive marginal value for the entire quantity up for auction, bidders know that they face no competition for the first infinitesimal units, as their competitor has zero value for the residual supply. There is, however, competition for larger quantities.
+
+Since bids must be decreasing, the agent must balance two pressures to make her schedule valid – the desire to bid nothing for the first infinitesimal quantities, and the desire not to unnecessarily forego higher quantities by reducing bids.
+
+Figure 1. Ironing pressures must balance the bidder’s desire to bid nothing for small quantities against the desire to compete effectively for higher quantities
+
+Source: Woodward 2014.
+
+There is a natural feedback effect in this process; bidder A reduces her bids for small, competitive quantities, reducing competition and causing bidder B to reduce his bids for small, competitive quantities. As with the winner’s curse in single-unit auctions, there is a real possibility that bidders in practice do not fully account for this feedback effect; simulations show that this can lead bidders to overpay for their allocations by up to 20%. Additionally, if bidders are not taking into account ironing pressures, structural approaches will systematically overestimate the bidders’ true values, biasing counterfactual revenue estimates upward.
+
+Figure 2. Strategic ironing causes the bidder to reduce bids for low quantities, which reduces competition for these quantities; her opponents best-respond by reducing their own bids, and competition decreases further still. Bids without strategic ironing (dotted yellow) therefore lie strictly above bids with strategic ironing (solid magenta)
+
+Source: Woodward 2014
+
+Pycia and Woodward (2014) present a natural complement to these results. When bidders are symmetrically informed but supply is random – a common feature in real-world auctions – they find that equilibrium is unique, bids have a convenient analytical form, and equilibrium existence can be verified through a relatively simple inequality. These results provide further support to structural estimation techniques; given a distribution of bidder values, it is straightforward to determine equilibrium outcomes in the pay-as-bid auction, and therefore relatively easy to compute the seller’s expected revenue.
+
+Figure 3. Equilibrium bid functions (yellow) as supply becomes certain; marginal values are in blue, the CDF of supply is in grey
+
+Source: Pycia and Woodward 2014.
+
+The simple analytical form of equilibrium bids enables a number of useful theoretical results, one of which is particularly surprising:
+
+When the supply distribution and auction reserve price are chosen optimally, the pay-as-bid and uniform-price auctions are revenue-equivalent. In fact, the two auction formats generate the exact same outcomes.
+
+This provides a novel explanation for the ambiguity of empirical results surrounding mechanism selection. If sellers expend as many resources optimising within a mechanism as they do choosing which mechanism to implement, empiricists should witness roughly the same outcomes no matter which of the pay-as-bid or uniform-price auctions is implemented.
+
+Concluding remarks
+
+Understanding bidder behaviour in divisible-good pay-as-bid auctions is important for the debate over which of the pay-as-bid or uniform-price auctions should be implemented in practice, and these auction formats are used to allocate trillions of dollars of goods annually. Knowing that equilibrium actions are well-defined, and that they may have a tractable closed-form representation suggests that structural empirical studies of auctions can correctly infer unobserved outcomes of the pay-as-bid auction. The recent work discussed above presents a rich set of results that can empower policy decisions in valuable markets.
+
+References
+
+Armantier O and E Sbaï (2006), “Estimation and comparison of treasury auction formats when bidders are asymmetric”, Journal of Applied Econometrics.
+
+Athey, S (2001), “Single crossing properties and the existence of pure strategy equilibria in games of incomplete information”, Econometrica.
+
+Ausubel, L, P Cramton, M Pycia, M Rostek, and M Weretka (2014), “Demand reduction and inefficiency in multi-unit auctions”, Review of Economic Studies.
+
+Brenner, M, D Galai, and O Sade (2009), “Sovereign debt auctions: Uniform or discriminatory?”, Journal of Monetary Economics.
+
+S Castellanos and M Oviedo (2004), “Optimal bidding in the Mexican treasury securities primary auctions: Results from a structural economics approach”, Mimeo.
+
+Federico G and D Rahman (2003), “Bidding in an electricity pay-as-bid auction”, Journal of Regulatory Economics.
+
+Février, P, R Préget, and M Visser (2004), “Econometrics of share auctions”, Mimeo.
+
+Heller, D and Y Lengwiler (2001), “Should the treasury price-discriminate? A procedure for computing hypothetical bid functions”, Journal of Institutional and Theoretical Economics.
+
+Holmberg, P (2009), “Supply function equilibria of pay-as-bid auctions”, Journal of Regulatory Economics.
+
+Hortaçsu, A and D McAdams (2010), “Mechanism choice and strategic bidding in divisible good auctions: An empirical analysis of the Turkish treasury auction market”, Journal of Political Economy.
+
+Kang, B-S and S Puller (2008), “The effect of auction format on efficiency and revenue in divisible goods auctions: A test using Korean treasury auctions”, The Journal of Industrial Economics.
+
+Kastl, J (2012), “On the properties of equilibria in private value divisible good auctions with constrained bidding”, Journal of Mathematical Economics.
+
+Maurer, L and L Barroso (2011), Electricity auctions: An overview of efficient practices, World Bank Publications.
+
+McAdams, D (2003), “Isotone equilibrium in games of incomplete information”, Econometrica.
+
+Pycia, M and K Woodward (2014), “Pay-as-bid: Selling divisible goods to uninformed bidders”, Mimeo.
+
+Wang, J and J Zender (2002), “Auctioning Divisible Goods”, Economic Theory.
+
+Wilson, R (1979), “Auctions of shares”, The Quarterly Journal of Economics.
+
+Woodward, K (2014), “Strategic ironing in pay-as-bid auctions”, Mimeo.</p>

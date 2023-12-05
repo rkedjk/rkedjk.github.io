@@ -1,0 +1,25 @@
+<h1>‘Metrics Monday: Useless Hausman Tests</h1>
+<p><a href='http://marcfbellemare.com/wordpress/12792'>http://marcfbellemare.com/wordpress/12792</a></p>
+<p>‘Metrics Monday: Useless Hausman Tests
+
+Per Wikipedia, recall that the Durbin-Wu-Hausman test (hereafter the Hausman test)
+
+evaluates the consistency of an estimator when compared to an alternative, less efficient estimator which is already known to be consistent.
+
+One common way in which the Hausman test is used is to compare OLS with 2SLS–that is, to perform a test of the null of exogeneity. This tests consists in estimating an OLS specification, estimating a 2SLS specification of the same equation, and then in comparing whether the two parameter vectors are statistically the same. If you fail to reject the null of exogeneity, OLS is to be preferred. If you reject the null, then 2SLS is to be preferred.
+
+At least that’s how a lot of people go about it. Recall from my post on OLS vs. 2SLS, however, that in the equation
+
+(1) y = a + b*D + e,
+
+where y is the outcome variable, D is the treatment variable, and e is an error term with mean zero, b_{OLS} and b_{2SLS} will typically estimate different things. If all goes well and D is as good as randomly assigned, b is the average treatment effect.
+
+Likewise, if all goes well and you have a valid instrument Z, b_{2SLS} estimates a local average treatment effect, or the effect of the treatment D on outcome y for those units of observation which were induced to take up the treatment in response to the instrumental variable Z. In other words, b_{2SLS} applies to a subset of your sample–one that is often difficult if not impossible to identify–whereas b_{OLS} applies to your entire sample.
+
+From the foregoing, you can probably see where this is going. If b_{2SLS} cannot be compared with b_{OLS} and the two estimands concern different things, then by running a Hausman test of exogeneity comparing 2SLS with OLS, you are stacking the deck in favor of rejecting the null, since b_{OLS} and b_{2SLS} will in general estimate very different things. This means that you would tend to over-reject the null of exogeneity.
+
+What this means in practice is that it is difficult to trust the results of a Hausman test that pits 2SLS versus OLS in an effort to assess whether a variable is exogenous or not, seeing as to how it would find that it is not exogenous more often than not. This can be especially egregious in the context of studies where a less-than-ideal IV is used and the Hausman test is used to support the claim that the 2SLS results are somehow more trustworthy than the OLS results.
+
+Now, I chose the title “Useless Hausman tests” as a marketing gimmick. With all due respect to Durbin, Wu, and Hausman, I don’t think Hausman tests are useless, as they can be useful in circumstances other than ones where OLS and 2SLS are compared.
+
+For instance, in the price risk experiments I ran over the last few years, we observe the same individuals playing the same game for 20 rounds, so our data is longitudinal. We could use individual fixed or random effects, and random effects are especially applicable here given that our RHS variables of interest are orthogonal to the error term. So we use Hausman tests pitting the RE versus the FE specification, and we fail to reject the null and thus estimate RE specifications, since they are more efficient.</p>

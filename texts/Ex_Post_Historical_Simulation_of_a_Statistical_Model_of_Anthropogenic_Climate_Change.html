@@ -1,0 +1,33 @@
+<h1>Ex Post Historical Simulation of a Statistical Model of Anthropogenic Climate Change</h1>
+<p><a href='http://econbrowser.com/archives/2014/02/ex-post-historical-simulation-of-a-statistical-model-of-anthropogenic-climate-change'>http://econbrowser.com/archives/2014/02/ex-post-historical-simulation-of-a-statistical-model-of-anthropogenic-climate-change</a></p>
+<p>From Kaufmann, Kauppi, Mann, and Stock, “Reconciling anthropogenic climate change with observed temperature 1998–2008,” Proceedings of the National Academy of Sciences 108(29), July 2011:
+
+…we update the [original statistical model (7)] by estimating it with data through 1998. The selected sample ends just before the recent period of slowed warming. As such, the parameter estimates do not use information about the post-1998 period. Model simulations reflect these pre-1998 parameters and post-1998 observed levels of radiative forcings, SOI, and volcanic sulphates.
+
+
+
+
+
+For those who are not familiar with these procedures, this approach is sometimes called out-of-sample forecasting, or “historical simulation”, and is used as a form of model validation. One evaluates the model by running a regression on data spanning a sample from time t to t+k, and then uses the estimated parameter values and actually realized (ex post) values of the right hand side variables to predict the dependent variable for time periods t+k+p, where p = 1,..,j. One might consider this a test to against over-fitting of the data (although some concerns regarding the usefulness of this approach are voiced by Frank Diebold).
+
+I’ve discussed this approach, conjoined with rolling regressions, in the context of exchange rate modeling here, here, and used in this 2005 paper, as well as this paper co-authored with Dick Meese (of Meese and Rogoff, 1983).
+
+So, let’s recount what is being done. The authors estimate a model and assess the parameters in-sample here (cited in my previous post on climate change), and then in this paper, update the parameters using a sample up to 1998, then use ex post values of the exogenous variables over the 1998-2006 period to show how well the model does in predicting the out-of-sample data. They are not using information about the relationship between the Y and X variables to update the parameters over the 1998-2006 period. They find their model tracks temperatures pretty well using a 1960-1998 sample for estimating parameters, as shown in Figure 2:
+
+
+
+
+
+Figure 2 from Kaufmann, Kauppi, Mann and Stock (2011).
+
+The authors summarize their findings thus:
+
+The finding that the recent hiatus in warming is driven largely by natural factors does not contradict the hypothesis: “most of the observed increase in global average temperature since the mid 20th century is very likely due to the observed increase in anthropogenic greenhouse gas concentrations (14).” As indicated in Fig. 1, anthropogenic activities that warm and cool the planet largely cancel after 1998, which allows natural variables to play a more significant role. The 1998-2008 hiatus is not the first period in the instrumental temperature record when the effects of anthropogenic changes in greenhouse gases and sulfur emissions on radiative forcing largely cancel. In-sample simulations indicate that temperature does not rise between the 1940’s and 1970’s because the cooling effects of sulfur emissions rise slightly faster than the warming effect of greenhouse gases. The post 1970 period of warming, which constitutes a significant portion of the increase in global surface temperature since the mid 20th century, is driven by efforts to reduce air pollution in general and acid deposition in particular, which cause sulfur emissions to decline while the concentration of greenhouse gases continues to rise (7).
+
+
+
+The results of this analysis indicate that observed temperature after 1998 is consistent with the current understanding of the relationship among global surface temperature, internal variability, and radiative forcing, which includes anthropogenic factors that have well known warming and cooling effects. Both of these effects, along with changes in natural variables must be examined explicitly by efforts to understand climate change and devise policy that complies with the objective of Article 2 of the 1992 United Nations Framework Convention on Climate Change to stabilize “greenhouse gas concentrations in the atmosphere at a level that would prevent dangerous anthropogenic interference in the climate system.”
+
+Warning: If you are to comprehend the time series analysis incorporated in the model, you should read (as referenced in the 2006 paper) J. Hamilton, Time Series Analysis (1994).
+
+Old primer on integration/cointegration, by James Stock and Mark Watson, in AEA’s Journal of Economic Perspectives. Cookbook approach in an old paper by me, here (methods somewhat outdated, but it gets the idea across).</p>

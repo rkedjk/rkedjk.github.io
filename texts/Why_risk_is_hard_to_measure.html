@@ -1,0 +1,107 @@
+<h1>Why risk is hard to measure</h1>
+<p><a href='http://www.voxeu.org/article/why-risk-hard-measure'>http://www.voxeu.org/article/why-risk-hard-measure</a></p>
+<p>Why risk is hard to measure
+
+Jon Danielsson, Chen Zhou
+
+Regulators and financial institutions increasingly depend on statistical risk forecasting. This column argues that most risk modelling approaches are highly inaccurate and confidence intervals should be provided along with point estimates. Two major approaches, value-at-risk and expected shortfall are compared, and while the former is found to be superior in practice, it is also easier to be manipulated by forecasters.
+
+Statistical risk forecasting increasingly drives decisions of financial institutions and financial regulators (Basel Committee 2013, 2014). In spite of this, the statistical properties of the underlying machinery under typical operating conditions are poorly understood.
+
+Increasing our understanding of this issue motivates our work in Danielsson and Zhou (2015). We focus on three key questions:
+
+The comparison of value-at-risk to expected shortfall (see e.g. Danielsson 2011);
+
+The impact of using overlapping, long-term returns in estimation compared to time-scaling returns for longer liquidity horizons; and
+
+The performance of risk forecasting in typical sample sizes.
+
+The theory of value-at-risk vs. expected shortfall
+
+The common view holds that expected shortfall is superior to value-at-risk as a risk measure. Certainly, the theoretic arguments point that way. Expected shortfall captures the entire tail, is sub-additive and is harder to manipulate. However, do these advantages also extend to practical uses?
+
+From a purely statistical point of view our answer is no. Theoretically, expected shortfall is directly related to value-at-risk by a small constant, generally between 1 and 1.5, and therefore value-at-risk is just as sub-additive as expected shortfall in all but extreme cases. For example, in the case of the student t(3) distribution, whose tails are similar to many equity returns, the 99% expected shortfall is about 50% larger than the 99% value-at-risk. Theoretically, expected shortfall says nothing more about the tails than value-at-risk in most cases.
+
+Where expected shortfall is better than value-at-risk
+
+While there seems to be little to recommend expected shortfall over value-at-risk from a purely statistical point of view, expected shortfall has other advantages as a control measure. Specifically, it is harder to manipulate.
+
+A financial institution can manipulate a risk measure by picking a particular estimation method. However, there is no guarantee that an estimation method that delivers a favourable result for the financial institution today will do so tomorrow.
+
+Instead, manipulation is more likely to involve trades that appear to meet the rules, while having undesirable and hard to detect risk characteristics. A typical example is investing in assets with underestimated risk, such as structured credit with AAA ratings. More generally, manipulation is likely to happen by cherry picking assets that have large losses if the value-at-risk limit is exceeded, or optimising the portfolio in a way that minimises the reported value-at-risk. This can be virtually undetectable.
+
+It is harder to manipulate expected shortfall in this way. Value-at-risk only considers the point on the tail above which large losses occur while ignoring the magnitudes of the large losses. By contrast, expected shortfall is based on the magnitudes of all large losses.
+
+Estimation precision of expected shortfall and value-at-risk in typical sample sizes
+
+Much of the extant analysis on risk measures focuses on their asymptotic properties. While that is certainly informative, we suspect that both private sector end-users and the regulators are even more concerned with how risk measures perform in typical sample sizes. These range from perhaps one to five years of daily data due to new instruments, structural breaks, financial innovations or other developments that reduce the relevance of old data.
+
+We investigate the properties of value-at-risk and expected shortfall where the sample size ranges from 100 days to 20 years. Figure 1 shows representative results, the precision in value-at-risk estimation for the student t(3) distribution, along with its 99% empirical confidence interval.1
+
+Figure 1. Value- at-risk (VaR) and its 99% confidence interval as a function of the sample size
+
+The results are quite striking. For estimation with about 1 year of daily data, typical in practice, the confidence interval we find ranges from 64 to 216 for a distribution whose true risk is 100. Even for a typical sample size of 4 years, the confidence interval is from 76 to 143. The corresponding results for expected shortfall are worse with confidence intervals at [48, 272] and [65,187], respectively.2
+
+A key point is that the two risk measures behave differently in smaller sample sizes. For example, when the sample size becomes smaller, so does the difference between expected shortfall and value-at-risk, with the 99% value-at-risk even eventually exceeding the 97.5% expected shortfall, as seen in the following Figure 2.
+
+Figure 2. Value-at-risk and expected shortfall with increasing sample size
+
+We find that expected shortfall is estimated with more uncertainty than value-at-risk in most cases. That implies that from a purely statistical point of view, value-at-risk is superior to expected shortfall.
+
+Coupled with the fact that value-at-risk is just as sub-additive of expected shortfall in all but the extreme cases, this seems to be little reason to choose expected shortfall over value-at-risk if one is concerned with statistical accuracy and capturing tail events.
+
+The importance of confidence intervals
+
+While it is standard statistical practice to report both point estimates and confidence intervals, this is not – for some reason – the case for most risk forecasting. Certainly, the trading book regulations in the Basel accords have never emphasised such measures of precision.
+
+Our results indicate that this practice is not advisable. While the standard errors can give a highly misleading answer because of the asymmetry of the uncertainty, properly constructed confidence intervals can give vitally important information to end-users. The point is that these statistical models are key input into what are often very expensive decisions – decisions where both type II and type I errors can matter greatly to decision makers. In our view, the Basel committee should follow standard statistical practice and require the calculation and reporting of properly constructed confidence intervals.
+
+Time scaling or overlapping data
+
+The third set of issues we looked at arises when estimating risk over longer liquidity horizons. This is often done using one of two popular methods, such as overlapping long-term returns in the estimation, or time-scaling daily-risk to multi-day holding periods. Our purely anecdotal observation of practitioners suggests that using the overlapping approach is increasingly preferred to the scaling method.
+
+The overlapping approach will create artificial dependence in the data because daily events get repeated. We compare the robustness of the overlapping approach to scaling the risk estimate by the square root of the holding period and find that in practice the square-root-of-time approach is more precise than the overlapping data approach under various data generating processes. Therefore, our recommendation would be to use the timescale rather than overlapping data approach.
+
+Relevance for Basel III
+
+In the latest Basel III market risk proposals, one suggestion for calculating capital charges is to replace the 99% value-at-risk with the 97.5% expected shortfall.
+
+In practice, value-at-risk is more accurate than expected shortfall in most cases. Furthermore, with Basel III recommending that expected shortfall should be calculated with one year of data, the 99% value-at-risk may be even higher than the 97.5% expected shortfall. Hence, the move to the 97.5% expected shortfall is likely to result in market risk forecasts that are both lower and more inaccurate.
+
+Considering that expected shortfall is just a small multiple of value-at-risk, it would be preferable to utilise the value-at-risk, scaling it up as needed rather than switching to the 97.5% expected shortfall if the objective of the risk measure is to capture the tails accurately, as the only motivation provided in the Basel III proposals indicate.
+
+This analysis can not lead to a conclusive statement as to whether capital will be lower or higher with the Basel II value-at-risk or the Basel III expected shortfall. The reason is that estimating risk measures is only the first step in calculating capital charges.
+
+To alleviate some of these concerns, the Basel Committee intends that the estimated risk measure should be calibrated to a stressed historical period, leading to the so-called stressed expected shortfall. By construction, it should be higher or equal to the regular expected shortfall estimate. The lower bound of the confidence interval of the stressed risk measure will correspondingly increase. This partially eases the concern raised by our study that the lower bound of the expected shortfall can be disconcertingly low. Nevertheless, the fundamental problem of large estimation uncertainty remains unsolved after such a calibration.
+
+Conclusion
+
+Overall, our results indicate that, in practice, value-at-risk yields substantially more accurate risk forecasts than the expected shortfall.3 The only reason to pick expected shortfall over value-at-risk in most cases is because the former is harder to manipulate. We also find that in applications involving longer liquidity horizons, applying the overlapping data approach yields less accurate risk forecasts than a square-root-of-time approach.
+
+We further establish that the inaccuracy in risk forecasting in the small sample sizes that are likely to be encountered in practice makes the central estimates of value-at-risk and expected shortfall highly uncertain. This should be especially worrying for those end-users concerned with type II errors.
+
+To us, it is a concern that important public policy regulations such as bank capital calculations are based on numbers that in practice might be almost double or half the recorded number, just based on a random draw.
+
+Our final conclusion is that the reporting of confidence intervals should be the standard practice.
+
+Disclaimer: The views expressed do not necessarily reflect the views of DNB or the Eurozone.
+
+References
+
+Basel Committee on Banking Supervision (2013), "Fundamental review of the trading book: A revised market risk framework".
+
+Basel Committee on Banking Supervision (2014), “Fundamental review of the trading book: outstanding issues”.
+
+Danielsson, J (2011), Financial Risk Forecasting, Wiley.
+
+Danielsson, J (2013), “The new market-risk regulations”, VoxEU.org, 28 November.
+
+Danielsson J and C Zhou (2015), “Why risk is so hard to measure”, mimeo, the London School of Economics.
+
+Footnotes
+
+The full results can be seen in the web appendix.
+
+2 As the sample size becomes smaller, the uncertainty in the risk forecasts increases exponentially, and at the smallest sample sizes encountered in practical use, the risk estimate is almost indistinguishable from random noise.
+
+3 The full results are summarised on our web appendix.</p>

@@ -1,0 +1,27 @@
+<h1>Arms and Projects</h1>
+<p><a href='https://theoryclass.wordpress.com/2018/02/16/arms-and-projects/'>https://theoryclass.wordpress.com/2018/02/16/arms-and-projects/</a></p>
+<p>This post is only gonna make sense if you read my last-week post on Gittins Index
+
+So, why does Gittins’ theorem hold for arms and not for projects ?
+
+First, an example. Consider the following two projects A and B. The first period you work on A you have to choose an action Up or Down. Future rewards from working on project A depend on your first action. The (deterministic) rewards sequence is
+
+A: 8, 0, 0, 0, … if you played Up; and 5, 5, 5, 5, … if you played Down.
+
+Project B gives the deterministic rewards sequence
+
+B: 7, 0, 0,…
+
+If your discount factor is high (meaning you are sufficiently patient) then your best strategy is to start with project B, get 7 and then switch to project A, play Down and get 5 every period.
+
+Suppose now that there is an additional project, project C which gives the deterministic payoff sequence
+
+C: 6,6,6,….
+
+Your optimal strategy now is to start with A, play Up, and then switch to C.
+
+This is a violation of Independence of Irrelevant Alternatives: when only A and B are available you first choose B. When C becomes available you suddenly choose A. The example shows that Gittins’ index theorem does not hold for projects.
+
+What goes wrong in the proof ? We can still define the “fair charges” and the “prevailing charges” as in the multi-armed proof. For example, the fair charge for project A is 8: If the casino charges a smaller amount you will pay once, play Up, and go home, and the casino will lose money.
+
+The point where the proof breaks down is step 5. It is not true that Gittins’ strategy maximizes the payments to the casino. The key difference is that in the multi-project case the sequence of prevailing charges of each bandit depends on your strategy. In contrast, in the multi-arm case, your strategy only determines which charge you will play when, but the charges themselves are independent of your strategy. Since the discounts sequence is decreasing, the total discounted payment in the multi-armed problem is maximized if you pay the charges in decreasing order, as you do under the Gittins Strategy.</p>

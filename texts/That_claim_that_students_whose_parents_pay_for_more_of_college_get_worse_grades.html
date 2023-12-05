@@ -1,0 +1,29 @@
+<h1>That claim that students whose parents pay for more of college get worse grades</h1>
+<p><a href='https://feedproxy.google.com/~r/StatisticalModelingCausalInferenceAndSocialScience/~3/-qhO54M5dcU/'>https://feedproxy.google.com/~r/StatisticalModelingCausalInferenceAndSocialScience/~3/-qhO54M5dcU/</a></p>
+<p>Theodore Vasiloudis writes:
+
+I came upon this article by Laura Hamilton, an assistant professor in the University of California at Merced, that claims that “The more money that parents provide for higher education, the lower the grades their children earn.” I can’t help but feel that there something wrong with the basis of the study or a confounding factor causing this apparent correlation, and since you often comment on studies on your blog I thought you might find this study interesting.
+
+My reply: I have to admit that the description above made me suspicious of the study before I even looked at it. On first thought, I’d expect the effect of parent’s financial contributions to be positive (as they free the student from the need to get a job during college), but not negative. Hamilton argues that “parental investments create a disincentive for student achievement,” which may be—but I’m generally suspicious of arguments in which the rebound is bigger than the main effect.
+
+So I clicked through to the study and indeed found a problem, and it’s the one you might expect if you follow this sort of thing. Hamilton regresses college grades on the amount parents spent on college, and finds a negative correlation: more parental spending is associated with lower grades.
+
+The problem I’m worrying about is selection, what is sometimes called “survivorship bias.” If you’re not doing so well in college but it’s being paid for, you might stay. But if you’re paying for it yourself, you might just quit. This would induce the negative correlation in the data, but not at all through the causal story that Hamilton is telling, that students who are parentally-supported “dial down their academic efforts.” Couldn’t it just be that these students are working as hard as they ever would, they’re just more likely to stay in school?
+
+To say it another way: it seems completely plausible to me that (a) there could be a negative correlation between parental support and student grades, conditional on students being in college, but (b) paying more of your college student’s tuition would not (on average) lower his or her grades.
+
+Yes, Hamilton runs an analysis controlling for students’ college admissions test scores, but (a) admissions test scores don’t tell the whole story about students’ abilities and readiness for college, and (b) she also controls for post-treatment variables such as student’s major, full-time status, and—amazingly—whether the student is employed during school. You shouldn’t control for these things! You really really shouldn’t control for whether a student is working during school, if you’re trying to estimate the effect of parental support.
+
+Hamilton also performs an analysis on a different dataset including within-student comparisons when student aid varied over time. This is fine but it has the same problem that it doesn’t seem that students get counted after they drop out. Again, an observed correlation does not necessarily correspond to a causal effect—and I don’t say this in a vague “correlation does not equal causation” sense but more specifically that there’s a clear selection problem going on here (as well as a comparison conditional on intermediate outcomes). Hamilton writes, “These results provide strong evidence that selectivity processes are not driving the negative relationship between parental aid and GPA,” but I don’t see it.
+
+As a side note, I’m slightly bothered by this graph from the paper:
+
+I mean, sure, a graph is better than a table full of numbers such as “-11.503***,” but . . . are there really many families making $5,000 or $15,000 a year and giving their kids $40,000 to pay for college? I guess it’s possible but it seems unlikely to me. A footnote says, “The funds needed to provide parental aid can come from a variety of sources . . . Parents may thus offer funds that exceed income earned in a given year.” Still, I can’t imagine it happens that often. And, when it does, I’d expect the impact on the student to be different from funds supplied by a richer family. I can’t imagine it feels so much like free money to a student if parents are paying more for college than they (the parents) make in a year. So, to the extent the graph makes sense and even if I were to believe the author’s data analysis and theoretical model, I wouldn’t believe the model would hold in this case.
+
+I’m surprised the reviewers for the American Sociological Review didn’t catch these problems, which are pretty standard issues in causal inference: survivorship bias and controlling for intermediate variables. Or maybe they wanted to publish the paper because it represents empirical work—even if flawed—on an important topic.
+
+Or maybe there’s something I’m missing. That’s certainly possible—it happens all the time!—and I’d be happy to be corrected on any of my points above.
+
+P.S. Oooh! This study was also mentioned (uncritically) in the Times and on Gawker. So it must be real.
+
+P.P.S. More from Joseph Delaney.</p>

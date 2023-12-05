@@ -1,0 +1,113 @@
+<h1>‘Metrics Monday: Recoding Dummy Variables (Updated)</h1>
+<p><a href='http://marcfbellemare.com/wordpress/13293'>http://marcfbellemare.com/wordpress/13293</a></p>
+<p>‘Metrics Monday: Recoding Dummy Variables (Updated)
+
+Continuing my reading of James et al.’s Introduction to Statistical Learning in an attempt to learn machine learning during this calendar year largely free from teaching, I learned something new (new to me, that is) in section 3.3, on pages 84-85, about the use of dummy variables as regressors.
+
+Suppose you have a continuous dependent variable y (e.g., an individual’s wage) and a dichotomous regressor x such that x is either equal to zero or one (e.g., it equals one if an individual has graduated from college and equal to zero if she has not). Linearly projecting y on x yields the following equation:
+
+(1) y = a_0 + b_0*x + e_0.
+
+Estimating equation 1 by least squares gets you \hat{a_0} and \hat{b_0}, where the former is the average wage among the individuals in your sample who haven’t graduated from college and \hat{a_0} +
+
+\hat{b_0} is the average wage among the individuals in your sample who have graduate from college, with the conclusion that \hat{b_0} is the wage differential associated (not caused, as that requires that we make more assumptions) with having graduated from college.
+
+(Or you can also recode x as being equal to zero if someone has graduated from college and equal to one if he hasn’t, with the opposite interpretation.)
+
+Jusqu’ici tout va bien…
+
+So far so good.
+
+What was new to me in James et al.’s discussion of dichotomous regressors is this: You can also recode x as being equal to -1 if someone hasn’t graduated from college and equal to 1 if someone has graduated from college. Then \hat{a_0} can be interpreted as the average wage in your sample (whether one has graduated from college or not), and \hat{b_0} becomes the wage college graduates earn over and above \hat{b_0} and the amount that those who haven’t graduated earn from college earn below \hat{a_0}.
+
+Here is a proof by Stata:
+
+clear
+
+drop _all
+
+set obs 1000
+
+set seed 123456789
+
+gen base_wage = rnormal(50,15)
+
+gen diff = rnormal(20,1)
+
+gen college = rbinomial(1,0.5)
+
+gen wage = base_wage + college * diff
+
+reg wage college
+
+gen college2 = -1 if college==0
+
+replace college2 = 1 if college==1
+
+reg wage college2
+
+The first regression yields estimates of (I drop the hats for clarity) a_0 = 49.27 and of b_0 = 20.19, i.e., the average person who hasn’t graduated from college makes $49.27 per hour on average, and the increase in wage associated with having graduated from college is $20.19 per hour, for an average of $69.46 for college graduates in your sample.
+
+The second regression, which recodes the college dummy as either -1 or 1, yields estimates of a_0 = 59.36 and of b_0 = 10.09. In other words, the average individual in the sample (ignoring whether one has graduated from college or not) makes $59.36 an hour. Using information about whether someone has graduated college, we know that that person makes on average $59.36 + $10.09 = $69.45 per hour if she has graduated from college, but $59.36 – $10.09 = $49.27 if she has not graduated from college.
+
+In retrospect, this may all seem obvious, but as I said, this was new to me. I think coding a dummy as -1 or 1 gets to the spirit of what regression is about, viz. “What is happening on average?” By coding a dummy -1 or 1, the constant returns the (true) average of the dependent variable. By coding a dummy as zero or one, the constant instead tells you the average for one group, and what you add to that average to recover the average for the other group.
+
+As the example above illustrates, the two present the same information–they just package it differently, and you might want to report different things to different audiences. For example, academics might not care or they might be interested in the results coding the dummy as 0/1, but policy makers might be interested in the results coding it as -1/1, because they might be interested in knowing the average wage ignoring whether one has graduated from college.
+
+UPDATE: A few readers wrote to correct a mistake I made. For example, Climent Quintana-Domeque writes:
+
+Perhaps I missed something (a clarification) but the intercept when the binary is classified as -1 or 1 is not the unconditional mean unless the fraction of observations in each category is the same (i.e., 1/2). Let’s say that p is the fraction with D=1 and (1-p) with D=0. Recoding, p is the fraction with D2=1 and (1-p) with D2=-1. Then, it is the case that:
+
+a_1=E[Y] if p=1/2.
+
+a_1 is approx. E[Y] if p is approx. 1/2
+
+Linear projection of Y on D is
+
+Y = a_0 + b_0 D + e_0
+
+E[Y|D=1]=a_0 +b_0
+
+E[Y|D=0]=a_0
+
+E[Y] = E[E[Y|D]] = p(a_0 + b_0) +(1-p)a_0 = pa_0 + pb_0 + (1-p)a_0 = a_0 + pb_0
+
+With your simulated example,
+
+display .49769 * .45112 +(1-.497) * 49.26481
+
+59.297406
+
+or
+
+display 49.26481 + .497 * 20.18631
+
+59.297406
+
+sum wage
+
+Variable | Obs Mean Std. Dev. Min Max
+
+————-+————————————————–
+
+wage 1,000 59.29741 17.99279 2.976877 108.1303
+
+Linear projection of Y on D2 is
+
+Y = a_1 + b_1 D2 + e_1
+
+E[Y|D2=1] = a_1 + b_1
+
+E[Y|D2=-1] = a_1 – b_1
+
+E[Y] = E[E[Y|D]] = p(a_1 + b_1) + (1-p)(a_1 – b_1) = pa_1 + pb_1 +(1-p)a_1 –(1-p)b_1 = a_1 + pb_1 – b_1 + pb_1 = a_1 + (2p-1)b_1
+
+. display .497 * (59.35797 + 10.09316) + (1-.497) * (59.35797-10.09316)
+
+59.297411
+
+or
+
+. display 59.35797 + (20.497-1) *10.09316
+
+59.297411</p>

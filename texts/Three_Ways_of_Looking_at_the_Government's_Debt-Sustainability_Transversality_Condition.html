@@ -1,0 +1,57 @@
+<h1>Three Ways of Looking at the Government's Debt-Sustainability Transversality Condition</h1>
+<p><a href='http://delong.typepad.com/sdj/2013/06/three-ways-of-looking-at-the-debt-sustainability-transversality-condition.html'>http://delong.typepad.com/sdj/2013/06/three-ways-of-looking-at-the-debt-sustainability-transversality-condition.html</a></p>
+<p>Suppose that we have an economy growing at rate n + g, population growth plus productivity growth, with a government borrowing at an interest rate r. Suppose that the social welfare function is a sum over all periods of ln(C(t)), with three different possible sums:
+
+An outtake from the in-progress DeLong and Summers, "Fiscal Policy in a Low-Interest Rate Environment". This digression has no proper place in the paper, so I am posting it here...
+
+If g > r, then the government can borrow-and-spend and then rollover the debt forever--never pay it back. But it is easier to see what is going on if we step away from the infinite horizon, and consider a government that borrows an amount dG per capita in year 0, rolls the debt over until year T, and then levies taxes in year T to pay it back; and then if we let T get far away.
+
+Suppose, first, that there is no population growth--n=0. Then the marginal utility of consumption in year t is 1/C(t) = 1/[C(0)exp(gt)]. The social-welfare benefit to borrow-and-spend in year zero is then:
+
+(1/C(0))dG
+
+The social-welfare cost to repayment in year T is then:
+
+(1/C(T))exp(rT)dG = (1/C(0))exp((r-g)T)dG
+
+The ratio of benefits to costs is:
+
+exp((g-r)T)
+
+This is greater than one if g > r, and as T gets large this becomes unboundedly large.
+
+Suppose, second, that there is population growth, and that it is still the case that r < g.
+
+The social-welfare benefit to borrow-and-spend in year zero is then:
+
+(1/C(0))dG
+
+The social-welfare cost to repayment in year T for each of the N(T) people taxed is then is then:
+
+(1/C(T))exp((r-n)T)dG = (1/C(0))exp((r-n-g)T)dG
+
+The ratio of benefits to costs is then, for these three social-welfare functions:
+
+exp((n+g-r)T) exp((n+g-r)T) x 1/exp(nT) = exp((g-r)T) exp((n+g-r)T)
+
+And, as long as g > r and n is positive, as T gets large all three of these become unboundedly large.
+
+The interesting case is the third, in which g < r < n+g. Then our three evaluations of borrow-and-spend in year zero, rollover, and then repay in year T become:
+
+exp((n+g-r)T) :: becomes unboundedly large as T gets large exp((g-r)T) :: approaches zero as T gets large exp((n+g-r)T) :: becomes unboundedly large as T gets large
+
+We can gain some clear insight into what is going on in case (1) if we provide that social-welfare function with a rationale. Suppose that population growth comes from immigration, and immigrants simply do not enter into today's present-value social-welfare function--we do not value whatever utility gain they get that impels them to immigrate, and we do not count as a cost the fact that when they immigrate they assume their per capita share of the burden of the debt. Then it is clear what is going on: the debt is growing faster than per-capita consumption--and so a policy of rollover would be unsustainable and unwise--but for the fact that rolling over the debt allows for it to be offloaded onto immigrants. Borrow-and-spend and rollover is then a way of shifting the net costs of the policy of delaying repayment onto outsiders who do not enter into the social-welfare calculus.
+
+Case (2) is disturbing. The math seems to tell us that the policy of borrow-and-spend-and-rollover is certainly sustainable--as r<n+g the debt becomes smaller and smaller relative to the future's economic resources as we look further and further into the future--but such a policy is also a minus if the debt will in fact be liquidated at any future date, no matter how large is T. With g < r < r+g, the per-capita utility cost of repaying the debt falls over time, but falls more slowly than the number of people who do the repaying rises. The policy of borrow-and-spend-and rollover indefinitely thus seems (a) sustainable, but (b) unwise.
+
+The puzzle remains in somewhat different form if we shift from log utility to a constant relative risk aversion utility function with a risk aversion parameter of γ. Then pushing out that repayment for an extra year raises the real resource amount has to be repaid by r, raises the number of people who do the repaying by n, and reduces the per-capita utility cost of repayment by γ(g+n), for a net social-welfare cost growth factor of:
+
+r - (γ-1)n - γg
+
+Here we see the decoupling of the "wisdom" criterion r<(γ-1)n+γg from the "sustainability" criterion r<n+g. It is not just the case that there are borrow-and-spend-and-rollover policies that are sustainable (in infinite time) but unwise (in finite time), but also borrow-and-spend-and-rollover policies that are wise (in finite time, until the amount borrowed materially affects the growth rate of consumption g and shifts the inequality) but unsustainable (in infinite time).
+
+In case (2), the formulation of the social welfare function says that--other things being equal--it is better for a society to have a given amount of real GDP divided among more people than not. You would rather have a country of 1 billion people with a per capita consumption level of $1000 per person then have a country of 10 million people with per capita consumption of $100,000. It is not obvious to me that this is true. It is not obvious to me that this is false.
+
+It might or not not be preferred to assume that, at least from the standpoint of the present generation, a population that controls its fertility is, at the margin at least, indifferent between increases in aggregate consumption that come from higher per-capita consumption levels and increases that come from more capitas at a constant level of per-capita consumption. In that case, we arrive at (3), which is the same in its implications as (1).
+
+If you will recall, Baker, DeLong, and Krugman (2005) had an analysis in which the degree of altruism--the extent to which the addition of more people to the population in the future raises today's calculation of social welfare--was governed by a sliding scale parameter λ. There we analyzed the effects of different values of λ on equilibrium intertemporal prices, but that analysis could be applied to this question as well…</p>

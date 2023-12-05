@@ -1,0 +1,57 @@
+<h1>Artificial intelligence, algorithmic pricing, and collusion</h1>
+<p><a href='https://voxeu.org/article/artificial-intelligence-algorithmic-pricing-and-collusion'>https://voxeu.org/article/artificial-intelligence-algorithmic-pricing-and-collusion</a></p>
+<p>Artificial intelligence, algorithmic pricing, and collusion
+
+Emilio Calvano, Giacomo Calzolari, Vincenzo Denicolò, Sergio Pastorello
+
+Antitrust agencies are concerned that the autonomous pricing algorithms increasingly used by online vendors may learn to collude. This column uses experiments with pricing algorithms powered by AI in a controlled environment to demonstrate that even relatively simple algorithms systematically learn to play sophisticated collusive strategies. Most worrying is that they learn to collude by trial and error, with no prior knowledge of the environment in which they operate, without communicating with one another, and without being specifically designed or instructed to collude.
+
+Remember your last online purchase? Chances are, the price you paid was not set by humans but rather by a software algorithm. Already in 2015, more than a third of the vendors on Amazon.com had automated pricing (Chen et al. 2016), and the share has certainly risen since then – with the growth of a repricing software industry that supplies turnkey pricing systems, even the smallest vendors can now afford algorithmic pricing.
+
+Unlike the traditional revenue management systems long in use by such businesses as airlines and hotels, in which the programmer remains effectively in charge of the strategic choices, the pricing programs that are now emerging are much more ‘autonomous’. These new algorithms adopt the same logic as the artificial intelligence (AI) programs that have recently attained superhuman performances in complex strategic environments such as the game of Go or chess. That is, the algorithm is instructed by the programmer only about the aim of the exercise – winning the game, say, or generating the highest possible profit. It is not told specifically how to play the game but instead learns from experience. In a training phase, the algorithm actively experiments with the alternative strategies by playing against clones in simulated environments, more frequently adopting the strategies that perform best. In this learning process, the algorithm requires little or no external guidance. Once the learning is completed, the algorithm is put to work.
+
+From the antitrust standpoint, the concern is that these autonomous pricing algorithms may independently discover that if they are to make the highest possible profit, they should avoid price wars. That is, they may learn to collude even if they have not been specifically instructed to do so, and even if they do not communicate with one another. This is a problem. First, ‘good performance’ from the sellers’ standpoint, i.e. high prices, is bad for consumers and for economic efficiency. Second, in most countries (including Europe and the US) such ‘tacit’ collusion, not relying on explicit intent and communication, is not currently treated as illegal, on the grounds that it is unlikely to occur among human agents and that, even if it did occur, it would be next to impossible to detect. The conventional wisdom, then, is that aggressive antitrust enforcement would be likely to produce many false positives (i.e. condemning innocent conduct), while tolerant policy would result in relatively few false negatives (i.e. excusing anticompetitive conduct). With the advent of AI pricing, however, the concern is that the balance between the two types of error might be altered. Though no real-world evidence of autonomous algorithmic collusion has been produced so far,1 antitrust agencies are actively debating the problem.2
+
+Those who are concerned (e.g. Ezrachi and Stucke 2015) argue that AI algorithms already outperform humans at many tasks, and there seems to be no reason why pricing should be any different. These commentators refer also to a computer science literature that has documented the emergence of some degree of uncompetitively high prices in simulations where independent pricing algorithms interact repeatedly. Some scholars (e.g. Harrington 2018), are developing paths towards making AI collusion unlawful.
+
+Sceptics counter that these simulations do not use the canonical model of collusion, thus failing to represent actual markets (e.g. Kuhn and Tadelis 2018, Schwalbe 2018).3 Furthermore, the degree of anti-competitive pricing appears to be limited, and in any case high prices as such do not necessarily indicate collusion, which instead must involve some kind of reward-punishment scheme to coordinate firms’ behaviour. According to the sceptics, achieving genuine collusion without communication is a daunting task not only for humans but even for the smartest AI programs, especially when the economic environment is stochastic. Whatever over-pricing is found in the simulations could be due to the algorithms' failure to learn the competitive equilibrium. If this were so, then there would be little reason to worry, given that the problem will presumably fade away as artificial intelligence develops further.
+
+To inform this policy debate, in a recent paper (Calvano et al. 2018a) we construct AI pricing agents and let them interact repeatedly in controlled environments that reproduce economists’ canonical model of collusion, i.e. a repeated pricing game with simultaneous moves and full price flexibility. Our findings suggest that in this framework even relatively simple pricing algorithms systematically learn to play sophisticated collusive strategies. The strategies mete out punishments that are proportional to the extent of the deviations and are finite in duration, with a gradual return to the pre-deviation prices.
+
+Figure 1 illustrates the punishment strategies that the algorithms autonomously learn to play. Starting from the (collusive) prices on which the algorithms have converged (the grey dotted line), we override one algorithm’s choice (the red line), forcing it to deviate downward to the competitive or Nash price (the orange dotted line) for one period. The other algorithm (the blue line) keeps playing as prescribed by the strategy it has learned. After this exogenous deviation in period , both algorithms regain control of the pricing.
+
+Figure 1 Price responses to deviating price cut
+
+Note: The blue and red lines show the price dynamic over time of two autonomous pricing algorithms (agents) when the red algorithm deviates from the collusive price in the first period.
+
+The figure shows the price path in the subsequent periods. Clearly, the deviation is punished immediately (the blue line price drops immediately after the deviation of the red line), making the deviation unprofitable. However, the punishment is not as harsh as it could be (i.e. reversion to the competitive price), and it is only temporary; afterwards, the algorithms gradually return to their pre-deviation prices.
+
+What is particularly noteworthy is the behaviour of the deviating algorithm. Plainly, it is responding not only to the rival but also to its own action. (If it responded only to the rival, there would be no reason to cut the price in period t = 2, as the rival has charged the collusive price in period t = 1). This kind of self-reactive behaviour is a distinctive sign of genuine collusion, and it would be difficult to explain otherwise.
+
+The collusion that we find is typically partial – the algorithms do not converge to the monopoly price but a somewhat lower one. However, we show that the propensity to collude is stubborn – substantial collusion continues to prevail even when the active firms are three or four in number, when they are asymmetric, and when they operate in a stochastic environment. The experimental literature with human subjects, by contrast, has consistently found that they are practically unable to coordinate without explicit communication save in the simplest case, with two symmetric agents and no uncertainty.
+
+What is most worrying is that the algorithms leave no trace of concerted action – they learn to collude purely by trial and error, with no prior knowledge of the environment in which they operate, without communicating with one another, and without being specifically designed or instructed to collude. This poses a real challenge for competition policy. While more research is needed before considering policy moves, the antitrust agencies’ call for attention would appear to be well grounded.
+
+References
+
+Calvano, E, G Calzolari, V Denicolòand S Pastorello (2018a), “Artificial intelligence, algorithmic pricing and collusion,” CEPR Discussion Paper 13405.
+
+Calvano, E, G Calzolari, V Denicolòand S Pastorello (2018b), “Algorithmic Pricing What Implications for Competition Policy?” forthcoming in Review of Industrial Organization.
+
+Chen, L, A Mislove and C Wilson (2016), “An Empirical Analysis of Algorithmic Pricing on Amazon Marketplace”, in Proceedings of the 25th International Conference on World Wide Web, WWW'16, World Wide Web Conferences Steering Committee, pp. 1339-1349.
+
+Ezrachi, A and M E Stucke (2015), "Artificial Intelligence and Collusion: When Computers Inhibit Competition", Oxford Legal Studies Research Paper No. 18/2015, University of Tennessee Legal Studies Research Paper No. 267.
+
+Harrington, J E, Jr (2018), “Developing Competition Law for Collusion by Autonomous Price-Setting Agents,” working paper.
+
+Schwalbe, U (2018), “Algorithms, Machine Learning, and Collusion,” working paper.
+
+Kühn K U and S Tadelis (2018), “The Economics of Algorithmic Pricing: Is collusion really inevitable?”, working paper.
+
+Endnotes
+
+[1] The only antitrust case involving algorithmic pricing was the successful challenge by US and British antitrust agencies of a pricing software allegedly designed to coordinate the price of posters by multiple online sellers. See Wired Magazine, U.S. v. Topkins, 2015 and CMA case 2015 n. 50223.
+
+[2] See, for instance, the remarks of M. Vestager, European Commissioner, at the Bundeskartellamt 18th Conference on Competition, Berlin, 16 March 2017 ("Algorithms and Competition"), and the speech of M. Ohlhausen, Acting Chairman of the FTC , at the Concurrences Antitrust in the Financial Sectorconference, New York, 23 May 2017 ("Should We Fear the Things That Go Beep in the Night? Some Initial Thoughts on the Intersection of Antitrust Law and Algorithmic Pricing"). The OECD sponsored a Roundtable on Algorithms and Collusionin June 2017, and in September 2017 the Canadian Competition Bureau released a discussion paper on the ability of algorithms to collude as a major issue for antitrust enforcement (“Big data and Innovation: Implications for Competition Policy in Canada”). More recently, the British CMA published a white paper on “Pricing Algorithms” on 8 October 2018. Lastly, the seventh session of the FTC Hearings on competition and consumer protection, 13-14 November 2018, centred on the "impact of algorithms and Artificial Intelligence."
+
+[3] These simulations typically use models of staggered prices that do not fit well with algorithmic pricing (Calvano et al. 2018a, 2018b).</p>

@@ -1,0 +1,27 @@
+<h1>The Stable-Coin Myth by Barry Eichengreen</h1>
+<p><a href='https://www.project-syndicate.org/commentary/stable-coins-unviable-cryptocurrencies-by-barry-eichengreen-2018-09'>https://www.project-syndicate.org/commentary/stable-coins-unviable-cryptocurrencies-by-barry-eichengreen-2018-09</a></p>
+<p>The author misses a critical 4th model which is an overcollateralized model such as the one employed by MakerDAO's Dai stablecoin. Though seemingly quite complex it is one of the few stablecoin models I think can actually maintain a peg, so humor this wet-behind-the-ears software engineer.
+
+
+
+Collateral is locked up by users in smart contracts and then stable coins are created by borrowing against the collateral. The minimum amount of overcollateralization, interest, liquidation fee, and debt ceiling (maximum amount of stablecoins minted for this asset versus the total supply of stablecoins) are unique for each assets and determined by its risk profile. For example, Ethereum as a collateral asset requires minimum 150% collateralization, 2.5% interest, and a 13% liquidation penalty. This means that if the value of the collateral ever dips below 150% of the debt value this loan is automatically liquidated and the assets are sold off. Much more than just a stablecoin, this is a globalized automated credit system allowing anyone access to the equity in their assets.
+
+
+
+The issuance price of Dai is fixed at $1, but the market may trade it any price. However if the market price is above $1, market-maker are incentivized to open loan position to create more Dai to profit from the arbitrage opportunity. The influx of supply will drive down the price of Dai back towards equilibrium. If Dai is trading at below $1, users with open loans will seek to repurchase Dai and close out their positions (effectively a negative interest loan) as they can pay back their loans at a profit. This can be further supplemented by a dynamic rates policy which increases borrowing costs when prices are below $1, and decreases borrowing costs when prices are above $1. Another extra monetary policy tool is that Dai can generate interest for its holders. This interest rate is an incentive mechanism which can be modified dynamically to further stabilize the peg.
+
+
+
+However, there is a possibility that a black swan event occurs (or just that risk parameters were set incorrectly for an asset) and loans blow through their overcollateralization buffer and are effectively underwater. To combat this scenario there is a token called the MKR token which absorbs all of the risk/reward of the credit system and functions as the lender of last resort. In the event of a loan's liquidation not returning sufficient value to clear the debt, the MKR token is diluted and sold off until the debt becomes whole. The incentive for holding the MKR token is that all of the interest generated from loans is used to buy and destroy the MKR token.
+
+
+
+Unlike most proposed stablecoins, Dai launched in December of 2017, has been live for 10 months. There are currently 50 million Dai (worth $1 each) in existence backed by 744,000 Ethereum (~$160M USD at time of writing). During that time the price of the collateral asset Ethereum crashed from $1420 to $182 and not a single loan has gone underwater to this day. And the peg stands at $1.
+
+
+
+The team plans to release their next update by the end of 2018 which will allow for multiple types of collateral to be used. This enables a diverse collateral portfolio of non-correlated assets which will further contain threat posed by black swan events in any single asset class.
+
+
+
+I would be very interested in hearing Mr. Eichengreen's critique of this model.</p>

@@ -1,0 +1,61 @@
+<h1>The economics of blockchains</h1>
+<p><a href='https://voxeu.org/article/economics-blockchains'>https://voxeu.org/article/economics-blockchains</a></p>
+<p>The economics of blockchains
+
+Markus K Brunnermeier, Joseph Abadi
+
+Cryptocurrencies and the underlying distributed ledger technology have exploded into public consciousness over the last few years, with devotees insisting that the technology will revolutionise financial transactions and ownership data. This column identifies a ‘blockchain trilemma’ whereby no ledger can fully satisfy the three desirable properties of decentralisation, correctness, and cost-efficiency. It further explains how distributed ledgers enhance competition but introduce costs above and beyond the well-known electricity costs.
+
+Traditionally, records have been maintained by centralised entities. Distributed ledger technology (DLT) has provided us with a radical alternative to record information. DLT has the potential to be as ground-breaking as the invention of double-entry bookkeeping in 14th century Italy. It could revolutionise the record-keeping of financial transactions and ownership data.
+
+Blockchains are a particular type of distributed ledger written by decentralised, usually anonymous groups of agents rather than known centralised parties. Consensus is attained by making the ledger publicly viewable and verifiable. Ideally, a ledger should:
+
+record all information correctly;
+
+be cost efficient; and
+
+be fully decentralised to avoid any concentration of power.
+
+Following the seminal white paper by Nakamoto (2008), much of the innovation in blockchain technology has been aimed at wresting power from centralised authorities or monopolies. Unfortunately, the blockchain community’s utopian vision of a decentralised world is not without substantial costs. In recent research, we point out a ‘blockchain trilemma’ – it is impossible for any ledger to fully satisfy the three properties shown in Figure 1 simultaneously (Abadi and Brunnermeier 2018). In particular, decentralisation has three main costs: waste of resources, scalability problems, and network externality inefficiencies. We begin by discussing the range of blockchain’s applications and later elaborate on the tradeoffs between correctness, cost efficiency, and decentralisation.
+
+Figure 1 The blockchain trilemma
+
+Applications of blockchain technology
+
+To date, blockchain technology has been used primarily to record transactions in cryptocurrencies, most notably in bitcoin. The scope of applications of blockchain is much broader, though. For example, some firms currently use blockchains to track deliveries across complex supply chains. Consumers’ credit histories and vendors’ ratings could be recorded on a blockchain in the same way that centralised intermediaries such as Alibaba and Amazon do on their electronic platforms today. In financial markets, blockchains have been proposed as ledgers to track stock ownership, execute transfers of collateral, and settle payments in the interbank market. Even governments, whose authority blockchains were meant to reduce, have proposed blockchain-based solutions to maintain land registries.
+
+Incentivising honesty
+
+In order to understand the blockchain trilemma, it is necessary to understand why decentralised, anonymously written blockchains require a waste of computational resources. This is the most significant of blockchain’s three costs. Given that essentially anyone may write on a public blockchain, a consensus algorithm is necessary to determine the true history out of possibly incompatible or fraudulent reports.
+
+The clever solution to this problem proposed in Nakamoto (2008) is to force blockchain writers to perform a computationally costly action in order to record information on the blockchain and validate the reports of others (i.e. ‘vote’ on the ledger’s validity). Under the most common consensus algorithm, called proof of work (PoW), miners must solve a computational problem by brute force in order to place a block on the blockchain and vote in favour of the preceding blocks. A miner’s ‘voting power’ is thus restricted by her computational resources, so the system remains democratic. The PoW algorithm allows for free entry without a centralised entity that allocates voting rights.
+
+Free entry has deep implications for how blockchain writers are incentivised. Traditional centralised intermediaries are incentivised not to commit fraud because they stand to lose their franchise values when misbehaviour is discovered. That is, they are incentivised dynamically by their expected future profits. A centralised intermediary has an incentive to cheat only if the benefit of a one-time distortion of the ledger outweighs the cost of losing its future profits. Blockchain writers have no franchise value because free entry implies that their rents are competed away by entrants. The incentives provided by PoW are entirely static – a blockchain writer weighs the benefits of a one-time attack against the cost of writing on the blockchain, that is, theflow of fees paid to honest blockchain writers. For example, a cryptocurrency miner would compare the cost of conducting a ‘double-spend’ attack to the amount that could reliably be double spent. Decentralisation via free entry of ledger writers therefore leads to a large waste of computational resources, as suggested by the blockchain trilemma.
+
+Free entry is also related to the second cost of blockchains, namely, scalability problems. If a blockchain user does not trust any entity to truthfully report the blockchain’s contents, that user must store the blockchain in its entirety. The storage costs quickly become onerous even for a blockchain with limited throughput. For example, the Bitcoin blockchain, which processes only seven transactions per second, exceeds 250GB in size. In short, the more a blockchain is used, the more costly it is to maintain truly decentralised record-keeping.
+
+Fork competition
+
+Blockchains also allow for a second type of competition beyond free entry of writers. A salient feature of blockchains is that they can be ‘forked’ – a subset of the community that wishes to change the blockchain’s rules may start to add blocks according to those rules at any time. Those who adhere to the old rules will see these new blocks as invalid. Accordingly, the blockchain will split in two – those who adopt the new rules will extend one chain of blocks, whereas those who stick to the old rules will ignore that chain and build another. One prominent example of such a fork is Bitcoin Cash. When part of the Bitcoin community wanted to increase the maximum number of transactions per block, Bitcoin Cash was born as a fork of the Bitcoin blockchain.
+
+By forking an established blockchain, part of the community can create a competing ledger. This type of competition, which we term ‘fork competition’, has a remarkable property – all the information on the established ledger is ported over to the new ledger. In our paper, we argue that with this type of portability of information, there is essentially perfect competition among ledgers (Abadi and Brunnermeier 2018). By contrast, users of a centralised ledger are anchored to it because it is costly to switch to a competing ledger that does not contain the same information. Network externalities that encourage coordination on a single ledger amplify this anchoring and make it difficult for competing ledgers to succeed.
+
+While fork competition enhances competition between ledgers, like free entry of writers it is not without its drawbacks. Fork competition is the direct cause of the third cost of blockchains, namely, network externality inefficiencies. The ease of switching between branches of a blockchain fork can engender instability and miscoordination. Blockchains may fail to fully exploit network externalities by splitting into several different forks over time. In fact, the two largest cryptocurrency blockchains – Bitcoin and Ethereum – have experienced forks in which substantial portions of the community have abandoned the established blockchain.
+
+Ownership versus possession
+
+It is often argued that blockchains have the potential to completely resolve the problem of tracking ownership rights both in developed and developing countries (Wall Street Journal 2018). An aspect of blockchain technology that is often overlooked is that while blockchains are excellent at executing transfers of ownership, they in no way guarantee transfers of possession (Abadi and Brunnermeier 2018). For example, in a housing market the owner of the house is the person whose name is on the deed, but the possessor of the house is the person who resides in it. The buyer of the deed needs to be certain that her ownership of the house will be enforced. Broadly, blockchains can record obligations. Punishing those who default on their obligations is another matter. While it is difficult to provide static incentives for blockchain writers to discipline users of the ledger, centralised intermediaries' incentives can be appropriately aligned – if a centralised intermediary fails to enforce obligations, the intermediary’s reputation may be damaged.
+
+Although in some applications, such as cryptocurrency, enforcement is not an issue, in several other (especially financial) applications it is. The archetypical example of a blockchain that requires enforcement is a land registry – blockchain-based systems have been proposed around the world, from Sweden to India, and in all cases it seems that the government will be deeply involved in enforcing possession. The need for enforcement and government support has the potential to severely diminish the benefits of fork competition. Perhaps the best course is for reputable entities to keep records as well when enforcement is necessary.
+
+Conclusion
+
+The blockchain trilemma highlights the key economic trade-offs in designing a ledger. Traditional ledgers, managed by a single entity, forgo the desired feature of decentralisation. A centralised ledger writer is incentivised to report honestly because he does not wish to jeopardise his future profits and franchise value. Blockchains can eliminate the rents extracted by centralised intermediaries through two types of competition: free entry of writers and fork competition. Decentralisation comes at the cost of efficiency, however. Free entry completely erodes writers' future profits and franchise values. The ledger's correctness must rely on the purely static incentives provided by proof of work. Fork competition facilitates competition between ledgers but can lead to instability and produce too many ledgers. Furthermore, the ideal of decentralisation may be unattainable when substantial legal enforcement by the government is necessary to for the blockchain to function properly.
+
+References
+
+Abadi, J and M Brunnermeier (2018), “Blockchain economics”, Princeton University, mimeo.
+
+Nakamoto, S (2008), “Bitcoin: A peer-to-peer electronic cash system”.
+
+Wall Street Journal (2018), “How blockchain can end poverty”, 18 January.</p>

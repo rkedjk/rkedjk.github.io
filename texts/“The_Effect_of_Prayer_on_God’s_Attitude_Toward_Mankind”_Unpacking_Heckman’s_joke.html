@@ -1,0 +1,33 @@
+<h1>“The Effect of Prayer on God’s Attitude Toward Mankind”: Unpacking Heckman’s joke</h1>
+<p><a href='http://www.stat.columbia.edu/%7Ecook/movabletype/archives/2009/04/the_effect_of_p.html'>http://www.stat.columbia.edu/%7Ecook/movabletype/archives/2009/04/the_effect_of_p.html</a></p>
+<p>James Heckman recently posted this article, which is based on a paper from 1980. (This sort of thing happens; for example, I just published an article based on work from 1986.) Heckman’s tongue-in-cheek article begins:
+
+This paper uses data available from the National Opinion Research Center’s (NORC) survey on religious attitudes and powerful statistical methods to evaluate the effect of prayer on the attitude of God toward human beings.
+
+He sets up a model for the intensity of prayer, given its effectiveness. The key assumption is as follows:
+
+Accept on faith that the conditional density of x [the intensity of prayer in the population] given y [God’s attitude arrayed on a scale ranging from 0 to 1] is of the form g(x|y) = a(y) exp(xy).
+
+That is, the higher y is, the more prayer we’d see, which makes sense. (Heckman labels the function a(y) as “unknown,” but, unless I’m missing something, a(y) is a normalizing constant that can be calculated in closed form by integrating exp(xy) over x. Perhaps this mistake, if it is one, can be caught before the article appears in press.)
+
+Given the reasonable enough model above, Heckman points out that you can differentiate the density of x and learn something about the distribution of y, the effectiveness of prayer.
+
+What does it all mean?
+
+Of course Heckman is joking, but it appears he might be making a more serious point when he comments:
+
+Provided conditional density (1) is assumed, we do not need to observe a variable in order to compute its conditional expectation with respect to another variable whose density can be estimated. For example, one can extend current empirical work in a variety of areas of economics to estimate the effect of income on happiness or the effect of income inequality on democracy.
+
+I don’t think this is literally an issue. True, all four of the variables Heckman mentions—income, happiness, income inequality, and democracy—can only be measured with error, but certainly they can be (and are) measured when they are studied empirically.
+
+But I got a little worried that maybe there’s something more going on here, some reason I should be giving a little less credence to studies linking economics to psychology and political science. Is Heckman implying that those cross-disciplinary studies have, at bottom, no more foundation than his argument on the effectiveness of prayer?
+
+So I went back to Heckman’s article to try to find the flaw in the reasoning. (By “flaw,” I don’t mean that Heckman was making a mistake; rather, I’m speaking of the hidden logical flaw that makes the reasoning flow, just as in those mathematical arguments where you “prove” 1=0 by means of a series of algebraic expressions that include a division-by-zero.)
+
+Rereading carefully, I found the flaw. I actually think this article would be a good one for a take-home exam in a theoretical statistics class. I’ll give the answer below.
+
+The flaw in the reasoning is that the probability algebra assumes, implicitly, that x and y are two random variables defined over a common population. In Heckman’s argument, the distribution of x represents variation across people (as measured, in this case, from survey data). The distribution of y must then, correspondingly, be the distribution of God’s attitude as perceived by the population, which is not so interesting as if it were really a measure of “God’s [true] attitude.” It’s a subtler (and funnier) version of the correlation/causation distinction: population variation should not be interpreted causally. Again, I don’t think this has a huge relevance on studies of economics and happiness and democracy (since these outcomes can be measured directly), but it’s fun to go through the argument and see where the rules are changed in midstream.
+
+P.S. I’m sure some people will get on my case because I’m picking apart a joke. But Heckman’s an interesting thinker, and it’s not a bad idea to take his jokes seriously.
+
+P.P.S. If you do take the model seriously, another amusing point is that the estimate of E(y|x) is negative for some values of x. But y is restricted to fall between 0 and 1; this indicates that the model does not fit the data! (See this article—figure 7 in particular—for similar reasoning in another setting.)</p>

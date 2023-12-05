@@ -1,0 +1,63 @@
+<h1>Worthwhile Canadian Initiative: DSGE and me, or Why I ended up being an applied econometrician</h1>
+<p><a href='http://worthwhile.typepad.com/worthwhile_canadian_initi/2013/03/dsge.html'>http://worthwhile.typepad.com/worthwhile_canadian_initi/2013/03/dsge.html</a></p>
+<p>I've never used Dynamic Stochastic General Equilibrium (DSGE) modeling techniques for pretty much the same reasons that Noah Smith outlines . I keep meaning to write a post about my misgivings about DSGE, and it appears now is the time. This is going to be a pretty technical and wonkish post, but there's really no way around that: the issue is technical and wonkish.
+
+Households and firms both face dynamic problems, and DSGE models force the analyst to specify laws of motion for the relevant state variables.
+
+Households and firms both face problems of optimal choice under uncertainty, and DSGE models force the analyst to specify the stochastic environment.
+
+The General Equilibrium part essentially says that things add up.
+
+I have no problems with the models themselves: they are, for the most part, reasonable and interesting stylised representations of how the macroeconomy works:
+
+Reasonable people can disagree about the modelling choices made in these steps, but as far as I'm concerned, the chief advantage of DSGE approach is that it forces people to think about these three issues when studying the macroeconomy.
+
+Okay, so you've specified the model - now what? If all the functions in your model are quadratic, then the all the first-order conditions consistent with optimal choices are linear. And if there is a solution to a linear system, we know how to get it.
+
+There's a problem with that approach: you'll never get a model with quadratic preferences and technology published. The even bigger problem is that if you don't make the assumption that preferences and technology are quadratic, then you can't solve the model at all.
+
+So instead of assuming the first-order conditions are linear equations, DSGE practitioners generally assume that they can be well-approximated by linear equations. The idea here is that if you zoom in 'close enough' to any nonlinear curve at a given point, you can draw a straight line that won't deviate 'too much' from the curve. If you stop the Taylor series at the first term, you get
+
+f(x) ≈ f(x 0 ) + f'(x 0 )(x-x 0 )
+
+where f'(x 0 ) is the first derivative of the function at a particular point x 0 .
+
+Once you've gone this route, you have to persuade people that the region of interest is in fact the values of x that are close enough to x 0 to justify using the linear approximation. One of the features of the model that we can extract analytically - that is, without using numerical approximations - is the long-run (stochastic) steady state (balanced growth path). Since the model usually predicts that the economy will eventually converge to this path, it's reasonable to think that it will spend most of its time in its neighbourhood.
+
+Or at least, it sounds reasonable enough for a significant number of macroeconomists - probably a majority of them. But this is the part I've never been comfortable with. Firstly, there's the whole idea of an approximation to the solution of a model. I'm not against approximations - that's what models are. But that's just it: the model is the approximation. If a model performs poorly in a dimension of interest, then you can work on improving it. But what are you to conclude if an approximation to a model does poorly? That the model is over-simplified in some way, or that the numerical approximation you're using isn't appropriate for the problem at hand?
+
+The other problem I had - and this is one where some progress has been made - is that the lack of analytical solutions to DSGE models made it hard/impossible to use in empirical work and forecasting. Models end up being calibrated to fit unconditional moments and not the actual data.
+
+So what can you do? Noah Smith says "do econometrics instead", and that is in fact what I ended up doing. But I did take a stab at a more substantive solution, and I might as well tell you about it. You almost certainly haven't read about it before. (Non-economists should probably stop reading now.)
+
+Suppose the state variable of a dynamic problem is x and the instantaneous return function is F(x,c) - c⋅p, where c is a control variable and where p is exogenous (c and p can be vectors). Suppose also that the law of motion for the state variable is x' = g(x,c), where x' is the value of the state variable in the next period. if V(x,p) is the value function, the Bellman equation is
+
+V(x,p) = max c { F(x,c) - c⋅p + β V(x',p') } s.t. x' = g(x,c)
+
+where 0 < β < 1 is the discount factor and p' is next period's value of p. If we impose the law of motion directly into V(x'), then
+
+V(x,p) ≥ F(x,c) - c⋅p + β V(g(x,c),p')
+
+where the equality is strict for the optimal choice of c. Rearrange that inequality and assume for a minute - I'll get back to this - that p=p':
+
+F(x,c) ≤ c⋅p + V(x,p) - β V(g(x,c),p)
+
+This suggests a problem inverse to that of the Bellman equation:
+
+f(x,c) = min p { c⋅p + V(x,p) - β V(g(x,c),p) }
+
+Under certain regularity conditions, you can demonstrate that there is a dual relationship between F and V. But what I really liked about this approach is what you get from the first-order conditions to that minimisation problem:
+
+c = - V p (x,p) + β V x (g(x,c),p)g c (x,c)
+
+It's invariably the case that the law of motion - capital and/or asset accumulation - is linear in the control variable, so g c (x,c) isn't a function of c. If so, then we have what amounts to a version of Hotelling's Lemma - and an analytical solution to a dynamic programming problem.
+
+This approach is due to Larry Epstein, who was teaching at the University of Toronto when I was a grad student there. He derived the basic duality theory in continuous time here and applied it to data with Mike Denny here.
+
+I thought - and think - that this was brilliant. Instead of specifying a refurns function F and bashing out a solution using numerical methods, all you had to do was specify a value function and do half a page of algebra. Whatever properties you wanted to impose on F could be achieved by imposing the appropriate properties on V.
+
+But there were two problems. One was that the original derivation was in continuous time. This wasn't an insurmountable obstacle, and I eventually figured out how to reproduce the duality theorem in discrete time. The other was static expectations. My first attempt at a workaround there was to suggest that while firms might forcast prices for given forecast horizon, there would simply assume that prices would be constant after the forecast horizon. It sounded plausible (to me, anyway) but it raised the question of how long that forecast should be. I tried to answer that question here (ungated version here).
+
+Another way around the static expectations problem is to simply a specify a first-order Markov proces for p. The duality theorems go through as before, but at the cost of making sure that you choose a functional form for V that is sufficiently tractable to allow analytical expressions for E[V(x',p'|p]. I even wrote a paper applying the approach to the problem of dynamic discrete choice that has been residing in my desk drawer for 15 years and which I might as well post now.
+
+And then I stopped. These papers were a lot of work and they weren't getting much any traction. But maybe there's a grad student out there who wants to do macro modelling, is wondering about alternatives to solving dynamic models and who may have better luck.</p>

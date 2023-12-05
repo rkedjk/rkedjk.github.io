@@ -1,0 +1,33 @@
+<h1>‘Metrics Monday: When In Doubt, Standardize</h1>
+<p><a href='http://marcfbellemare.com/wordpress/13375'>http://marcfbellemare.com/wordpress/13375</a></p>
+<p>‘Metrics Monday: When In Doubt, Standardize
+
+A few weeks ago, I received an email from one of my PhD students asking me whether I could help him interpret his coefficient estimates, given that his outcome variables was measured using an unfamiliar scale.
+
+I told him to standardize his outcome variable, which would allow interpreting the estimate of coefficient b in the following regression
+
+(1) y = a + bD + e
+
+as follows, assuming a dichotomous treatment D: On average, when a unit goes from untreated (i.e., D = 0) to treated (i.e., D = 1), y increases by b standard deviations.
+
+For example, suppose you are interested in looking at the effect of taking a test-prep class D on someone’s quantitative GRE score, which is scored on a scale of 130 to 170.
+
+Suppose you have data on a number of test takers’ quantitative GRE scores and whether they took a test-prep class. You estimate equation (1) above and an estimate of a equal to 140 and an estimate of b equal to 10.
+
+(The example in this post is entirely fictitious, for what it’s worth; I have never taken a test-prep class for the GRE nor did I ever estimate anything involving data on GRE scores.)
+
+Suppose further that, like me, you took the test a long time ago, when each section of the GRE was scored on a scale of 200 to 800,* so that the 130-170 scale is really unfamiliar to you. How would you assess whether taking the test-prep class is worth it (assuming, for the sake of argument, that b is identified)?
+
+Standardizing y would go a long way toward helping you, because it would allow expressing the impact of the test-prep class in a familiar quantity. How do you standardize? Simply by taking the variable that is expressed in unfamiliar terms (here, GRE test scores), subtracting the mean from each observation, and dividing each observation minus the mean by the variable’s standard deviation. In other words,
+
+(2) y’ = (y – m)/s,
+
+where y’ is the standardized version of y, m is the mean of y, and s is the standard deviation of y. You would then estimate
+
+(3) y’ = a + bD + e,
+
+where the estimate of b becomes the effect measured in standard deviations of y instead of in points on the test. So finding that the estimate of b in equation (3) is 0.15, you would conclude that taking the test-prep class would lead to an increase in one’s quantitative GRE score of 0.15 standard deviation.
+
+You can standardize your outcome variable, a right-hand side (RHS) variable, or both. If you standardize an RHS variable, the interpretation becomes in terms of what happens to y in its own units if the standardized x increases by one standard deviation. If you standardize on both sides, the interpretation is in terms of standard deviation on both sides, or what happens to y (in standard deviations) for a one standard deviation increase in x. That really is all there is to standardization.
+
+* Yes, I took the GRE before the analytical portion was a written essay. I am old.</p>

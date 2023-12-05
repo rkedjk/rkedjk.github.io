@@ -1,0 +1,31 @@
+<h1>‘Metrics Monday: Fads and Fashions in Econometrics</h1>
+<p><a href='http://marcfbellemare.com/wordpress/11394'>http://marcfbellemare.com/wordpress/11394</a></p>
+<p>‘Metrics Monday: Fads and Fashions in Econometrics
+
+Levi Russell, who writes the Farmer Hayek blog, writes:
+
+I was wondering if you wouldn’t mind writing a post on 3SLS. I recently sent in a research proposal and part of the feedback I got was that 3SLS was “outdated” and that I needed to find a natural experiment or a good instrument. What do we do when these things aren’t readily available?
+
+Good question. Let me delay the answer a bit to talk about whether three-stage least squares (3SLS) is outdated.
+
+First, a refresher on 3SLS (which I needed myself, as it has been at least 12 years since I haven’t thought about that estimator): 3SLS is 2SLS applied to a system of equations (e.g., a supply equation and a demand equation). Why would you want to apply 2SLS to a system of equations? Two reasons:
+
+Each equation in your system has one or more endogenous regressor on the right-hand side (RHS), and You want to take into account the fact that the error terms are correlated across the equations in the system.
+
+In other words, in order to minimize bias (the 2SLS part) and maximize precision (the system part). Thus if you have endogeneity issues across a system of equations (e.g., an equation for quantity supplied, and an equation for quantity demanded, both with endogenous prices on the RHS), it might seem like a good idea to kill two birds with one stone by estimating both equations simultaneously by 3SLS.
+
+Why 3SLS is “outdated”? (Again, a sign that it is outdated is that I had to refresh my own memory about what 3SLS does, since the last time I had come across the estimator was in grad school).* First, as Dave Giles put it in a 2011 post:
+
+There are the various “single equation” estimators, such as 2SLS or Limited Information Maximum Likelihood (LIML). These have the disadvantage of being asymptotically inefficient, in general, relative the “full system” estimators. However, they have the advantage of usually being more robust to model mis-specification. Mis-specifying one equation in the model may result in inconsistent estimation of that equation’s coefficients, but this generally won’t affect the estimation of the other equations.
+
+Note that the relative inefficiency (i.e., imprecision) of 2SLS is why one might wish to estimate 3SLS. The downside of 3SLS, however, is that if there is any hint of misspecification, then the misspecified equation’s parameters do not converge to their true value.
+
+Second, the Credibility Revolution brought with itself an emphasis on causal identification, and thus on the estimation of unbiased coefficients, often at the expense of precision. If I recall correctly, Angrist and Pischke note in the conclusion to Mostly Harmless Econometrics that (I’m paraphrasing) with the method they just covered, “though you might not get the standard errors right, you’ll at least get the identification part right.”
+
+In other words, with the methods covered in their book, you might not get efficiency, but you’ll get consistency. But if (i) one of 3SLS’s disadvantages is that misspecification will lead to inconsistent estimation and, conversely, one of 2SLS’s advantages is that it is robust to misspecification, and (ii) what we have come to care about mostly now is consistency more than efficiency, it is no surprise that 3SLS is seen as “outdated.”
+
+All of this highlights the fact that practice of econometrics is not immune to fads and fashions. In an alternate reality where the Credibility Revolution did not happen and people mostly cared about efficiency, it is possible that 3SLS would be encouraged on the grounds that “Sure, it might lead to some inconsistency, but it’s at least efficient!”
+
+Back to Levi’s question of what to do when you don’t have a natural experiment or a solid IV. The unfortunate answer is to try to find a better (i.e., more plausibly exogenous) IV. Perhaps more importantly, between an efficient estimator that is sensitive to misspecification and an inefficient estimator that is robust to misspecification, it is better to pick the latter, even with less-than-ideal IVs.
+
+* I also did a little proof by JSTOR by looking for any mention of “3SLS” or “three-stage least squares” in articles in the AER, QJE, JPE, REStud, Econometrica, REStat, or AEJ: Applied since 2010. Bearing in mind partial coverage of those journals by JSTOR for that period I take the fact that I could find only one article that did so as evidence in favor of 3SLS being outdated.</p>
