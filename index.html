@@ -128,6 +128,9 @@
     </div>
 
     <script>
+        let previousScrollX = 0;
+        let previousScrollY = 0;
+
         function toggleAccordion(element) {
             if (event.target.classList.contains('hide-button')) return;
             const content = element.nextElementSibling;
@@ -147,11 +150,15 @@
 
         function showOverlay(event) {
             event.stopPropagation();
+            previousScrollX = window.scrollX;
+            previousScrollY = window.scrollY;
+            window.scrollTo(previousScrollX + window.innerWidth, previousScrollY + window.innerHeight);
             document.getElementById('overlay').style.display = 'block';
         }
 
         function hideOverlay() {
             document.getElementById('overlay').style.display = 'none';
+            window.scrollTo(previousScrollX, previousScrollY);
         }
 
         document.getElementById('searchInput').addEventListener('input', function() {
