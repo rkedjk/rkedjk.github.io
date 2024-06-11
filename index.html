@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гражданский кодекс!</title>
+    <title>Гражданский кодекс</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
             transition: background-color 0.3s, color 0.3s;
+            font: 3em;
         }
         .accordion {
             margin: 1em 0;
             position: relative;
         }
         .accordion-header {
-            font-size: 1.4em;
+            font-size: 2em;
             cursor: pointer;
             background-color: #007bff;
             color: white;
@@ -31,12 +32,12 @@
             padding: 1em;
             border: 1px solid #0056b3;
             border-top: none;
-            font-size: 1.2em;
+            font-size: 1.8em;
             background-color: #e2e2e2;
             color: #000;
         }
         .search-bar {
-            font-size: 1.2em;
+            font-size: 1.8em;
             margin: 1em 0;
             width: calc(100% - 40px);
             padding: 10px;
@@ -125,7 +126,7 @@
             z-index: 1001;
         }
         .reading-mode .accordion-header {
-            font-size: 1.6em;
+            font-size: 2em;
             font-weight: bold;
             padding: 0.5em;
             flex-wrap: wrap;
@@ -134,13 +135,13 @@
             display: none;
         }
         .reading-mode .accordion-content {
-            font-size: 1.4em;
+            font-size: 1.8em;
             line-height: 1.2;
             padding: 0.5em;
         }
     </style>
 </head>
-<body>
+<body class="dark-theme reading-mode">
     <div>
         <input type="text" id="searchInput" class="search-bar" placeholder="Поиск по заголовкам...">
         <button onclick="toggleAll(false)" class="toggle-button">⬇️</button>
@@ -151,6 +152,7 @@
 
     <div id="content">
         <!-- Example structure, repeat for each item -->
+        
         
         <div class="accordion">
             <div class="accordion-header" onclick="toggleAccordion(this)">
@@ -756,6 +758,7 @@
             </div>
         </div>
         
+        
         <!-- Repeat similar blocks for each item in your list -->
     </div>
 
@@ -766,7 +769,7 @@
     <script>
         let previousScrollX = 0;
         let previousScrollY = 0;
-        let readingMode = false;
+        let readingMode = true; // Set reading mode to true by default
 
         function toggleAccordion(element) {
             if (event.target.classList.contains('hide-button')) return;
@@ -871,6 +874,12 @@
                 hideButtons.forEach(button => button.style.display = 'flex');
             }
         }
+
+        // Automatically enable dark theme and reading mode on load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.body.classList.add('dark-theme');
+            toggleReadingMode();
+        });
     </script>
 </body>
 </html>
