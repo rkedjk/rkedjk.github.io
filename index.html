@@ -124,10 +124,19 @@
             cursor: pointer;
             z-index: 1001;
         }
-        .reading-mode {
+        .reading-mode .accordion-header {
             font-size: 1.6em;
-            line-height: 2;
-            padding: 20px;
+            font-weight: bold;
+            padding: 0.5em;
+            flex-wrap: wrap;
+        }
+        .reading-mode .hide-button {
+            display: none;
+        }
+        .reading-mode .accordion-content {
+            font-size: 1.4em;
+            line-height: 1.2;
+            padding: 0.5em;
         }
     </style>
 </head>
@@ -854,8 +863,12 @@
             const content = document.getElementById('content');
             if (readingMode) {
                 content.classList.add('reading-mode');
+                const hideButtons = document.querySelectorAll('.hide-button');
+                hideButtons.forEach(button => button.style.display = 'none');
             } else {
                 content.classList.remove('reading-mode');
+                const hideButtons = document.querySelectorAll('.hide-button');
+                hideButtons.forEach(button => button.style.display = 'flex');
             }
         }
     </script>
