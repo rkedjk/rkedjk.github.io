@@ -1,65 +1,76 @@
+import subprocess
 import re
 
 def convert_markdown_to_html(markdown_text):
-    # Regular expression to match headers and content
-    header_regex = re.compile(r'^#\s*(\d+)\.\s*(.+)$', re.MULTILINE)
-    subheader_regex = re.compile(r'^##\s*(.+)$', re.MULTILINE)
-    subsubheader_regex = re.compile(r'^###\s*(.+)$', re.MULTILINE)
-    bullet_point_regex = re.compile(r'^-\s*(.+)$', re.MULTILINE)
-    number_point_regex = re.compile(r'^\d+\.\s*(.+)$', re.MULTILINE)
+    # Пишем markdown текст во временный файл
+    with open('temp.md', 'w', encoding='utf-8') as temp_markdown_file:
+        temp_markdown_file.write(markdown_text)
+    
+    # Используем Pandoc для конвертации markdown в HTML
+    result = subprocess.run(['pandoc', 'temp.md', '-f', 'markdown', '-t', 'html'], capture_output=True, text=True)
+    
+    # Удаляем временный файл
+    subprocess.run(['rm', 'temp.md'])
+    
+    if result.returncode != 0:
+        raise Exception(f'Pandoc conversion failed: {result.stderr}')
+    
+    return result.stdout
 
+def clean_html(html_text):
+    # Регулярное выражение для удаления ненужных тегов <ol type="1"> и <ol start="X" type="1">
+    html_text = re.sub(r'<ol\s+(start="\d+"\s+)?type="1">', '<ol>', html_text)
+    return html_text
+
+def create_accordion_html(html_text):
+    # Регулярные выражения для разделения текста на секции по заголовкам h1
+    header_regex = re.compile(r'(<h1[^>]*>.*?</h1>)', re.DOTALL)
+    
+    # Разделяем текст по заголовкам h1
+    sections = header_regex.split(html_text)
+    
     html_output = []
     
-    # Split into sections based on the header
-    sections = re.split(header_regex, markdown_text)
-
-    for i in range(1, len(sections), 3):
-        number = sections[i]
-        title = sections[i + 1]
-        content = sections[i + 2]
-        
-        # Replace subheaders and subsubheaders
-        content = subheader_regex.sub(r'<h2>\1</h2>', content)
-        content = subsubheader_regex.sub(r'<h3>\1</h3>', content)
-
-        # Replace bullet points and numbered points
-        content = bullet_point_regex.sub(r'<li>\1</li>', content)
-        content = number_point_regex.sub(r'<li>\1</li>', content)
-        
-        # Wrap bullet points and numbered points with <ul> or <ol>
-        content = re.sub(r'(<li>.*?</li>)', r'<ul>\1</ul>', content)
-        
-        # Remove excess line breaks and spaces
-        content = content.replace('\n', '').replace('\r', '').strip()
-        
-        # Create accordion HTML
-        accordion_html = f'''
-        <div class="accordion">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>{number}. {title}</span>
-                <button class="hide-button" onclick="showOverlay(event)"></button>
+    # Индексирование заголовков h1
+    h1_count = 0
+    
+    for i in range(len(sections)):
+        if header_regex.match(sections[i]):
+            h1_count += 1
+            header = sections[i]
+            content = sections[i + 1] if i + 1 < len(sections) else ''
+            
+            # Создаем HTML для аккордеона
+            accordion_html = f'''
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>{re.sub(r'<[^>]+>', '', header)}</span>
+                    <button class="hide-button" onclick="showOverlay(event)"></button>
+                </div>
+                <div class="accordion-content" data-original-content="{content}">
+                    {header}
+                    <div>{content}</div>
+                </div>
             </div>
-            <div class="accordion-content" data-original-content="{content}">
-                <p>{content}</p>
-            </div>
-        </div>
-        '''
-        html_output.append(accordion_html)
+            '''
+            html_output.append(accordion_html)
     
     return '\n'.join(html_output)
 
-def read_markdown_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
+def read_markdown_file(filepath):
+    with open(filepath, 'r', encoding='utf-8') as file:
         return file.read()
 
-def write_html_file(file_path, html_content):
-    with open(file_path, 'w', encoding='utf-8') as file:
+def write_html_file(filepath, html_content):
+    with open(filepath, 'w', encoding='utf-8') as file:
         file.write(html_content)
 
-# Example usage
-markdown_file_path = 'input.md'
-html_file_path = 'output3.html'
+# Пример использования
+markdown_filepath = 'input.md'
+html_filepath = 'output.html'
 
-markdown_text = read_markdown_file(markdown_file_path)
+markdown_text = read_markdown_file(markdown_filepath)
 html_content = convert_markdown_to_html(markdown_text)
-write_html_file(html_file_path, html_content)
+clean_html_content = clean_html(html_content)
+accordion_html_content = create_accordion_html(clean_html_content)
+write_html_file(html_filepath, accordion_html_content)
