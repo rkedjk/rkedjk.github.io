@@ -57,8 +57,8 @@ def write_html_file(file_path, html_content):
         file.write(html_content)
 
 # Example usage
-markdown_file_path = 'source.md'
-html_file_path = 'output.html'
+markdown_file_path = 'source2.md'
+html_file_path = 'output2.html'
 
 markdown_text = read_markdown_file(markdown_file_path)
 html_content = convert_markdown_to_html(markdown_text)
