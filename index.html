@@ -55,7 +55,7 @@
             border-radius: 10px;
             text-align: center;
             padding: 20px;
-            cursor: default;
+            cursor: pointer; /* Изменяем курсор на pointer */
             transition: background-color 0.3s ease;
             position: relative;
         }
@@ -64,6 +64,9 @@
             text-decoration: none;
             color: #fff;
             font-size: 1.2rem;
+            display: block; /* Делаем ссылку блочным элементом */
+            width: 100%; /* Заставляем ссылку занимать всю ширину */
+            height: 100%; /* Заставляем ссылку занимать всю высоту */ /* Сохраняем отступы для ссылок */
         }
 
         ul li.completed {
