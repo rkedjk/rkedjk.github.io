@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рюкзак с эмодзи</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            color: black;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #message {
+            font-size: 24px;
+            margin-top: 20px;
+            transition: opacity 1s; /* Плавное исчезновение текста */
+        }
+
+        #backpack {
+            width: 250px;
+            height: auto;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+        .emoji {
+            font-size: 48px;
+            position: absolute;
+            cursor: grab;
+            user-select: none;
+            animation: appear 0.5s ease; /* Анимация появления эмодзи */
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            #message {
+                font-size: 18px;
+            }
+
+            #backpack {
+                width: 180px;
+            }
+
+            .emoji {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message">Нажми на рюкзак</div>
+    <img id="backpack" src="backpack.svg" alt="Рюкзак">
+
+    <script>
+        const message = document.getElementById('message');
+        const backpack = document.getElementById('backpack');
+        let emojiCount = 0; // Счетчик эмодзи
+
+        // Массив дебильных и 18+ эмодзи
+        const emojis = [
+            "😜", "😝", "😛", "🤪", "😏", "🙃", "💩", "👀", "🍆", "🍑",
+            "😈", "👿", "🦄", "🤡", "🤑", "😹", "🙈", "😼", "👅", "💋",
+            "🤤", "🥳", "🤭", "😬", "😳", "🦷","🧀","🍌"// Каждое третье эмодзи будет бананом
+        ];
+
+        backpack.addEventListener('click', () => {
+            // Создаем элемент эмодзи
+            const emojiIndex = emojiCount % 3 === 2 ? emojis.length - 1 : Math.floor(Math.random() * (emojis.length - 1));
+            const randomEmoji = emojis[emojiIndex];
+            const emojiElement = document.createElement('div');
+            emojiElement.classList.add('emoji');
+            emojiElement.innerHTML = randomEmoji;
+            document.body.appendChild(emojiElement);
+
+            // Позиционируем эмодзи над рюкзаком
+            const backpackRect = backpack.getBoundingClientRect();
+            emojiElement.style.left = `${backpackRect.left + backpackRect.width / 2 - 24}px`;
+            emojiElement.style.top = `${backpackRect.top + backpackRect.height / 2 - 24}px`;
+
+            // Обновляем сообщение
+            message.innerHTML = "Перенеси предмет";
+
+            // Добавляем события перетаскивания
+            let offsetX, offsetY;
+
+            emojiElement.addEventListener('mousedown', (e) => {
+                offsetX = e.clientX - emojiElement.getBoundingClientRect().left;
+                offsetY = e.clientY - emojiElement.getBoundingClientRect().top;
+
+                function moveAt(pageX, pageY) {
+                    emojiElement.style.left = `${pageX - offsetX}px`;
+                    emojiElement.style.top = `${pageY - offsetY}px`;
+                }
+
+                function onMouseMove(event) {
+                    moveAt(event.pageX, event.pageY);
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+
+                emojiElement.addEventListener('mouseup', () => {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    // Плавное исчезновение сообщения
+                    message.style.opacity = '0';
+                    setTimeout(() => {
+                        message.innerHTML = "Нажми на рюкзак";
+                        message.style.opacity = '1';
+                    }, 1000); // Время исчезновения
+                }, { once: true });
+            });
+
+            emojiCount++; // Увеличиваем счетчик эмодзи
+        });
+    </script>
+
+</body>
+</html>
