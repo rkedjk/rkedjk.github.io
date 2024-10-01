@@ -47,6 +47,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             max-width: 1000px;
+            width: 100%; /* Задает ширину в 100% для мобильных устройств */
         }
 
         ul li {
@@ -78,6 +79,36 @@
             margin-top: 40px;
             font-size: 0.8rem;
             color: #777;
+        }
+
+        /* Media query for mobile responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Уменьшает размер заголовка на мобильных устройствах */
+            }
+
+            ul {
+                grid-template-columns: repeat(2, 1fr); /* Две колонки на мобильных */
+            }
+
+            ul li {
+                padding: 15px; /* Уменьшает отступы для мобильных */
+            }
+
+            ul li a {
+                font-size: 1rem; /* Уменьшает размер текста для мобильных */
+            }
+        }
+
+        /* Media query for very small screens */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem; /* Еще меньше для очень маленьких экранов */
+            }
+
+            ul {
+                grid-template-columns: 1fr; /* Одна колонка на очень маленьких устройствах */
+            }
         }
     </style>
 </head>
