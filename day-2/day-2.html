@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Найди Америку</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      #game-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      #map {
+        position: absolute;
+        width: 8000px;
+        height: 6000px;
+        background-image: url("map.svg");
+        background-repeat: repeat;
+      }
+      #player {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z' fill='black'/%3E%3C/svg%3E");
+        background-size: contain;
+        z-index: 10;
+      }
+      #fog {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+      #path {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        width: 8000px;
+        height: 6000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="map"></div>
+      <div id="player"></div>
+      <svg id="path"></svg>
+      <canvas id="fog"></canvas>
+    </div>
+
+    <script>
+      const gameContainer = document.getElementById("game-container");
+      const player = document.getElementById("player");
+      const map = document.getElementById("map");
+      const fogCanvas = document.getElementById("fog");
+      const path = document.getElementById("path");
+      const fogCtx = fogCanvas.getContext("2d");
+
+      let playerX = 7000;
+      let playerY = 3000;
+      let mapX = 0;
+      let mapY = 0;
+      let visibleRadius = 150;
+      let pathPoints = [];
+      let lastMouseX = 0;
+      let lastMouseY = 0;
+
+      function initGame() {
+        fogCanvas.width = window.innerWidth;
+        fogCanvas.height = window.innerHeight;
+        updateMapPosition();
+        setupControls();
+        gameLoop();
+      }
+
+      function updateMapPosition() {
+        mapX = window.innerWidth / 2 - playerX;
+        mapY = window.innerHeight / 2 - playerY;
+        map.style.transform = `translate(${mapX}px, ${mapY}px)`;
+        path.style.transform = `translate(${mapX}px, ${mapY}px)`;
+      }
+
+      function updatePlayerIcon() {
+        const angle = Math.atan2(
+          lastMouseY - window.innerHeight / 2,
+          lastMouseX - window.innerWidth / 2
+        );
+        player.style.transform = `translate(-50%, -50%) rotate(${
+          angle + Math.PI / 2
+        }rad)`;
+      }
+
+      function updatePath() {
+        pathPoints.push([playerX, playerY]);
+        const pathD = pathPoints
+          .map(
+            (point, index) =>
+              (index === 0 ? "M" : "L") + point[0] + " " + point[1]
+          )
+          .join(" ");
+        path.innerHTML = `<path d="${pathD}" fill="none" stroke="gray" stroke-width="2" stroke-dasharray="5,5"/>`;
+      }
+
+      function updateFog() {
+        fogCtx.clearRect(0, 0, fogCanvas.width, fogCanvas.height);
+        fogCtx.fillStyle = "black";
+        fogCtx.fillRect(0, 0, fogCanvas.width, fogCanvas.height);
+
+        const gradient = fogCtx.createRadialGradient(
+          window.innerWidth / 2,
+          window.innerHeight / 2,
+          0,
+          window.innerWidth / 2,
+          window.innerHeight / 2,
+          visibleRadius
+        );
+        gradient.addColorStop(0, "rgba(0, 0, 0, 1)");
+        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+        fogCtx.globalCompositeOperation = "destination-out";
+        fogCtx.fillStyle = gradient;
+        fogCtx.fillRect(0, 0, fogCanvas.width, fogCanvas.height);
+        fogCtx.globalCompositeOperation = "source-over";
+      }
+
+      function setupControls() {
+        gameContainer.addEventListener("mousemove", handleMouseMove);
+        gameContainer.addEventListener("touchmove", handleTouchMove);
+      }
+
+      function handleMouseMove(e) {
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+        movePlayerTowards(e.clientX, e.clientY);
+      }
+
+      function handleTouchMove(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        lastMouseX = touch.clientX;
+        lastMouseY = touch.clientY;
+        movePlayerTowards(touch.clientX, touch.clientY);
+      }
+
+      function movePlayerTowards(targetX, targetY) {
+        const dx = targetX - window.innerWidth / 2;
+        const dy = targetY - window.innerHeight / 2;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const speed = 5;
+        if (distance > speed) {
+          playerX += (dx / distance) * speed;
+          playerY += (dy / distance) * speed;
+        } else {
+          playerX += dx;
+          playerY += dy;
+        }
+        playerX = (playerX + 8000) % 8000;
+        playerY = (playerY + 6000) % 6000;
+        updatePlayerIcon();
+      }
+
+      function gameLoop() {
+        updateMapPosition();
+        updatePath();
+        updateFog();
+
+        checkWinCondition();
+        requestAnimationFrame(gameLoop);
+      }
+
+      function checkWinCondition() {
+        const americaLeftBorder = -1907.21;
+        const americaRightBorder = -896.357;
+        const americaTopBorder = -2453.47;
+        const americaBottomBorder = -2032.3;
+
+        if (
+          mapX < americaRightBorder &&
+          mapX > americaLeftBorder &&
+          mapY < americaBottomBorder &&
+          mapY > americaTopBorder
+        ) {
+          showVictoryNotification();
+        }
+      }
+
+      function showVictoryNotification() {
+        const notification = document.createElement("div");
+        notification.style.position = "fixed";
+        notification.style.top = "50%";
+        notification.style.left = "50%";
+        notification.style.transform = "translate(-50%, -50%)";
+        notification.style.padding = "20px";
+        notification.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        notification.style.color = "white";
+        notification.style.borderRadius = "10px";
+        notification.style.fontSize = "24px";
+        notification.style.textAlign = "center";
+        notification.style.zIndex = "1000";
+        notification.innerHTML =
+          "Поздравляем!<br>Вы нашли Америку!<br>Ебучий христофор Колумб";
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 5000);
+      }
+
+      initGame();
+    </script>
+  </body>
+</html>
