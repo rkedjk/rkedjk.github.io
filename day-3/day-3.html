@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размер ноги</title>
+    <style>
+        body {
+            background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #4b0082, #9400d3);
+            font-family: 'Comic Sans MS', sans-serif;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            animation: rainbow 10s infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #4b0082, #9400d3); }
+            50% { background: linear-gradient(270deg, #9400d3, #4b0082, #0000ff, #00ffff, #00ff00, #ffff00, #ff7f00, #ff0000); }
+            100% { background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #4b0082, #9400d3); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            animation: fadeIn 2s;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1.5rem;
+            border: 2px solid #00bcd4;
+            border-radius: 5px;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        input:focus {
+            border-color: #ff4081;
+            animation: shake 0.5s;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            background-color: #00bcd4;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #ff4081;
+            animation: pulse 1s infinite;
+        }
+
+        #result {
+            font-size: 2rem;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 2s;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px); }
+            25% { transform: translate(-1px, -2px); }
+            50% { transform: translate(-3px, 0px); }
+            75% { transform: translate(3px, 2px); }
+            100% { transform: translate(1px, -1px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .shoe {
+            position: absolute;
+            width: 100px;
+            animation: rotate 5s linear infinite;
+            display: none; /* Скрыто до нажатия кнопки */
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg) translateX(0); }
+            100% { transform: rotate(360deg) translateX(0); }
+        }
+
+        /* Поддержка мобильных устройств */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            input {
+                font-size: 1rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+
+            #result {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Всплывающие элементы */
+        .popup {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 2px solid #ff4081;
+            border-radius: 50%;
+            display: none;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Введите ваш размер ноги</h1>
+    <input type="text" id="shoeSize" placeholder="Введите размер">
+    <button onclick="showSize()">Отправить</button>
+    <p id="result"></p>
+    
+    <img src="boot.jpg" alt="Ботинок" class="shoe" id="shoeImage">
+
+    <div id="popupsContainer"></div>
+
+    <script>
+        function showSize() {
+            const size = document.getElementById('shoeSize').value;
+            const resultText = 'Ваш размер ноги: ' + size;
+            
+            // Показываем результат с анимацией
+            const result = document.getElementById('result');
+            result.innerText = resultText;
+            result.style.opacity = 1;
+
+            // Показываем изображение и добавляем анимацию
+            const shoeImage = document.getElementById('shoeImage');
+            shoeImage.style.display = 'block';
+            shoeImage.style.animation = 'rotate 5s linear infinite';
+            shoeImage.style.transform = 'translate(-50%, -50%)';
+
+            // Перемещение по кругу
+            let angle = 0;
+            setInterval(() => {
+                angle += 1; // Угол поворота
+                shoeImage.style.left = 50 + Math.sin(angle * Math.PI / 180) * 200 + 'px'; // Меняем позицию по X
+            }, 1000 / 60); // Обновляем 60 раз в секунду
+
+            // Создаем всплывающие элементы
+            createPopup();
+        }
+
+        function createPopup() {
+            const container = document.getElementById('popupsContainer');
+            const popupCount = 5; // Количество всплывающих элементов
+
+            for (let i = 0; i < popupCount; i++) {
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.style.left = Math.random() * 100 + 'vw'; // Позиция по X
+                popup.style.top = Math.random() * 100 + 'vh'; // Позиция по Y
+                popup.style.display = 'block';
+                container.appendChild(popup);
+
+                // Удаляем попап через 3 секунды
+                setTimeout(() => {
+                    popup.remove();
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
