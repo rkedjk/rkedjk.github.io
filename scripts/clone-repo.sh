@@ -6,10 +6,14 @@ if ! command -v gh &> /dev/null; then
     exit 1
 fi
 
-read -p "Введите ваш GitHub username: " username
-read -p "Введите название репозитория: " repo
+св
+echo "Клонирование репозитория super/main..."
+gh repo clone super main
 
-echo "Клонирование репозитория $username/$repo..."
-gh repo clone $username/$repo
+echo "Готово! Репозиторий склонирован в папку super"
 
-echo "Готово! Репозиторий склонирован в папку ./$repo"
+echo "Запуск скрипта обновления/установки"
+
+cd ~/super/main
+
+chmod +x install.sh
