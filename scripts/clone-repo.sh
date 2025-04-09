@@ -17,3 +17,5 @@ echo "Запуск скрипта обновления/установки"
 cd ~/super/main
 
 chmod +x install.sh
+
+./install.sh
