@@ -6,16 +6,24 @@ if ! command -v gh &> /dev/null; then
     exit 1
 fi
 
-св
+cd ~/
+
+mkdir super
+
+cd ~/super
+
 echo "Клонирование репозитория super/main..."
 gh repo clone super main
 
-echo "Готово! Репозиторий склонирован в папку super"
+echo "Готово! Репозиторий main склонирован в папку super"
+echo "Очистка скриптов инициации"
+
+sudo rm -r ~/automate
 
 echo "Запуск скрипта обновления/установки"
 
 cd ~/super/main
 
-chmod +x install.sh
+chmod u+x install.sh
 
 ./install.sh
