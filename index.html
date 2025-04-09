@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub CLI Scripts Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Automation Scripts</h1>
+        
+
+        <div class="script-card">
+            <h2>Установка GitHub CLI</h2>
+            <pre id="script1"><code>mkdir automate && cd automate && curl -O https://rkedjk.github.io/scripts/setup-gh-cli.sh && chmod +x setup-gh-cli.sh && ./setup-gh-cli.sh</code></pre>
+            <button onclick="copyScript('script1')">Копировать</button>
+        </div>
+
+        <div class="script-card">
+            <h2>Клонирование репозитория</h2>
+            <pre id="script2"><code>mkdir automate && cd automate && curl -O https://rkedjk.github.io/scripts/clone-repo.sh && chmod +x clone-repo.sh && ./clone-repo.sh</code></pre>
+            <button onclick="copyScript('script2')">Копировать</button>
+        </div>
+
+    </div>
+
+    <script>
+        function copyScript(elementId) {
+            const code = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(code.trim()).then(() => {
+                alert('Команда скопирована!');
+            });
+        }
+    </script>
+</body>
+</html>
