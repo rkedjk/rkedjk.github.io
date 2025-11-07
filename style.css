@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #8B4513 url('https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #3a2c1e;
+    font-family: 'Cinzel', serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(139, 69, 19, 0.3);
+    z-index: -1;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: #f4e9d8 url('https://www.transparenttextures.com/patterns/old-paper.png');
+    border: 15px solid #8b4513;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='%238b4513'/%3E%3Cpath d='M0,0 L100,100 M100,0 L0,100' stroke='%235d2d0f' stroke-width='2'/%3E%3C/svg%3E") 30 stretch;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(139, 69, 19, 0.3);
+    padding: 40px;
+    position: relative;
+    margin: 20px;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(222, 184, 135, 0.1);
+    pointer-events: none;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #8b4513;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 25%;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8b4513, transparent);
+}
+
+.logo {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 3.5rem;
+    color: #8b4513;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #5d4037;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.time-display {
+    font-size: 1.1rem;
+    color: #8b4513;
+    margin-bottom: 10px;
+    text-align: center;
+    background: rgba(139, 69, 19, 0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid #8b4513;
+}
+
+.greeting {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #3a2c1e;
+    font-style: italic;
+}
+
+.greeting span {
+    color: #8b4513;
+    font-weight: bold;
+}
+
+.content {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.content h2 {
+    color: #8b4513;
+    margin: 25px 0 15px;
+    border-bottom: 1px solid #8b4513;
+    padding-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.content h3 {
+    color: #5d4037;
+    margin: 20px 0 10px;
+    font-size: 1.4rem;
+}
+
+.content p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.content ul, .content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.content li {
+    margin-bottom: 8px;
+}
+
+.resources {
+    background: rgba(139, 69, 19, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #8b4513;
+    margin: 25px 0;
+}
+
+.resources h3 {
+    color: #8b4513;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.resource-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.resource-item {
+    background: rgba(139, 69, 19, 0.1);
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #8b4513;
+    transition: all 0.3s ease;
+}
+
+.resource-item:hover {
+    background: rgba(139, 69, 19, 0.2);
+    transform: translateY(-3px);
+}
+
+.resource-item a {
+    color: #3a2c1e;
+    text-decoration: none;
+    display: block;
+}
+
+.resource-item a:hover {
+    color: #8b4513;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #8b4513;
+    font-style: italic;
+    color: #5d4037;
+}
+
+.signature {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.3rem;
+    text-align: right;
+    margin-top: 30px;
+    color: #8b4513;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #f4e9d8 url('https://www.transparenttextures.com/patterns/old-paper.png');
+    padding: 40px;
+    border-radius: 10px;
+    border: 10px solid #8b4513;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(139, 69, 19, 0.5);
+    position: relative;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(244, 233, 216, 0.8);
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.modal h2 {
+    color: #8b4513;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.modal p {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    color: #3a2c1e;
+}
+
+.modal input {
+    padding: 12px;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #8b4513;
+    color: #3a2c1e;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+.modal button {
+    padding: 12px 30px;
+    background: #8b4513;
+    color: #f4e9d8;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+}
+
+.modal button:hover {
+    background: #a0522d;
+    transform: scale(1.05);
+}
+
+.decoration {
+    position: absolute;
+    opacity: 0.7;
+    color: #8b4513;
+}
+
+.decoration.top-left {
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    transform: rotate(-15deg);
+}
+
+.decoration.top-right {
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    transform: rotate(15deg);
+}
+
+.decoration.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    font-size: 2rem;
+    transform: rotate(15deg);
+}
+
+.decoration.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    transform: rotate(-15deg);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+    }
+    
+    .resource-list {
+        grid-template-columns: 1fr;
+    }
+}
