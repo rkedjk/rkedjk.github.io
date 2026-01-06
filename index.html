@@ -1,187 +1,345 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение в Академию Магии</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Модальное окно для ввода имени -->
-    <div id="nameModal" class="modal">
-        <div class="modal-content">
-            <h2>Добро пожаловать, искатель знаний!</h2>
-            <p>Прежде чем продолжить, представьтесь, дабы мы знали, кого ждать в наших стенах.</p>
-            <input type="text" id="playerName" placeholder="Введите ваше имя" maxlength="30">
-            <button id="submitName">Вступить в Академию</button>
-        </div>
-    </div>
-
-    <!-- Основной контент -->
-    <div class="container">
-        <div class="decoration top-left">⚜</div>
-        <div class="decoration top-right">⚜</div>
-        <div class="decoration bottom-left">⚜</div>
-        <div class="decoration bottom-right">⚜</div>
-        
-        <div class="header">
-            <div class="logo">Академия Магии</div>
-            <div class="subtitle">Основана в году Драконьей Мудрости</div>
-            <div class="time-display" id="currentTime"></div>
-        </div>
-        
-        <div class="greeting" id="personalGreeting">Дорогой абитуриент, вам выпала великая честь!</div>
-        
-        <div class="content">
-            <h2>Официальное Приглашение от Ректората</h2>
-            <p>От имени Совета Магических Искусств вам направлено это официальное уведомление. Ваши выдающиеся предрасположенности к магическим наукам не остались незамеченными, и нам выпала честь предложить вам <strong>допуск к вступительным испытаниям</strong> в самую престижную Академию Магии.</p>
-            
-            <p>Наше учреждение, возведенное в месте силы, где сама материя мира истончена, хранит знания, недоступные ни в одном другом университете. Здесь вас ждут не просто лекции, а погружение в саму суть волшебства.</p>
-            
-            <h3>Ваша миссия, если вы решитесь ее принять:</h3>
-            <ol>
-                <li><strong>Стать студентом-первокурсником</strong> Академии и подписать ее Имматрикуляцию.</li>
-                <li><strong>Сформировать учебную группу</strong> из 4-6 соискателей (ваших персонажей), дабы доказать свою способность к сотрудничеству.</li>
-                <li><strong>Пройти Испытание Первого Круга</strong> – уникальный экзамен, который определит, достойны ли вы продолжить обучение в наших стенах. На его прохождение у вас будет <strong>пять дней</strong>.</li>
-            </ol>
-            
-            <h3>Требования к Абитуриентам (Персонажам):</h3>
-            <ul>
-                <li><strong>Уровень:</strong> 1 (вы в начале славного пути).</li>
-                <li><strong>Класс:</strong> Предпочтение отдается магическим классам (волшебник, колдун, бард, друид, жрец и т.д.). Исключения возможны для особо одаренных личностей по согласованию с Деканом.</li>
-                <li><strong>Раса:</strong> Любая, признанная и уважаемая Советом Магов.</li>
-                <li><strong>Документы (Характеристики):</strong> Заполните анкету (лист персонажа), указав:
-                    <ul>
-                        <li>Имя, происхождение и мотивацию к изучению магии.</li>
-                        <li>Академические успехи (характеристики и навыки).</li>
-                        <li>Особые таланты (классовые особенности и заклинания).</li>
-                    </ul>
-                </li>
-            </ul>
-            
-            <div class="resources">
-                <h3>📜 Магическая Скрижаль и Справочные Фолианты</h3>
-                <p>Для облегчения процесса подготовки и заполнения вашей личной анкеты, всем абитуриентам предоставляется доступ к магическим инструментам и архивным фолиантам:</p>
-                
-                <div class="resource-list">
-                    <div class="resource-item">
-                        <a href="https://longstoryshort.app/characters/builder/" target="_blank">
-                            <strong>Магическая Скрижаль</strong><br>
-                            Инструмент для создания персонажа
-                        </a>
-                    </div>
-                    <div class="resource-item">
-                        <a href="https://next.dnd.su/class/" target="_blank">
-                            <strong>Классы</strong><br>
-                            Изучите доступные магические дисциплины
-                        </a>
-                    </div>
-                    <div class="resource-item">
-                        <a href="https://next.dnd.su/spells/" target="_blank">
-                            <strong>Заклинания</strong><br>
-                            Шпаргалка по магическим формулам
-                        </a>
-                    </div>
-                    <div class="resource-item">
-                        <a href="https://next.dnd.su/species/" target="_blank">
-                            <strong>Расы</strong><br>
-                            Ознакомьтесь с разнообразием народов
-                        </a>
-                    </div>
-                    <div class="resource-item">
-                        <a href="https://next.dnd.su/backgrounds/" target="_blank">
-                            <strong>Предыстории</strong><br>
-                            Определите ваш путь до поступления
-                        </a>
-                    </div>
-                    <div class="resource-item">
-                        <a href="https://next.dnd.su/feats/" target="_blank">
-                            <strong>Черты</strong><br>
-                            Особые таланты для уникальных личностей
-                        </a>
-                    </div>
-                    <div class="resource-item">
-                        <a href="https://next.dnd.su/equipment/" target="_blank">
-                            <strong>Снаряжение</strong><br>
-                            Стандартный набор первокурсника
-                        </a>
-                    </div>
-                </div>
-                <p style="margin-top: 15px; text-align: center; font-style: italic;">Заполните свою скрижаль и предоставьте ее Декану (Мастеру) для утверждения до начала испытаний.</p>
-            </div>
-            
-            <h3>Ключевые Аспекты вашего ближайшего будущего:</h3>
-            <ul>
-                <li><strong>🏛️ Жизнь в Академии:</strong> Посещайте обязательные лекции, вступайте в эксклюзивные клубы по интересам, исследуйте территорию кампуса и найдите время для отдыха в местном пабе. Ваша социализация — часть испытания.</li>
-                <li><strong>⚔️ Динамика испытания:</strong> Готовьтесь к соревнованию не только с самим собой, но и с другими группами. Срочность, исследование и социальное взаимодействие станут вашими главными инструментами.</li>
-            </ul>
-            
-            <h3>Готовы принять вызов?</h3>
-            <ul>
-                <li><strong>📅 Срок подачи документов (создания персонажей):</strong> 10.11.2025 </li>
-                <li><strong>📍 Начало занятий (игры):</strong> 12.11.2025 18:00</li>
-            </ul>
-            
-            <p><strong>Явка обязательна.</strong> Помните: отчисление грозит не явившимся, а также тем, кто не справится с испытанием. Мест в новом наборе ограниченное количество.</p>
-            
-            <div class="signature">
-                Декан Профессор Салерель<br>
-                <em>Академия Магии</em>
-            </div>
-            
-            <div class="footer">
-                <p><strong>P.S.</strong> Рекомендуется запастись решимостью, ясным умом и здоровым любопытством. Остальное… вы узнаете по прибытию. Ждем вас в аудитории!</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Функция для обновления времени
-        function updateTime() {
-            const now = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: '2-digit', 
-                minute: '2-digit',
-                second: '2-digit'
-            };
-            const timeString = now.toLocaleDateString('ru-RU', options);
-            document.getElementById('currentTime').textContent = `Вы читаете это послание: ${timeString}`;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Шпаргалки</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        // Обновляем время сразу и затем каждую секунду
-        updateTime();
-        setInterval(updateTime, 1000);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
 
-        // Обработка модального окна
-        document.getElementById('submitName').addEventListener('click', function() {
-            const playerName = document.getElementById('playerName').value.trim();
-            const greetingElement = document.getElementById('personalGreeting');
-            
-            if (playerName) {
-                greetingElement.innerHTML = `Дорогой <span>${playerName}</span>, вам выпала великая честь!`;
+        /* Светлая тема */
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* AMOLED тема - чистый черный #000 */
+        body.dark {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            background: inherit;
+            padding-bottom: 8px;
+            z-index: 100;
+        }
+
+        .theme-toggle {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid;
+            cursor: pointer;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .light .theme-toggle {
+            background: #f0f0f0;
+            border-color: #ddd;
+            color: #000;
+        }
+
+        .dark .theme-toggle {
+            background: #1a1a1a;
+            border-color: #333;
+            color: #fff;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid;
+            margin-bottom: 12px;
+        }
+
+        .light .search-box {
+            background: #f9f9f9;
+            border-color: #ddd;
+            color: #000;
+        }
+
+        .dark .search-box {
+            background: #1a1a1a;
+            border-color: #333;
+            color: #fff;
+        }
+
+        .ticket {
+            border: 1px solid;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .light .ticket {
+            background: #f9f9f9;
+            border-color: #e0e0e0;
+        }
+
+        .light .ticket:active {
+            background: #eeeeee;
+        }
+
+        .dark .ticket {
+            background: #0a0a0a;
+            border-color: #222;
+        }
+
+        .dark .ticket:active {
+            background: #1a1a1a;
+        }
+
+        .ticket-header {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .ticket-title {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .ticket-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .ticket.expanded .ticket-content {
+            max-height: 2000px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid;
+        }
+
+        .light .ticket.expanded .ticket-content {
+            border-top-color: #ddd;
+        }
+
+        .dark .ticket.expanded .ticket-content {
+            border-top-color: #333;
+        }
+
+        /* Подсветка найденного текста */
+        .highlight {
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 2px;
+        }
+
+        .light .highlight {
+            background: #ffeb3b;
+            color: #000;
+        }
+
+        .dark .highlight {
+            background: #ffd600;
+            color: #000;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Оптимизация для Apple Watch */
+        @media only screen and (max-width: 250px) {
+            body {
+                font-size: 12px;
+                padding: 4px;
+            }
+
+            .ticket {
+                padding: 8px;
+                margin-bottom: 6px;
+            }
+
+            .search-box,
+            .theme-toggle {
+                padding: 6px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body class="dark">
+    <div class="header">
+        <button class="theme-toggle" onclick="toggleTheme()">🌓 Сменить тему</button>
+        <input type="text" class="search-box" id="searchBox" placeholder="Поиск..." oninput="searchTickets()">
+    </div>
+
+    <div id="ticketContainer">
+        <!-- Билеты будут добавлены здесь -->
+    </div>
+
+    <div id="noResults" class="no-results hidden">Ничего не найдено</div>
+
+    <script>
+        // Массив с билетами - добавьте свои данные
+        const tickets = [
+            {
+                number: 1,
+                title: "Основы программирования",
+                content: "Программирование — процесс создания компьютерных программ. Основные концепции: переменные, условия, циклы, функции. Языки программирования делятся на низкоуровневые (ассемблер) и высокоуровневые (Python, Java, C++)."
+            },
+            {
+                number: 2,
+                title: "Структуры данных",
+                content: "Массивы - упорядоченные коллекции элементов. Списки - динамические структуры. Деревья - иерархические структуры. Хеш-таблицы - быстрый доступ по ключу. Графы - связи между узлами."
+            },
+            {
+                number: 3,
+                title: "Алгоритмы сортировки",
+                content: "Пузырьковая сортировка O(n²). Быстрая сортировка O(n log n). Сортировка слиянием O(n log n). Сортировка вставками O(n²). Выбор алгоритма зависит от размера данных."
+            },
+            {
+                number: 4,
+                title: "Базы данных",
+                content: "SQL - реляционные БД (PostgreSQL, MySQL). NoSQL - документные (MongoDB), ключ-значение (Redis), графовые (Neo4j). ACID - требования к транзакциям. Нормализация - устранение избыточности."
+            },
+            {
+                number: 5,
+                title: "Сетевые протоколы",
+                content: "HTTP/HTTPS - передача гипертекста. TCP/IP - транспортный уровень. DNS - преобразование доменов в IP. WebSocket - двусторонняя связь. REST API - архитектура веб-сервисов."
+            }
+        ];
+
+        // Инициализация
+        function init() {
+            renderTickets(tickets, '');
+            loadTheme();
+        }
+
+        // Функция подсветки текста
+        function highlightText(text, query) {
+            if (!query) return text;
+
+            const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        // Экранирование спецсимволов регулярных выражений
+        function escapeRegex(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // Отрисовка билетов
+        function renderTickets(ticketsToRender, query) {
+            const container = document.getElementById('ticketContainer');
+            const noResults = document.getElementById('noResults');
+
+            container.innerHTML = '';
+
+            if (ticketsToRender.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            ticketsToRender.forEach(ticket => {
+                const ticketEl = document.createElement('div');
+                ticketEl.className = 'ticket';
+
+                // Проверяем, найден ли текст в content
+                const foundInContent = query && ticket.content.toLowerCase().includes(query.toLowerCase());
+
+                // Если найдено в содержимом, автоматически раскрываем билет
+                if (foundInContent) {
+                    ticketEl.classList.add('expanded');
+                }
+
+                // Подсвечиваем найденный текст
+                const highlightedTitle = highlightText(ticket.title, query);
+                const highlightedContent = highlightText(ticket.content, query);
+
+                ticketEl.innerHTML = `
+                    <div class="ticket-header">Билет ${ticket.number}</div>
+                    <div class="ticket-title">${highlightedTitle}</div>
+                    <div class="ticket-content">${highlightedContent}</div>
+                `;
+
+                ticketEl.onclick = function () {
+                    this.classList.toggle('expanded');
+                };
+
+                container.appendChild(ticketEl);
+            });
+        }
+
+        // Поиск по билетам
+        function searchTickets() {
+            const query = document.getElementById('searchBox').value.toLowerCase();
+
+            if (!query) {
+                renderTickets(tickets, '');
+                return;
+            }
+
+            const filtered = tickets.filter(ticket => {
+                return ticket.title.toLowerCase().includes(query) ||
+                    ticket.content.toLowerCase().includes(query) ||
+                    ticket.number.toString().includes(query);
+            });
+
+            renderTickets(filtered, query);
+        }
+
+        // Переключение темы
+        function toggleTheme() {
+            const body = document.body;
+            if (body.classList.contains('dark')) {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                localStorage.setItem('theme', 'light');
             } else {
-                greetingElement.innerHTML = 'Дорогой <span>Абитуриент</span>, вам выпала великая честь!';
+                body.classList.remove('light');
+                body.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
             }
-            
-            document.getElementById('nameModal').style.display = 'none';
-        });
+        }
 
-        // Закрытие модального окна по нажатию Enter в поле ввода
-        document.getElementById('playerName').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.getElementById('submitName').click();
-            }
-        });
+        // Загрузка сохраненной темы
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.className = savedTheme;
+        }
 
-        // Фокусировка на поле ввода при загрузке
-        window.onload = function() {
-            document.getElementById('playerName').focus();
-        };
+        // Запуск при загрузке страницы
+        init();
     </script>
 </body>
+
 </html>

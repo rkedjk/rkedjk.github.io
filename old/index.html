@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение в Академию Магии</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Модальное окно для ввода имени -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Добро пожаловать, искатель знаний!</h2>
+            <p>Прежде чем продолжить, представьтесь, дабы мы знали, кого ждать в наших стенах.</p>
+            <input type="text" id="playerName" placeholder="Введите ваше имя" maxlength="30">
+            <button id="submitName">Вступить в Академию</button>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <div class="decoration top-left">⚜</div>
+        <div class="decoration top-right">⚜</div>
+        <div class="decoration bottom-left">⚜</div>
+        <div class="decoration bottom-right">⚜</div>
+        
+        <div class="header">
+            <div class="logo">Академия Магии</div>
+            <div class="subtitle">Основана в году Драконьей Мудрости</div>
+            <div class="time-display" id="currentTime"></div>
+        </div>
+        
+        <div class="greeting" id="personalGreeting">Дорогой абитуриент, вам выпала великая честь!</div>
+        
+        <div class="content">
+            <h2>Официальное Приглашение от Ректората</h2>
+            <p>От имени Совета Магических Искусств вам направлено это официальное уведомление. Ваши выдающиеся предрасположенности к магическим наукам не остались незамеченными, и нам выпала честь предложить вам <strong>допуск к вступительным испытаниям</strong> в самую престижную Академию Магии.</p>
+            
+            <p>Наше учреждение, возведенное в месте силы, где сама материя мира истончена, хранит знания, недоступные ни в одном другом университете. Здесь вас ждут не просто лекции, а погружение в саму суть волшебства.</p>
+            
+            <h3>Ваша миссия, если вы решитесь ее принять:</h3>
+            <ol>
+                <li><strong>Стать студентом-первокурсником</strong> Академии и подписать ее Имматрикуляцию.</li>
+                <li><strong>Сформировать учебную группу</strong> из 4-6 соискателей (ваших персонажей), дабы доказать свою способность к сотрудничеству.</li>
+                <li><strong>Пройти Испытание Первого Круга</strong> – уникальный экзамен, который определит, достойны ли вы продолжить обучение в наших стенах. На его прохождение у вас будет <strong>пять дней</strong>.</li>
+            </ol>
+            
+            <h3>Требования к Абитуриентам (Персонажам):</h3>
+            <ul>
+                <li><strong>Уровень:</strong> 1 (вы в начале славного пути).</li>
+                <li><strong>Класс:</strong> Предпочтение отдается магическим классам (волшебник, колдун, бард, друид, жрец и т.д.). Исключения возможны для особо одаренных личностей по согласованию с Деканом.</li>
+                <li><strong>Раса:</strong> Любая, признанная и уважаемая Советом Магов.</li>
+                <li><strong>Документы (Характеристики):</strong> Заполните анкету (лист персонажа), указав:
+                    <ul>
+                        <li>Имя, происхождение и мотивацию к изучению магии.</li>
+                        <li>Академические успехи (характеристики и навыки).</li>
+                        <li>Особые таланты (классовые особенности и заклинания).</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="resources">
+                <h3>📜 Магическая Скрижаль и Справочные Фолианты</h3>
+                <p>Для облегчения процесса подготовки и заполнения вашей личной анкеты, всем абитуриентам предоставляется доступ к магическим инструментам и архивным фолиантам:</p>
+                
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <a href="https://longstoryshort.app/characters/builder/" target="_blank">
+                            <strong>Магическая Скрижаль</strong><br>
+                            Инструмент для создания персонажа
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <a href="https://next.dnd.su/class/" target="_blank">
+                            <strong>Классы</strong><br>
+                            Изучите доступные магические дисциплины
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <a href="https://next.dnd.su/spells/" target="_blank">
+                            <strong>Заклинания</strong><br>
+                            Шпаргалка по магическим формулам
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <a href="https://next.dnd.su/species/" target="_blank">
+                            <strong>Расы</strong><br>
+                            Ознакомьтесь с разнообразием народов
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <a href="https://next.dnd.su/backgrounds/" target="_blank">
+                            <strong>Предыстории</strong><br>
+                            Определите ваш путь до поступления
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <a href="https://next.dnd.su/feats/" target="_blank">
+                            <strong>Черты</strong><br>
+                            Особые таланты для уникальных личностей
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <a href="https://next.dnd.su/equipment/" target="_blank">
+                            <strong>Снаряжение</strong><br>
+                            Стандартный набор первокурсника
+                        </a>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; text-align: center; font-style: italic;">Заполните свою скрижаль и предоставьте ее Декану (Мастеру) для утверждения до начала испытаний.</p>
+            </div>
+            
+            <h3>Ключевые Аспекты вашего ближайшего будущего:</h3>
+            <ul>
+                <li><strong>🏛️ Жизнь в Академии:</strong> Посещайте обязательные лекции, вступайте в эксклюзивные клубы по интересам, исследуйте территорию кампуса и найдите время для отдыха в местном пабе. Ваша социализация — часть испытания.</li>
+                <li><strong>⚔️ Динамика испытания:</strong> Готовьтесь к соревнованию не только с самим собой, но и с другими группами. Срочность, исследование и социальное взаимодействие станут вашими главными инструментами.</li>
+            </ul>
+            
+            <h3>Готовы принять вызов?</h3>
+            <ul>
+                <li><strong>📅 Срок подачи документов (создания персонажей):</strong> 10.11.2025 </li>
+                <li><strong>📍 Начало занятий (игры):</strong> 12.11.2025 18:00</li>
+            </ul>
+            
+            <p><strong>Явка обязательна.</strong> Помните: отчисление грозит не явившимся, а также тем, кто не справится с испытанием. Мест в новом наборе ограниченное количество.</p>
+            
+            <div class="signature">
+                Декан Профессор Салерель<br>
+                <em>Академия Магии</em>
+            </div>
+            
+            <div class="footer">
+                <p><strong>P.S.</strong> Рекомендуется запастись решимостью, ясным умом и здоровым любопытством. Остальное… вы узнаете по прибытию. Ждем вас в аудитории!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Функция для обновления времени
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const timeString = now.toLocaleDateString('ru-RU', options);
+            document.getElementById('currentTime').textContent = `Вы читаете это послание: ${timeString}`;
+        }
+
+        // Обновляем время сразу и затем каждую секунду
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Обработка модального окна
+        document.getElementById('submitName').addEventListener('click', function() {
+            const playerName = document.getElementById('playerName').value.trim();
+            const greetingElement = document.getElementById('personalGreeting');
+            
+            if (playerName) {
+                greetingElement.innerHTML = `Дорогой <span>${playerName}</span>, вам выпала великая честь!`;
+            } else {
+                greetingElement.innerHTML = 'Дорогой <span>Абитуриент</span>, вам выпала великая честь!';
+            }
+            
+            document.getElementById('nameModal').style.display = 'none';
+        });
+
+        // Закрытие модального окна по нажатию Enter в поле ввода
+        document.getElementById('playerName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('submitName').click();
+            }
+        });
+
+        // Фокусировка на поле ввода при загрузке
+        window.onload = function() {
+            document.getElementById('playerName').focus();
+        };
+    </script>
+</body>
+</html>
