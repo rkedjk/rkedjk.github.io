@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Шпаргалки</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            background: #000000;
+            padding-bottom: 8px;
+            z-index: 100;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 8px;
+            font-size: 13px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #1a1a1a;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tab-button:active {
+            background: #0a0a0a;
+        }
+
+        .tab-button.active {
+            background: #2a2a2a;
+            border-color: #555;
+            font-weight: 600;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #1a1a1a;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .item {
+            border: 1px solid #222;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #0a0a0a;
+        }
+
+        .item:active {
+            background: #1a1a1a;
+        }
+
+        .item-header {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .item.expanded .item-content {
+            max-height: 2000px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+        }
+
+        /* Стили для Markdown элементов */
+        .item-content h1, .item-content h2, .item-content h3, 
+        .item-content h4, .item-content h5, .item-content h6 {
+            margin: 8px 0 4px 0;
+            font-weight: 600;
+        }
+
+        .item-content h1 { font-size: 16px; }
+        .item-content h2 { font-size: 15px; }
+        .item-content h3 { font-size: 14px; }
+        .item-content h4, .item-content h5, .item-content h6 { font-size: 13px; }
+
+        .item-content p {
+            margin: 6px 0;
+        }
+
+        .item-content ul, .item-content ol {
+            margin: 6px 0;
+            padding-left: 20px;
+        }
+
+        .item-content li {
+            margin: 3px 0;
+        }
+
+        .item-content code {
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            background: #1a1a1a;
+            color: #ff79c6;
+        }
+
+        .item-content pre {
+            margin: 8px 0;
+            padding: 8px;
+            border-radius: 4px;
+            overflow-x: auto;
+            background: #1a1a1a;
+        }
+
+        .item-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .item-content blockquote {
+            margin: 6px 0;
+            padding-left: 10px;
+            border-left: 3px solid #444;
+            font-style: italic;
+            color: #aaa;
+        }
+
+        .item-content strong {
+            font-weight: 600;
+        }
+
+        .item-content em {
+            font-style: italic;
+        }
+
+        .item-content a {
+            text-decoration: underline;
+            color: #66b3ff;
+        }
+
+        .item-content hr {
+            margin: 8px 0;
+            border: none;
+            height: 1px;
+            background: #333;
+        }
+
+        .item-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0;
+        }
+
+        .item-content table th,
+        .item-content table td {
+            border: 1px solid #333;
+            padding: 4px 6px;
+            text-align: left;
+        }
+
+        .item-content table th {
+            background: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Подсветка найденного текста */
+        .highlight {
+            background: #ffd600;
+            color: #000;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 2px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Оптимизация для Apple Watch */
+        @media only screen and (max-width: 250px) {
+            body {
+                font-size: 12px;
+                padding: 4px;
+            }
+
+            .item {
+                padding: 8px;
+                margin-bottom: 6px;
+            }
+
+            .search-box,
+            .tab-button {
+                padding: 6px;
+                font-size: 12px;
+            }
+
+            .tab-buttons {
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="switchTab('tickets')">📝 Билеты</button>
+            <button class="tab-button" onclick="switchTab('tasks')">✅ Задачи</button>
+            <button class="tab-button" onclick="switchTab('tables')">📊 Таблицы</button>
+        </div>
+        <input type="text" class="search-box" id="searchBox" placeholder="Поиск..." oninput="searchItems()">
+    </div>
+
+    <div id="itemContainer">
+        <!-- Элементы будут добавлены здесь -->
+    </div>
+
+    <div id="noResults" class="no-results hidden">Ничего не найдено</div>
+
+    <!-- Подключение marked.js для парсинга Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+
+    <script>
+        // Текущая активная вкладка
+        let currentTab = 'tickets';
+
+        // Массив с билетами
+        const tickets = [
+            // Добавьте свои билеты здесь
+        ];
+
+        // Массив с задачами
+        const tasks = [
+            // Добавьте свои задачи здесь
+        ];
+
+        // Массив с таблицами
+        const tables = [
+            // Добавьте свои таблицы здесь
+        ];
+
+        // Получить текущий массив данных
+        function getCurrentData() {
+            switch(currentTab) {
+                case 'tickets': return tickets;
+                case 'tasks': return tasks;
+                case 'tables': return tables;
+                default: return [];
+            }
+        }
+
+        // Переключение вкладок
+        function switchTab(tabName) {
+            currentTab = tabName;
+
+            // Обновляем активную кнопку
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Очищаем поиск
+            document.getElementById('searchBox').value = '';
+
+            // Отображаем данные выбранной вкладки
+            renderItems(getCurrentData(), '');
+        }
+
+        // Инициализация
+        function init() {
+            renderItems(getCurrentData(), '');
+        }
+
+        // Функция подсветки текста с учетом HTML
+        function highlightText(html, query) {
+            if (!query) return html;
+
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+
+            highlightNode(tempDiv, query);
+
+            return tempDiv.innerHTML;
+        }
+
+        // Рекурсивная подсветка текстовых узлов
+        function highlightNode(node, query) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.textContent;
+                const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+
+                if (regex.test(text)) {
+                    const span = document.createElement('span');
+                    span.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+                    node.parentNode.replaceChild(span, node);
+                }
+            } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+                Array.from(node.childNodes).forEach(child => highlightNode(child, query));
+            }
+        }
+
+        // Экранирование спецсимволов регулярных выражений
+        function escapeRegex(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // Отрисовка элементов
+        function renderItems(itemsToRender, query) {
+            const container = document.getElementById('itemContainer');
+            const noResults = document.getElementById('noResults');
+
+            container.innerHTML = '';
+
+            if (itemsToRender.length === 0) {
+                noResults.classList.remove('hidden');
+                noResults.textContent = getCurrentData().length === 0 ? 
+                    'Раздел пуст' : 'Ничего не найдено';
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            itemsToRender.forEach(item => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'item';
+
+                // Проверяем, найден ли текст в content
+                const foundInContent = query && item.content.toLowerCase().includes(query.toLowerCase());
+
+                // Если найдено в содержимом, автоматически раскрываем элемент
+                if (foundInContent) {
+                    itemEl.classList.add('expanded');
+                }
+
+                // Парсим Markdown в HTML
+                const contentHTML = marked.parse(item.content);
+
+                // Подсвечиваем найденный текст
+                const highlightedTitle = highlightText(item.title, query);
+                const highlightedContent = highlightText(contentHTML, query);
+
+                itemEl.innerHTML = `
+                    <div class="item-header">${getItemLabel()} ${item.number}</div>
+                    <div class="item-title">${highlightedTitle}</div>
+                    <div class="item-content">${highlightedContent}</div>
+                `;
+
+                itemEl.onclick = function () {
+                    this.classList.toggle('expanded');
+                };
+
+                container.appendChild(itemEl);
+            });
+        }
+
+        // Получить метку для элемента в зависимости от вкладки
+        function getItemLabel() {
+            switch(currentTab) {
+                case 'tickets': return 'Билет';
+                case 'tasks': return 'Задача';
+                case 'tables': return 'Таблица';
+                default: return 'Элемент';
+            }
+        }
+
+        // Поиск по элементам
+        function searchItems() {
+            const query = document.getElementById('searchBox').value.toLowerCase();
+            const data = getCurrentData();
+
+            if (!query) {
+                renderItems(data, '');
+                return;
+            }
+
+            const filtered = data.filter(item => {
+                return item.title.toLowerCase().includes(query) ||
+                    item.content.toLowerCase().includes(query) ||
+                    item.number.toString().includes(query);
+            });
+
+            renderItems(filtered, query);
+        }
+
+        // Запуск при загрузке страницы
+        init();
+    </script>
+</body>
+
+</html>
