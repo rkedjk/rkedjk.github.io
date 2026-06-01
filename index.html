@@ -204,13 +204,21 @@
         }
 
         .reader-nav {
-            justify-content: space-between;
-            margin-top: 18px;
-            padding: 12px 0 28px;
+            position: fixed;
+            left: 50%;
+            bottom: 12px;
+            z-index: 110;
+            justify-content: center;
+            padding: 5px;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            background: rgba(16, 17, 20, 0.96);
+            box-shadow: 0 4px 16px #000;
+            transform: translateX(-50%);
         }
 
         .nav-button {
-            max-width: 48%;
+            min-width: 44px;
             color: var(--accent);
         }
 
@@ -218,12 +226,8 @@
             visibility: hidden;
         }
 
-        .top-button {
-            position: fixed;
-            right: 14px;
-            bottom: 14px;
-            z-index: 110;
-            box-shadow: 0 3px 14px #000;
+        .reader-content {
+            padding-bottom: 76px;
         }
 
         .table-scroll {
@@ -285,17 +289,21 @@
 
         @media (max-width: 480px) and (max-height: 480px) {
             body {
-                padding: 9vh 9vw 11vh;
+                padding: 7vh 4vw 9vh;
             }
 
             .header {
-                margin: -5vh -1vw 0;
-                padding: 0 1vw 9px;
+                margin: -4vh 0 0;
+                padding: 0 0 8px;
+            }
+
+            .toolbar {
+                justify-content: center;
             }
 
             h1 {
-                padding: 0 4px 7px;
-                font-size: 14px;
+                padding: 0 3px 6px;
+                font-size: 15px;
             }
 
             .full-title {
@@ -307,11 +315,10 @@
             }
 
             .item {
-                min-height: 58px;
+                min-height: 62px;
                 margin-bottom: 7px;
-                padding: 11px 14px;
-                opacity: 0.76;
-                transform: scale(0.94);
+                padding: 12px 14px;
+                opacity: 0.82;
             }
 
             .item.watch-focus {
@@ -319,15 +326,18 @@
                 background: var(--panel-active);
                 box-shadow: 0 0 0 1px rgba(154, 199, 255, 0.2);
                 opacity: 1;
-                transform: scale(1);
             }
 
-            .item-title {
+            .item-header {
                 font-size: 13px;
             }
 
+            .item-title {
+                font-size: 15px;
+            }
+
             .reader {
-                margin: -5vh -1vw 0;
+                margin: -4vh 0 0;
             }
 
             .reader-toolbar {
@@ -335,13 +345,13 @@
             }
 
             .reader-content {
-                padding: 0 1vw;
-                font-size: 14px;
-                line-height: 1.55;
+                padding: 0 1vw 78px;
+                font-size: 16px;
+                line-height: 1.58;
             }
 
             .reader-title {
-                font-size: 13px;
+                font-size: 14px;
             }
 
             .progress-track {
@@ -359,7 +369,22 @@
 
             .icon-button,
             .nav-button {
-                font-size: 12px;
+                font-size: 14px;
+            }
+
+            .reader-nav {
+                bottom: 5vh;
+                gap: 5px;
+            }
+
+            .reader-nav .nav-button {
+                min-width: 48px;
+                min-height: 48px;
+                padding: 7px 10px;
+            }
+
+            .reader-nav .list-button {
+                min-width: 94px;
             }
         }
 
@@ -394,7 +419,6 @@
 
     <main class="reader hidden" id="readerScreen">
         <div class="reader-toolbar">
-            <button class="icon-button" id="readerBack" type="button" aria-label="Вернуться к списку">←</button>
             <div class="reader-heading">
                 <div class="reader-number" id="readerNumber"></div>
                 <div class="reader-title" id="readerTitle"></div>
@@ -403,10 +427,10 @@
         <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
         <article class="reader-content" id="readerContent"></article>
         <nav class="reader-nav" aria-label="Навигация между вопросами">
-            <button class="nav-button" id="prevQuestion" type="button">← Назад</button>
-            <button class="nav-button" id="nextQuestion" type="button">Далее →</button>
+            <button class="nav-button" id="prevQuestion" type="button" aria-label="Предыдущий вопрос">←</button>
+            <button class="nav-button list-button" id="readerBack" type="button">К списку</button>
+            <button class="nav-button" id="nextQuestion" type="button" aria-label="Следующий вопрос">→</button>
         </nav>
-        <button class="icon-button top-button hidden" id="scrollTop" type="button" aria-label="Вернуться к началу ответа">↑</button>
     </main>
 
     <script>
@@ -452,7 +476,6 @@
         const searchBox = document.getElementById("searchBox");
         const searchPanel = document.getElementById("searchPanel");
         const searchToggle = document.getElementById("searchToggle");
-        const scrollTopButton = document.getElementById("scrollTop");
         let listScrollPosition = 0;
 
         function renderItems(items, query) {
@@ -550,7 +573,6 @@
             const scrollable = document.documentElement.scrollHeight - window.innerHeight;
             const progress = scrollable > 0 ? Math.min(100, window.scrollY / scrollable * 100) : 100;
             document.getElementById("progressBar").style.width = `${progress}%`;
-            scrollTopButton.classList.toggle("hidden", window.scrollY < window.innerHeight * 0.8);
         }
 
         function updateWatchFocus() {
@@ -586,7 +608,6 @@
         document.getElementById("readerBack").addEventListener("click", () => showList());
         document.getElementById("prevQuestion").addEventListener("click", event => openQuestion(Number(event.currentTarget.dataset.question)));
         document.getElementById("nextQuestion").addEventListener("click", event => openQuestion(Number(event.currentTarget.dataset.question)));
-        scrollTopButton.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
         window.addEventListener("scroll", () => {
             updateReadingProgress();
             updateWatchFocus();
