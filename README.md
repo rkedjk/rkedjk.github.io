@@ -5,6 +5,5 @@
 - [📚 Аудит: 73 вопроса](https://rkedjk.github.io/audit-73/) — учебный хаб по аудиту
 - [📦 Учёт и анализ ВЭД](https://rkedjk.github.io/ved-course/) — интерактивная лекция
 - [🏦 Банк в шорте](https://rkedjk.github.io/bank-short-game/) — учебный симулятор
-- [🥚 Система учёта инкубаторов](https://rkedjk.github.io/rkedjk.github.io-oldlat/) — старое
 
 Контент «Аудит: 73 вопроса» переехал в отдельный репозиторий [audit-73](https://github.com/rkedjk/audit-73).
